@@ -5,32 +5,35 @@ body {
   font-family: 'Inter', sans-serif;
   color: #0B1F3B;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container { max-width: 1100px; margin: auto; padding: 0 20px; }
 
-/* --- HERO (Adjusted for Zoom) --- */
+/* --- HERO (ZOOM-OUT FIX) --- */
 .hero {
   position: relative;
-  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), 
+  background: linear-gradient(rgba(11, 31, 59, 0.65), rgba(11, 31, 59, 0.65)), 
               url('image.JPG'); 
+  /* 'Contain' ensures the whole photo fits, 'Cover' fills the space. 
+     We use 'cover' but with a very tall padding to prevent the tight zoom. */
   background-size: cover;
-  background-position: center 70%; 
+  background-position: center 30%; /* Focuses more on the top/middle of the machine */
   background-attachment: fixed;
   color: white;
   text-align: center;
-  padding: 160px 20px;
+  padding: 220px 20px; /* High padding 'stretches' the window to show more photo */
 }
 
-.logo { width: 280px; max-width: 80%; margin-bottom: 20px; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; }
+.logo { width: 280px; max-width: 80%; margin-bottom: 25px; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; font-weight: 700; }
 .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
 
-/* --- TRUST BAR (FIXED CENTERING & SPACE) --- */
+/* --- TRUST BAR (FIXED SPACING) --- */
 .trust {
   background: #fdfdfd;
   border-bottom: 1px solid #eee;
-  padding: 15px 0;
+  padding: 20px 0; /* Tightened padding */
 }
 
 .trust-content {
@@ -38,11 +41,11 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
   font-weight: 700;
   font-size: 0.85rem;
-  text-transform: uppercase;
   color: #0B1F3B;
+  text-transform: uppercase;
 }
 
 .sep { color: #F2C200; font-size: 1.2rem; }
@@ -50,38 +53,52 @@ body {
 /* --- SECTIONS --- */
 .section { padding: 80px 0; text-align: center; }
 .section.alt { background: #f4f7f9; }
-h2 { margin-bottom: 20px; font-size: 2.2rem; }
+h2 { margin-bottom: 25px; font-size: 2.2rem; }
+.about-p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
 
 /* --- BUTTONS --- */
 .btn {
   display: inline-block;
-  padding: 15px 30px;
+  padding: 16px 32px;
   margin: 10px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 .primary { background: #F2C200; color: #0B1F3B; }
 .secondary { border: 2px solid white; color: white; }
+.secondary:hover { background: white; color: #0B1F3B; }
 
 /* --- GRID --- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  gap: 25px;
   margin-top: 40px;
 }
 .card {
   background: white;
-  padding: 30px;
+  padding: 40px 20px;
   border-radius: 12px;
-  border-top: 5px solid #F2C200;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 6px solid #F2C200;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.card-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.card-icon { font-size: 2.5rem; margin-bottom: 15px; }
 
-/* --- MOBILE & STICKY --- */
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 768px) {
+  .hero { 
+    background-attachment: scroll; 
+    padding: 140px 20px; 
+    background-position: center; 
+  }
+  .trust-content { flex-direction: column; gap: 8px; }
+  .sep { display: none; } /* Bullets gone on mobile for cleaner stack */
+  .btn { width: 100%; margin: 8px 0; }
+}
+
+/* --- STICKY CALL --- */
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(242, 194, 0, 0.7); }
   70% { box-shadow: 0 0 0 15px rgba(242, 194, 0, 0); }
@@ -90,26 +107,21 @@ h2 { margin-bottom: 20px; font-size: 2.2rem; }
 
 .sticky-call {
   position: fixed;
-  bottom: 20px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   background: #F2C200;
   color: #0B1F3B;
-  padding: 15px 30px;
+  padding: 16px 35px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 800;
   display: none;
   animation: pulse 2s infinite;
-  z-index: 1000;
+  z-index: 9999;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-@media (max-width: 768px) {
-  .sticky-call { display: block; }
-  .hero { background-attachment: scroll; padding: 100px 20px; }
-  .btn { width: 100%; margin: 5px 0; }
-  .trust-content { flex-direction: column; gap: 5px; }
-  .sep { display: none; } /* Hide bullets on mobile to stack cleaner */
-}
+@media (max-width: 768px) { .sticky-call { display: block; } }
 
-footer { padding: 40px; background: #081424; color: #888; text-align: center; }
+footer { padding: 50px; background: #081424; color: #888; text-align: center; }
