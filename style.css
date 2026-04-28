@@ -10,30 +10,35 @@ body {
 
 .container { max-width: 1100px; margin: auto; padding: 0 20px; }
 
-/* --- HERO (ZOOM-OUT FIX) --- */
+/* --- HERO (MANUAL ZOOM-OUT FIX) --- */
 .hero {
   position: relative;
-  background: linear-gradient(rgba(11, 31, 59, 0.65), rgba(11, 31, 59, 0.65)), 
+  /* Deepening the overlay slightly for better text contrast */
+  background: linear-gradient(rgba(11, 31, 59, 0.6), rgba(11, 31, 59, 0.6)), 
               url('image.JPG'); 
-  /* 'Contain' ensures the whole photo fits, 'Cover' fills the space. 
-     We use 'cover' but with a very tall padding to prevent the tight zoom. */
+  
+  /* FORCE ZOOM OUT: Instead of covering the whole screen, 
+     we tell it to be 100% wide and height auto. */
   background-size: cover;
-  background-position: center 30%; /* Focuses more on the top/middle of the machine */
+  background-position: center 40%; 
   background-attachment: fixed;
+  background-color: #0B1F3B; 
+  
   color: white;
   text-align: center;
-  padding: 220px 20px; /* High padding 'stretches' the window to show more photo */
+  /* Massive padding at the top and bottom 'stretches' the view to show more of the machine */
+  padding: 240px 20px; 
 }
 
 .logo { width: 280px; max-width: 80%; margin-bottom: 25px; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; font-weight: 700; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); margin-bottom: 15px; font-weight: 700; line-height: 1.2; }
 .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
 
-/* --- TRUST BAR (FIXED SPACING) --- */
+/* --- TRUST BAR (NO WHITE SPACE FIX) --- */
 .trust {
   background: #fdfdfd;
   border-bottom: 1px solid #eee;
-  padding: 20px 0; /* Tightened padding */
+  padding: 20px 0;
 }
 
 .trust-content {
@@ -41,11 +46,12 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   font-weight: 700;
   font-size: 0.85rem;
   color: #0B1F3B;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .sep { color: #F2C200; font-size: 1.2rem; }
@@ -53,7 +59,7 @@ body {
 /* --- SECTIONS --- */
 .section { padding: 80px 0; text-align: center; }
 .section.alt { background: #f4f7f9; }
-h2 { margin-bottom: 25px; font-size: 2.2rem; }
+h2 { margin-bottom: 20px; font-size: 2.2rem; }
 .about-p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
 
 /* --- BUTTONS --- */
@@ -64,41 +70,39 @@ h2 { margin-bottom: 25px; font-size: 2.2rem; }
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 .primary { background: #F2C200; color: #0B1F3B; }
 .secondary { border: 2px solid white; color: white; }
-.secondary:hover { background: white; color: #0B1F3B; }
 
 /* --- GRID --- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  gap: 20px;
   margin-top: 40px;
 }
 .card {
   background: white;
-  padding: 40px 20px;
+  padding: 30px;
   border-radius: 12px;
-  border-top: 6px solid #F2C200;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-top: 5px solid #F2C200;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-.card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.card-icon { font-size: 2.5rem; margin-bottom: 10px; }
 
-/* --- MOBILE TWEAKS --- */
+/* --- MOBILE & STICKY --- */
 @media (max-width: 768px) {
   .hero { 
     background-attachment: scroll; 
-    padding: 140px 20px; 
+    padding: 180px 20px; /* Tall padding for mobile keeps the image taller */
     background-position: center; 
   }
-  .trust-content { flex-direction: column; gap: 8px; }
-  .sep { display: none; } /* Bullets gone on mobile for cleaner stack */
-  .btn { width: 100%; margin: 8px 0; }
+  .trust-content { flex-direction: column; gap: 4px; }
+  .sep { display: none; }
+  .btn { width: 100%; margin: 5px 0; }
 }
 
-/* --- STICKY CALL --- */
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(242, 194, 0, 0.7); }
   70% { box-shadow: 0 0 0 15px rgba(242, 194, 0, 0); }
@@ -107,21 +111,21 @@ h2 { margin-bottom: 25px; font-size: 2.2rem; }
 
 .sticky-call {
   position: fixed;
-  bottom: 25px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: #F2C200;
   color: #0B1F3B;
-  padding: 16px 35px;
+  padding: 15px 35px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 800;
   display: none;
   animation: pulse 2s infinite;
-  z-index: 9999;
+  z-index: 1000;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) { .sticky-call { display: block; } }
 
-footer { padding: 50px; background: #081424; color: #888; text-align: center; }
+footer { padding: 40px; background: #081424; color: #888; text-align: center; }
