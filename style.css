@@ -40,13 +40,16 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 }
 .small-hero h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); text-transform: uppercase; margin-bottom: 10px; }
 
-/* Set margin-bottom to 20px for consistent spacing */
-.logo { width: 320px; margin-top: 0; margin-bottom: 20px; }
+/* Removed bottom margin from logo to let the paragraph handle the gap */
+.logo { width: 320px; margin: 0; }
 
 .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 0; }
 
-/* Set margin-bottom to 20px to push the buttons down equally */
-.hero p { margin-top: 0; margin-bottom: 20px; }
+/* FORCED CENTERING:
+   We use "margin: 30px 0" to put exactly 30px above and below 
+   the Building Kentucky line, forcing it to be centered.
+*/
+.hero p { margin: 30px 0 !important; }
 
 .btn { display: inline-block; padding: 15px 30px; margin: 10px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; border: none; transition: 0.3s; text-align: center; }
 .primary { background: #F2C200; color: #0B1F3B; }
