@@ -4,33 +4,36 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
 /* --- NAVIGATION --- */
-.navbar { background: #0B1F3B; padding: 1rem 0; border-bottom: 4px solid #F2C200; position: sticky; top: 0; z-index: 1000; }
+.navbar { background: #0B1F3B; padding: 1.2rem 0; border-bottom: 4px solid #F2C200; position: sticky; top: 0; z-index: 1000; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-/* Fixed Branding: Uses clamp to stay on one line across most screens */
 .nav-brand { 
   color: #fff !important; 
   text-decoration: none; 
   font-weight: 800; 
-  font-size: clamp(0.75rem, 3.2vw, 1.2rem); 
+  font-size: clamp(0.7rem, 3vw, 1.1rem); 
   text-transform: uppercase; 
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 .nav-brand span { color: #F2C200; }
 
 .nav-links { display: flex; list-style: none; align-items: center; }
-.nav-links li { margin-left: 20px; }
+.nav-links li { margin-left: 18px; }
 .nav-links a { color: #fff !important; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
 .nav-cta { background: #F2C200; color: #0B1F3B !important; padding: 8px 15px; border-radius: 4px; font-weight: 800 !important; }
 
-/* MOBILE MENU TOGGLE */
-.menu-toggle { display: none; cursor: pointer; margin-left: 10px; }
+.menu-toggle { display: none; cursor: pointer; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background: #fff; }
 
-/* --- HERO --- */
+/* --- HERO & BUTTONS --- */
 .hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px 20px; }
 .logo { width: 180px; margin-bottom: 20px; }
 .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 20px; }
+
+.btn { display: inline-block; padding: 15px 30px; margin: 10px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; border: none; transition: 0.3s; }
+.primary { background: #F2C200; color: #0B1F3B; }
+.secondary { border: 2px solid #fff; color: #fff; background: transparent; }
+.facebook-btn { background: #1877F2 !important; color: #fff !important; }
 
 /* --- SECTIONS --- */
 .section { padding: 80px 0; }
@@ -39,9 +42,27 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .card { background: #fff; padding: 40px; border-radius: 8px; border-top: 6px solid #F2C200; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 .icon { font-size: 3rem; margin-bottom: 20px; }
 
-/* --- FOOTER --- */
 footer { padding: 40px 20px; background: #081424; color: #888; text-align: center; }
 footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800; text-transform: uppercase; border: 1px solid #F2C200; padding: 10px 20px; border-radius: 4px; display: inline-block; }
+
+/* --- STICKY BUTTON STYLING --- */
+.sticky-call { 
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  background: #F2C200; 
+  color: #0B1F3B; 
+  padding: 15px 35px; 
+  border-radius: 50px; 
+  text-decoration: none; 
+  font-weight: 900; 
+  text-transform: uppercase; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+  z-index: 9999; 
+  border: 2px solid #0B1F3B;
+}
 
 /* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 960px) {
@@ -51,16 +72,17 @@ footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800
     width: 100%; 
     position: absolute; 
     top: -1000px; 
-    transition: 0.5s; 
+    transition: 0.4s ease; 
     background: #0B1F3B; 
-    padding: 20px 0; 
+    padding: 30px 0; 
     border-bottom: 4px solid #F2C200; 
-    height: auto; /* Allow menu to fit all items */
   }
-  .nav-links.active { top: 72px; } 
-  .nav-links li { margin: 15px 0; text-align: center; }
+  .nav-links.active { top: 76px; } 
+  .nav-links li { margin: 12px 0; text-align: center; }
   .menu-toggle { display: block; }
   
+  .sticky-call { display: block; } 
+
   #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
   #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
