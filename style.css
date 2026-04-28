@@ -5,17 +5,18 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 
 /* --- NAVIGATION --- */
 .navbar { background: #0B1F3B; padding: 1.2rem 0; border-bottom: 4px solid #F2C200; position: sticky; top: 0; z-index: 1000; }
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 
-/* BRANDING: Sized up slightly but forced to stay on one line */
+/* BRANDING: Slightly smaller font size with forced single-line */
 .nav-brand { 
   color: #fff !important; 
   text-decoration: none; 
   font-weight: 800; 
-  font-size: clamp(0.85rem, 3.5vw, 1.25rem); 
+  font-size: clamp(0.8rem, 3.2vw, 1.15rem); /* Reduced from 1.25rem to 1.15rem */
   text-transform: uppercase; 
   white-space: nowrap;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
+  flex-shrink: 1; /* Allows title to give space to menu if needed */
 }
 .nav-brand span { color: #F2C200; }
 
@@ -24,7 +25,7 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .nav-links a { color: #fff !important; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
 .nav-cta { background: #F2C200; color: #0B1F3B !important; padding: 8px 15px; border-radius: 4px; font-weight: 800 !important; }
 
-.menu-toggle { display: none; cursor: pointer; }
+.menu-toggle { display: none; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background: #fff; }
 
 /* --- HERO & BUTTONS --- */
@@ -70,7 +71,7 @@ footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800
 
 /* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 960px) {
-  .nav-brand { font-size: clamp(0.8rem, 4vw, 1.1rem); }
+  .nav-brand { font-size: clamp(0.75rem, 3.8vw, 1rem); }
   
   .nav-links { 
     display: flex; 
