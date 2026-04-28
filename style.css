@@ -128,8 +128,9 @@ footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800
 
 /* --- OVERRIDE CONTACT HEADER IMAGE --- */
 .contact-page .small-hero {
-  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('Contactheaderimage.JPG') !important;
+  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('contactheaderimage.JPG') !important;
   background-size: cover !important;
   background-position: center !important;
 }
+
 
