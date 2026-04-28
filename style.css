@@ -7,6 +7,7 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .navbar { background: #0B1F3B; padding: 1.2rem 0; border-bottom: 4px solid #F2C200; position: sticky; top: 0; z-index: 1000; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 
+/* BRANDING: Sized for single-line fit with a small gap for hamburger menu */
 .nav-brand { 
   color: #fff !important; 
   text-decoration: none; 
@@ -30,7 +31,7 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 /* --- HERO & BUTTONS --- */
 .hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px 20px; }
 
-/* ABOUT PAGE HEADER: Uses your new aboutheaderimage.JPG */
+/* ABOUT PAGE HEADER: Using your new aboutheaderimage.JPG */
 .small-hero { 
   background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('aboutheaderimage.JPG'); 
   background-size: cover; 
@@ -45,6 +46,21 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .primary { background: #F2C200; color: #0B1F3B; }
 .secondary { border: 2px solid #fff; color: #fff; background: transparent; }
 .facebook-btn { background: #1877F2 !important; color: #fff !important; }
+
+/* --- HERO STATS (20+ Years, Fully Insured, etc.) --- */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 30px;
+}
+
+.stat-item { padding: 0 15px; min-width: 150px; }
+.stat-value { display: block; font-size: 1.4rem; font-weight: 800; color: #F2C200; text-transform: uppercase; }
+.stat-label { display: block; font-size: 0.75rem; font-weight: 600; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
 
 /* --- SECTIONS --- */
 .section { padding: 80px 0; }
@@ -99,4 +115,8 @@ footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800
   #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
   #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .hero-stats { gap: 15px; }
+  .stat-item { min-width: 120px; padding: 5px; }
+  .stat-value { font-size: 1.1rem; }
 }
