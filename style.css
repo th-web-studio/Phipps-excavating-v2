@@ -28,7 +28,8 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background: #fff; }
 
 /* --- HERO & HEADERS --- */
-.hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 30px 20px 100px 20px; }
+/* Increased bottom padding to 140px to ensure the sticky button doesn't overlap the hero buttons */
+.hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 30px 20px 140px 20px; }
 
 .small-hero { 
   background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('aboutheaderimage.JPG'); 
@@ -40,16 +41,11 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 }
 .small-hero h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); text-transform: uppercase; margin-bottom: 10px; }
 
-/* Removed bottom margin from logo to let the paragraph handle the gap */
 .logo { width: 320px; margin: 0; }
-
 .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 0; }
 
-/* FORCED CENTERING:
-   We use "margin: 30px 0" to put exactly 30px above and below 
-   the Building Kentucky line, forcing it to be centered.
-*/
-.hero p { margin: 30px 0 !important; }
+/* Fixed Centering: Reduced to 15px to keep things tight but perfectly balanced */
+.hero p { margin: 15px 0 !important; }
 
 .btn { display: inline-block; padding: 15px 30px; margin: 10px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; border: none; transition: 0.3s; text-align: center; }
 .primary { background: #F2C200; color: #0B1F3B; }
