@@ -40,7 +40,7 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 }
 .small-hero h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); text-transform: uppercase; margin-bottom: 10px; }
 
-.logo { width: 250px; margin-bottom: 20px; }
+.logo { width: 320px; margin-bottom: 20px; }
 .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 20px; }
 
 .btn { display: inline-block; padding: 15px 30px; margin: 10px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; border: none; transition: 0.3s; text-align: center; }
