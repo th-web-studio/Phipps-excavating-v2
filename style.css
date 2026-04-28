@@ -28,7 +28,8 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background: #fff; }
 
 /* --- HERO & HEADERS --- */
-.hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px 20px; }
+/* Adjusted top padding from 100px to 40px to pull heading closer to yellow line */
+.hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 40px 20px 100px 20px; }
 
 .small-hero { 
   background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('aboutheaderimage.JPG'); 
