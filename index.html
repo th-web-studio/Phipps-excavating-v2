@@ -1,80 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phipps Excavating & Land Management | West Liberty, KY</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* --- RESET --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; background: #fff; }
+.container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="nav-brand">Phipps <span>Excavating & Land Management</span></a>
-      
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="services.html" class="dropbtn">Services ▼</a>
-          <div class="dropdown-content">
-            <a href="services.html#excavation">Excavation</a>
-            <a href="services.html#clearing">Land Clearing</a>
-            <a href="services.html#drainage">Drainage</a>
-            <a href="services.html#driveways">Driveways</a>
-          </div>
-        </li>
-        <li><a href="gallery.html">Project Gallery</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="tel:6065480377" class="nav-cta">Call Now</a></li>
-      </ul>
+/* --- NAVIGATION --- */
+.navbar {
+  background: #0B1F3B;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid #F2C200;
+}
 
-      <div class="mobile-menu-btn" onclick="document.querySelector('.navbar').classList.toggle('active')">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </nav>
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-  <header class="hero">
-    <div class="container">
-      <img class="logo" src="logo.jpg" alt="Phipps Excavating Logo">
-      <h1>Professional Excavation & Land Management</h1>
-      <p>Over 20 years of experience serving West Liberty, KY and surrounding areas with precision equipment.</p>
-      <div class="hero-btns">
-        <a class="btn primary" href="tel:6065480377">Request Estimate</a>
-        <a class="btn secondary" href="gallery.html">View Projects</a>
-      </div>
-    </div>
-  </header>
+.nav-brand {
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  max-width: 60%; /* Prevents text from hitting menu on small screens */
+}
+.nav-brand span { color: #F2C200; display: block; font-size: 0.85rem; }
 
-  <section class="trust">
-    <div class="container">
-      <div class="trust-flex">
-        <div class="t-item">20+ Years Experience</div>
-        <div class="t-item">Locally Owned</div>
-        <div class="t-item">Fully Insured</div>
-        <div class="t-item">Free Estimates</div>
-      </div>
-    </div>
-  </section>
+.nav-links { display: flex; list-style: none; align-items: center; gap: 15px; }
+.nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
-  <section class="section">
-    <div class="container">
-      <h2>Built on Experience. Defined by Precision.</h2>
-      <p class="about-p">Phipps Excavating delivers professional services across West Liberty and surrounding areas. We specialize in land clearing, dirt work, brush cutting, and drainage solutions using high-performance equipment.</p>
-    </div>
-  </section>
+/* DROPDOWN */
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content {
+  display: none; position: absolute; background-color: #0B1F3B; min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; border-top: 2px solid #F2C200;
+}
+.dropdown-content a { padding: 12px 16px; display: block; text-transform: none; }
+.dropdown:hover .dropdown-content { display: block; }
+.nav-links a:hover { color: #F2C200; }
 
-  <footer>
-    <div class="container">
-      <p>© 2026 Phipps Excavating & Land Management | West Liberty, KY</p>
-    </div>
-  </footer>
+.nav-cta { background: #F2C200; color: #0B1F3B !important; padding: 8px 12px; border-radius: 4px; }
 
-  <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
+/* MOBILE HAMBURGER */
+.mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.mobile-menu-btn span { width: 25px; height: 3px; background: white; }
 
-</body>
-</html>
+@media (max-width: 992px) {
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #0B1F3B; flex-direction: column; padding: 20px; gap: 15px; }
+  .mobile-menu-btn { display: flex; }
+  .navbar.active .nav-links { display: flex; }
+  .dropdown-content { position: static; box-shadow: none; padding-left: 20px; }
+}
+
+/* --- HERO --- */
+.hero {
+  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('image.JPG'); 
+  background-size: cover; background-position: center 30%; color: white; text-align: center; padding: 120px 20px;
+}
+.logo { width: 200px; margin-bottom: 20px; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 15px; }
+.hero p { max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; }
+
+/* --- BUTTONS --- */
+.btn { display: inline-block; padding: 14px 28px; margin: 10px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+.primary { background: #F2C200; color: #0B1F3B; }
+.secondary { border: 2px solid white; color: white; }
+
+/* --- TRUST BAR (FIXED) --- */
+.trust { background: #F2C200; padding: 15px 0; }
+.trust-flex { 
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  gap: 10px;
+}
+.t-item { 
+  font-weight: 800; 
+  font-size: 0.85rem; 
+  text-transform: uppercase; 
+  color: #0B1F3B;
+  padding: 5px 10px;
+}
+
+/* --- SECTION --- */
+.section { padding: 80px 0; text-align: center; }
+.about-p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
+
+/* --- STICKY CALL --- */
+.sticky-call { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: #0B1F3B; color: #F2C200; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; display: none; z-index: 9999; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+@media (max-width: 768px) { .sticky-call { display: block; } }
+
+footer { padding: 40px; background: #081424; color: #888; text-align: center; }
