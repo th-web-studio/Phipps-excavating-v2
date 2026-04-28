@@ -7,16 +7,15 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .navbar { background: #0B1F3B; padding: 1.2rem 0; border-bottom: 4px solid #F2C200; position: sticky; top: 0; z-index: 1000; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 
-/* BRANDING: Slightly smaller font size with forced single-line */
 .nav-brand { 
   color: #fff !important; 
   text-decoration: none; 
   font-weight: 800; 
-  font-size: clamp(0.8rem, 3.2vw, 1.15rem); /* Reduced from 1.25rem to 1.15rem */
+  font-size: clamp(0.8rem, 3.2vw, 1.15rem); 
   text-transform: uppercase; 
   white-space: nowrap;
   letter-spacing: -0.3px;
-  flex-shrink: 1; /* Allows title to give space to menu if needed */
+  flex-shrink: 1; 
 }
 .nav-brand span { color: #F2C200; }
 
@@ -30,7 +29,14 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 
 /* --- HERO & BUTTONS --- */
 .hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px 20px; }
-.small-hero { padding: 60px 20px; } 
+
+/* ABOUT PAGE HEADER: Uses your new aboutheaderimage.JPG */
+.small-hero { 
+  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('aboutheaderimage.JPG'); 
+  background-size: cover; 
+  background-position: center; 
+  padding: 80px 20px; 
+}
 
 .logo { width: 180px; margin-bottom: 20px; }
 .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 20px; }
