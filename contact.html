@@ -71,7 +71,7 @@
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="(000) 000-0000" required>
+              <input type="tel" id="phone" name="phone" placeholder="(606) 548-0377" maxlength="14" required>
             </div>
             <div class="form-group">
               <label>Project Type</label>
@@ -107,11 +107,30 @@
   <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
 
   <script>
+    /* Mobile Menu Logic */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     menu.addEventListener('click', function() {
       menu.classList.toggle('is-active');
       menuLinks.classList.toggle('active');
+    });
+
+    /* --- AUTOMATIC PHONE FORMATTING SCRIPT --- */
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', (e) => {
+      let input = e.target.value.replace(/\D/g, ''); // Remove non-digits
+      let size = input.length;
+      
+      if (size > 0) {
+        if (size <= 3) {
+          input = `(${input}`;
+        } else if (size <= 6) {
+          input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
+        } else {
+          input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
+        }
+      }
+      e.target.value = input;
     });
   </script>
 
