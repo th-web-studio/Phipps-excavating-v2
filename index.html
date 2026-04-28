@@ -4,13 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phipps Excavating & Land Management | West Liberty, KY</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">Phipps <span>Excavating</span></a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        
+        <li class="dropdown">
+          <a href="services.html" class="dropbtn">Services ▼</a>
+          <div class="dropdown-content">
+            <a href="services.html#excavation">Excavation</a>
+            <a href="services.html#clearing">Land Clearing</a>
+            <a href="services.html#drainage">Drainage</a>
+            <a href="services.html#driveways">Driveways</a>
+          </div>
+        </li>
+
+        <li><a href="gallery.html">Project Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="tel:6065480377" class="nav-cta">Call Now</a></li>
+      </ul>
+
+      <div class="mobile-menu-btn" onclick="document.querySelector('.navbar').classList.toggle('active')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
   <header class="hero">
     <div class="container">
@@ -18,8 +48,8 @@
       <h1>Phipps Excavating & Land Management</h1>
       <p>Professional <strong>Excavation & Land Management in West Liberty, KY</strong>. Over 20 years of experience with precision equipment.</p>
       <div class="hero-btns">
-        <a class="btn primary" href="tel:6065480377">Call Now</a>
-        <a class="btn secondary" href="https://www.facebook.com/share/18ZudgQdAv/" target="_blank">Message Us</a>
+        <a class="btn primary" href="tel:6065480377">Request Estimate</a>
+        <a class="btn secondary" href="gallery.html">View Projects</a>
       </div>
     </div>
   </header>
@@ -32,8 +62,6 @@
         <span>Locally Owned</span>
         <span class="sep">•</span>
         <span>Fully Insured</span>
-        <span class="sep">•</span>
-        <span>Specialized Attachments</span>
       </div>
     </div>
   </section>
@@ -42,34 +70,6 @@
     <div class="container">
       <h2>Built on Experience. Defined by Precision.</h2>
       <p class="about-p">Phipps Excavating delivers professional services across West Liberty and surrounding areas. We specialize in land clearing, dirt work, brush cutting, and drainage solutions using high-performance equipment.</p>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <h2>Core Services</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-icon">🏗️</div>
-          <h3>Excavation</h3>
-          <p>Precision site prep, grading, and digging for any size project.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌲</div>
-          <h3>Land Management</h3>
-          <p>Advanced brush cutting and forestry mulching to reclaim your land.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">💧</div>
-          <h3>Drainage</h3>
-          <p>Expert ditching and water flow solutions to protect your property.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🚜</div>
-          <h3>Driveways</h3>
-          <p>Gravel installation, leveling, and long-term driveway repair.</p>
-        </div>
-      </div>
     </div>
   </section>
 
