@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO & TRANSFORMATIONS (PRESERVED) --- */
+    /* --- HERO --- */
     .gallery-page-hero {
       position: relative;
       padding: 80px 0 40px; 
@@ -58,7 +58,11 @@
 
     .highlight { color: #F2C200; }
 
-    .pulse-section { padding: 40px 0 20px; background: #fcfcfc; }
+    /* --- TRANSFORMATIONS (PRESERVED INDIVIDUAL) --- */
+    .pulse-section { padding: 40px 0; background: #fcfcfc; }
+    .pulse-wrapper { margin-bottom: 60px; }
+    .section-title { text-align: center; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
+
     .pulse-container {
       position: relative;
       width: 100%;
@@ -91,7 +95,7 @@
     .status-text { color: #fff; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
     .dot { width: 6px; height: 6px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
 
-    /* --- AUTOPLAY VIDEO SECTION --- */
+    /* --- VIDEO SECTION --- */
     .video-section {
       padding: 60px 0;
       background: #0B1F3B;
@@ -108,17 +112,12 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .video-container video {
-      width: 100%;
-      display: block;
-      filter: brightness(0.95);
-    }
+    .video-container video { width: 100%; display: block; filter: brightness(0.95); outline: none; }
 
-    /* REPLAY OVERLAY */
     #replay-overlay {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(11, 31, 59, 0.8);
+      background: rgba(11, 31, 59, 0.85);
       display: none;
       flex-direction: column;
       justify-content: center;
@@ -130,7 +129,7 @@
       background: #F2C200;
       color: #0B1F3B;
       border: none;
-      padding: 12px 30px;
+      padding: 14px 32px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -138,11 +137,10 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-
     .replay-btn:hover { transform: scale(1.05); }
 
-    /* --- MASONRY GRID (PRESERVED) --- */
-    .masonry-section { padding: 60px 0 80px; background: #fff; }
+    /* --- MASONRY GRID --- */
+    .masonry-section { padding: 80px 0; background: #fff; }
     .masonry-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr); 
@@ -163,7 +161,7 @@
     .item-5 { grid-column: span 3; grid-row: span 2; margin-top: -40px; } 
     .item-6 { grid-column: span 3; grid-row: span 3; }
 
-    /* --- LIGHTBOX (PRESERVED) --- */
+    /* --- LIGHTBOX --- */
     .lightbox {
       display: none;
       position: fixed;
@@ -190,6 +188,7 @@
     @media (max-width: 768px) {
       .masonry-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
       .grid-item { grid-column: span 1 !important; grid-row: span 1 !important; margin-top: 0 !important; }
+      .close-lightbox { top: 15px; right: 15px; }
     }
   </style>
 </head>
@@ -217,11 +216,22 @@
 
   <section class="pulse-section">
     <div class="container">
-      <h2 class="section-title">Field <span class="highlight">Transformations</span></h2>
-      <div class="pulse-container lightbox-trigger" data-type="transform" data-before="land-clear-before.JPG" data-after="land-clear-after.jpeg">
-        <img src="land-clear-after.jpeg" class="pulse-img after" alt="After">
-        <img src="land-clear-before.JPG" class="pulse-img before" alt="Before">
-        <div class="pulse-badge"><span class="status-text">Before & After</span><div class="dot"></div></div>
+      <div class="pulse-wrapper">
+        <h2 class="section-title">Land <span class="highlight">Clearing</span></h2>
+        <div class="pulse-container lightbox-trigger" data-type="transform" data-before="land-clear-before.JPG" data-after="land-clear-after.jpeg">
+          <img src="land-clear-after.jpeg" class="pulse-img after" alt="After">
+          <img src="land-clear-before.JPG" class="pulse-img before" alt="Before">
+          <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
+        </div>
+      </div>
+
+      <div class="pulse-wrapper">
+        <h2 class="section-title">Driveway <span class="highlight">Repair</span></h2>
+        <div class="pulse-container lightbox-trigger" data-type="transform" data-before="drive-before .JPG" data-after="drive-after.JPG">
+          <img src="drive-after.JPG" class="pulse-img after" alt="After">
+          <img src="drive-before .JPG" class="pulse-img before" alt="Before" style="animation-delay: 1.5s;">
+          <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -231,7 +241,7 @@
       <h2 class="section-title" style="color: #fff;">Action <span class="highlight">Footage</span></h2>
       <div class="video-container">
         <video id="gallery-video" muted playsinline preload="auto">
-          <source src="YOUR_VIDEO_FILENAME.mp4" type="video/mp4">
+          <source src="Videos/gal-vid1.mp4" type="video/mp4">
         </video>
         <div id="replay-overlay">
           <button class="replay-btn" id="replay-trigger">Replay Video</button>
@@ -264,37 +274,27 @@
   </div>
 
   <script>
-    // --- VIDEO LOGIC: AUTOPLAY ON SCROLL & REPLAY BUTTON ---
+    // VIDEO SCROLL & REPLAY
     const video = document.getElementById('gallery-video');
     const replayOverlay = document.getElementById('replay-overlay');
     const replayTrigger = document.getElementById('replay-trigger');
 
-    // Use Intersection Observer to play when visible
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          video.play();
-        } else {
-          video.pause();
-        }
+        if (entry.isIntersecting) { video.play(); } 
+        else { video.pause(); }
       });
     }, { threshold: 0.5 });
-
     observer.observe(video);
 
-    // Show replay button when finished
-    video.onended = function() {
-      replayOverlay.style.display = 'flex';
-    };
-
-    // Replay functionality
+    video.onended = () => { replayOverlay.style.display = 'flex'; };
     replayTrigger.addEventListener('click', () => {
       replayOverlay.style.display = 'none';
       video.currentTime = 0;
       video.play();
     });
 
-    // --- LIGHTBOX LOGIC (PRESERVED) ---
+    // LIGHTBOX 
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('main-lb-img');
     const lbControls = document.getElementById('lb-controls');
