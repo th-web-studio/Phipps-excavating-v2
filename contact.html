@@ -41,27 +41,30 @@
       padding-bottom: 5px;
     }
 
+    /* TIGHTENED H1 */
     .contact-page-hero h1 {
       font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -2px;
-      line-height: 0.95;
+      letter-spacing: -4px; /* Pulls letters tighter */
+      line-height: 0.85;    /* Pulls lines tighter */
       margin: 0 auto 20px;
+      max-width: 900px;     /* Keeps text from spreading too thin */
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
     .highlight { color: #F2C200; }
 
+    /* TIGHTENED DESCRIPTION */
     .hero-description {
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto;
       text-transform: uppercase;
-      letter-spacing: 5px; 
+      letter-spacing: 3px; 
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: rgba(255, 255, 255, 0.95);
-      line-height: 1;
+      line-height: 1.1;
     }
 
     /* --- REGIONAL SECTION --- */
@@ -83,16 +86,14 @@
       transition: 0.3s;
     }
     
-    /* MORGAN BOX: Forced same size and centered using grid-placement */
     .featured-area {
       grid-column: 1 / span 2;
       display: flex;
-      justify-content: center; /* Centers the inner card */
+      justify-content: center; 
     }
 
     .inner-card {
       width: 100%;
-      /* Exactly matches the width calculation of the grid columns below */
       max-width: calc(50% - 6px); 
       background: #fff;
       padding: 15px;
@@ -149,7 +150,8 @@
     }
 
     @media (max-width: 480px) {
-      .inner-card { max-width: 100%; } 
+      .inner-card { max-width: 100%; }
+      .contact-page-hero h1 { letter-spacing: -2px; } /* Slightly looser for small screens */
     }
   </style>
 </head>
@@ -172,7 +174,7 @@
     </div>
   </nav>
 
-  <header class="small-hero contact-page-hero">
+  <header class="contact-page-hero">
     <div class="container">
       <span class="hero-subtitle">Establish Your Foundation</span>
       <h1>Get In <span class="highlight">Touch</span></h1>
