@@ -64,19 +64,15 @@
       line-height: 1;
     }
 
-    /* --- REGIONAL SECTION FIX --- */
+    /* --- THE GRID FIX --- */
     .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
     .flex-col-half { flex: 1; min-width: 320px; }
     
-    /* Using Flexbox instead of Grid for the area container */
-    .area-grid-flex { 
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; /* Centers the Morgan box at the top */
-      gap: 12px;
-      max-width: 400px; /* Keeps the grid tight and professional */
-      margin: 0 auto;
+    .area-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); /* 4 small columns allow us to center the top box */
+      gap: 12px; 
     }
 
     .area-card { 
@@ -84,16 +80,13 @@
       padding: 15px; 
       border: 1px solid #eee; 
       text-align: center; 
-      transition: 0.3s;
-      /* This makes each box exactly half the width minus the gap */
-      width: calc(50% - 6px); 
-      box-sizing: border-box;
+      grid-column: span 2; /* Every box occupies 2 of the 4 columns (making it 2-column look) */
     }
     
-    /* This makes Morgan stay centered and same size */
-    .morgan-special {
-      width: calc(50% - 6px); 
-      margin-bottom: 5px; /* Slight separation from the 2 columns below */
+    /* This centers Morgan by starting it at column 2 of 4 */
+    .morgan-centered {
+      grid-column: 2 / span 2; 
+      margin-bottom: 5px;
     }
 
     .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
@@ -140,12 +133,9 @@
       color: #0B1F3B !important;
     }
 
-    @media (max-width: 768px) {
-      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-    }
-
     @media (max-width: 480px) {
-      .area-card { width: 100%; } 
+      .area-grid { grid-template-columns: 1fr; }
+      .area-card, .morgan-centered { grid-column: span 1; }
     }
   </style>
 </head>
@@ -184,11 +174,8 @@
           <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
         </div>
         <div class="flex-col-half">
-          <div class="area-grid-flex">
-            <div class="area-card morgan-special">
-              <strong>Morgan</strong>
-              <p>West Liberty</p>
-            </div>
+          <div class="area-grid">
+            <div class="area-card morgan-centered"><strong>Morgan</strong><p>West Liberty</p></div>
             
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
