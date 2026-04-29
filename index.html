@@ -15,9 +15,17 @@
       line-height: 1.1;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 25px;
+      margin-bottom: 5px; /* Tighter gap to logo */
       text-align: center;
       text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+
+    /* THE LOGO: Scaled up and nested tight */
+    .logo {
+      display: block;
+      margin: -20px auto 5px auto; /* Negative margin pulls it up, small bottom margin pulls text up */
+      max-width: 280px; /* Made it bigger as requested */
+      height: auto;
     }
 
     .hero-main-title {
@@ -28,10 +36,10 @@
 
     .hero-sub-title {
       display: block;
-      font-weight: 600; /* Slightly heavier to make the yellow pop */
+      font-weight: 600; 
       font-size: 0.65em;
       letter-spacing: 8px; 
-      color: #F2C200; /* Brand Yellow Applied Here */
+      color: #F2C200; 
       margin-top: 8px;
       text-shadow: 0 5px 15px rgba(0,0,0,0.6);
     }
