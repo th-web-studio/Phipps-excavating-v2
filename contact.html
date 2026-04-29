@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- NAV STYLING FOR CALL BUTTON --- */
+    /* --- NAV STYLING FOR CALL BUTTON (DESKTOP) --- */
     .nav-call-btn {
       background: #F2C200;
       color: #0B1F3B !important;
@@ -34,10 +34,9 @@
         gap: 20px;
         padding: 40px 0;
       }
+      /* Hide the duplicate nav button on mobile to favor the sticky footer */
       .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
+        display: none;
       }
     }
 
@@ -116,7 +115,7 @@
     .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
-    .contact-main { padding: 60px 0; }
+    .contact-main { padding: 60px 0 100px; } /* Added bottom padding for mobile button */
 
     .info-item {
       margin-bottom: 25px;
@@ -256,6 +255,8 @@
       </div>
     </div>
   </section>
+
+  <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
     /* PHONE MASK */
