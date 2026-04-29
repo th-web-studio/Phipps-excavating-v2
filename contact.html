@@ -51,9 +51,7 @@
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
-    .highlight {
-      color: #F2C200;
-    }
+    .highlight { color: #F2C200; }
 
     .hero-description {
       max-width: 600px;
@@ -85,18 +83,25 @@
       transition: 0.3s;
     }
     
-    /* MORGAN BOX: Pixel-perfect size match & Centered */
+    /* MORGAN BOX: Forced same size and centered using grid-placement */
     .featured-area {
-      grid-column: 1 / span 2; /* Span across both columns */
-      justify-self: center;    /* Center the box within that span */
-      width: 100%;
-      /* Math: 50% of parent minus half the grid gap (6px) makes it identical to boxes below */
-      max-width: calc(50% - 6px); 
-      margin-bottom: 0px; 
+      grid-column: 1 / span 2;
+      display: flex;
+      justify-content: center; /* Centers the inner card */
     }
 
-    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .inner-card {
+      width: 100%;
+      /* Exactly matches the width calculation of the grid columns below */
+      max-width: calc(50% - 6px); 
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #eee;
+      text-align: center;
+    }
+
+    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0 120px; }
@@ -144,7 +149,7 @@
     }
 
     @media (max-width: 480px) {
-      .featured-area { max-width: 100%; } /* Standard full width on small mobile */
+      .inner-card { max-width: 100%; } 
     }
   </style>
 </head>
@@ -184,7 +189,12 @@
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
-            <div class="area-card featured-area"><strong>Morgan</strong><p>West Liberty</p></div>
+            <div class="featured-area">
+              <div class="inner-card">
+                <strong>Morgan</strong>
+                <p>West Liberty</p>
+              </div>
+            </div>
             
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
@@ -256,7 +266,6 @@
   <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
-    /* PHONE MASK */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -270,7 +279,6 @@
       });
     }
 
-    /* MOBILE MENU TOGGLE */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
