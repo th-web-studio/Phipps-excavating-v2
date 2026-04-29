@@ -55,6 +55,49 @@
       font-weight: 700;
     }
 
+    /* --- SERVICE AREA SECTION --- */
+    .section-area {
+      padding: 80px 0;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+
+    .area-card {
+      padding: 25px 15px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .area-card h4 {
+      color: #0B1F3B;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .area-card p {
+      font-size: 0.85rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .area-card:hover {
+      border-color: #F2C200;
+      background: #fcfcfc;
+      transform: translateY(-3px);
+    }
+
     /* --- DESIGN STUDIO CARDS --- */
     .home-grid {
       display: grid;
@@ -227,12 +270,37 @@
     </div>
   </section>
 
+  <section class="section-area">
+    <div class="container">
+      <h2 class="home-section-title">Service Areas</h2>
+      <p style="color: #666; max-width: 600px; margin: 0 auto;">Proudly providing residential and commercial excavation services across Eastern Kentucky.</p>
+      <div class="area-grid">
+        <div class="area-card">
+          <h4>Morgan County</h4>
+          <p>West Liberty & Surrounding</p>
+        </div>
+        <div class="area-card">
+          <h4>Johnson County</h4>
+          <p>Paintsville & Surrounding</p>
+        </div>
+        <div class="area-card">
+          <h4>Magoffin County</h4>
+          <p>Salyersville & Surrounding</p>
+        </div>
+        <div class="area-card">
+          <h4>Wolfe County</h4>
+          <p>Campton & Surrounding</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="social-links">
         <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
-      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
+      <p style="margin: 0;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
