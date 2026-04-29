@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO --- */
+    /* --- HERO (TIGHTENED & PULLED UP) --- */
     .gallery-page-hero {
       position: relative;
-      padding: 80px 0 40px; 
+      padding: 60px 0 30px; /* Reduced to pull text higher in the box */
       text-align: center;
       color: #fff;
       overflow: hidden;
@@ -20,6 +20,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      min-height: 250px; /* Compact box feel */
     }
 
     .gallery-page-hero::before {
@@ -95,7 +96,7 @@
     .status-text { color: #fff; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
     .dot { width: 6px; height: 6px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
 
-    /* --- VIDEO SECTION (TIGHTENED) --- */
+    /* --- VIDEO SECTION --- */
     .video-section { padding: 30px 0; background: #0B1F3B; text-align: center; }
     .video-container {
       position: relative;
@@ -180,7 +181,7 @@
   <header class="small-hero gallery-page-hero">
     <div class="container">
       <span class="hero-subtitle">Visual Portfolio</span>
-      <h1>The Art of <span class="highlight">Excavation</span></h1>
+      <h1>Precision in Every <span class="highlight">Project</span></h1>
     </div>
   </header>
 
@@ -254,7 +255,6 @@
   <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
-    // NAVBAR LOGIC
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
@@ -264,7 +264,6 @@
       });
     }
 
-    // VIDEO LOGIC
     const video = document.getElementById('gallery-video');
     const replayOverlay = document.getElementById('replay-overlay');
     const replayTrigger = document.getElementById('replay-trigger');
@@ -282,7 +281,6 @@
       video.play();
     });
 
-    // LIGHTBOX LOGIC
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('main-lb-img');
     const lbControls = document.getElementById('lb-controls');
