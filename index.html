@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO STATS BALANCED ALIGNMENT --- */
+    /* --- HERO STATS --- */
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -25,8 +25,7 @@
       flex-direction: column;
       justify-content: center; 
       align-items: center;     
-      min-height: 60px;        
-      gap: 2px;
+      min-height: 60px;
     }
 
     .stat-value {
@@ -34,7 +33,6 @@
       font-weight: 800;
       color: #F2C200;
       text-transform: uppercase;
-      margin: 0;
       line-height: 1.1;
     }
 
@@ -44,17 +42,9 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       color: rgba(255, 255, 255, 0.85);
-      margin: 0;
-      line-height: 1.2;
-      max-width: 140px; 
     }
 
-    .hero-accent {
-      color: #F2C200;
-      font-weight: 700;
-    }
-
-    /* --- SERVICE AREA SECTION (REFINED HOVER) --- */
+    /* --- SERVICE AREA SECTION (8 COUNTIES) --- */
     .section-area {
       padding: 80px 0;
       background-color: #ffffff;
@@ -63,15 +53,15 @@
 
     .area-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 40px auto 0;
     }
 
     .area-card {
       padding: 25px 15px;
-      border: 1px solid rgba(11, 31, 59, 0.1); /* Subtle Navy Border */
+      border: 1px solid rgba(11, 31, 59, 0.1); 
       border-radius: 4px;
       transition: all 0.3s ease;
       background: #fff;
@@ -93,64 +83,12 @@
     }
 
     .area-card:hover {
-      border-color: #F2C200; /* Switches to Brand Yellow */
+      border-color: #F2C200; 
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(11, 31, 59, 0.05);
     }
 
-    /* --- DESIGN STUDIO CARDS --- */
-    .home-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .home-card {
-      background-color: #0B1F3B;
-      border-top: 5px solid #F2C200;
-      padding: 50px 25px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .home-card h3 {
-      color: #F2C200;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
-    }
-
-    .home-card::after {
-      content: "";
-      width: 30px;
-      height: 2px;
-      background: rgba(242, 194, 0, 0.4);
-      margin-bottom: 20px;
-    }
-
-    .home-card p {
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.6;
-      font-size: 0.9rem;
-      margin: 0 auto;
-      max-width: 220px;
-      font-weight: 400;
-    }
-
-    .home-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      background-color: #0e274a;
-    }
-
+    /* --- GLOBAL HELPERS --- */
     .home-section-title {
       text-align: center; 
       margin-bottom: 10px; 
@@ -160,7 +98,6 @@
       color: #0B1F3B;
     }
 
-    /* --- SYNCED NAV --- */
     .nav-call-btn {
       background: #F2C200;
       color: #0B1F3B !important;
@@ -168,29 +105,11 @@
       font-weight: 900;
       text-transform: uppercase;
       border-radius: 4px;
-      margin-left: 15px;
-      transition: 0.3s;
       text-decoration: none;
     }
-    
-    .nav-call-btn:hover { background: #fff; }
 
     @media (max-width: 768px) {
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 0;
-      }
-      .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
-      }
-      .hero-stats {
-        grid-template-columns: 1fr 1fr;
-      }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -199,9 +118,6 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html" style="color: #F2C200 !important;">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -217,120 +133,36 @@
     <div class="container">
       <h1>Expert Excavation & Land Management</h1>
       <img class="logo" src="logo.PNG" alt="Phipps Excavating Logo">
-      <p>Building Kentucky on <span class="hero-accent">20+ years of experience</span> and local trust.</p>
-      
+      <p>Building Kentucky on <span style="color: #F2C200; font-weight:700;">20+ years of experience</span>.</p>
       <div class="hero-btns">
         <a class="btn primary" href="tel:6065480377">Request Estimate</a>
-        <a class="btn secondary facebook-btn" href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Message Us</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-value">20+ Years</span>
-          <span class="stat-label">Experience</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">Fully Insured</span>
-          <span class="stat-label">Licensed & Protected</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">Quality Work</span>
-          <span class="stat-label">Guaranteed</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">Free Estimates</span>
-          <span class="stat-label">Trusted Value</span>
-        </div>
+        <a class="btn secondary facebook-btn" href="https://www.facebook.com/share/1DdmKdBbGn/" target="_blank">Message Us</a>
       </div>
     </div>
   </header>
 
-  <section id="services" class="section alt">
-    <div class="container">
-      <h2 class="home-section-title">Professional Services</h2>
-      <div class="home-grid">
-        <div class="home-card">
-          <h3>Full Excavation</h3>
-          <p>Site prep and precision grading for any project size.</p>
-        </div>
-        <div class="home-card">
-          <h3>Land Clearing</h3>
-          <p>Clear thick brush and reclaim overgrown acreage.</p>
-        </div>
-        <div class="home-card">
-          <h3>Driveway Repair</h3>
-          <p>Gravel installation, leveling, and culvert setting.</p>
-        </div>
-        <div class="home-card">
-          <h3>Land Management</h3>
-          <p>Transforming terrain with drainage ditching.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section-area">
     <div class="container">
       <h2 class="home-section-title">Service Areas</h2>
-      <p style="color: #666; max-width: 600px; margin: 0 auto;">Proudly providing residential and commercial excavation services across Eastern Kentucky.</p>
+      <p style="color: #666; max-width: 600px; margin: 0 auto;">Providing professional site work and land clearing across Eastern Kentucky.</p>
       <div class="area-grid">
-        <div class="area-card">
-          <h4>Morgan County</h4>
-          <p>West Liberty & Surrounding</p>
-        </div>
-        <div class="area-card">
-          <h4>Johnson County</h4>
-          <p>Paintsville & Surrounding</p>
-        </div>
-        <div class="area-card">
-          <h4>Magoffin County</h4>
-          <p>Salyersville & Surrounding</p>
-        </div>
-        <div class="area-card">
-          <h4>Wolfe County</h4>
-          <p>Campton & Surrounding</p>
-        </div>
-        <div class="area-card">
-          <h4>Elliott County</h4>
-          <p>Sandy Hook & Surrounding</p>
-        </div>
-        <div class="area-card">
-          <h4>Floyd County</h4>
-          <p>Prestonsburg & Surrounding</p>
-        </div>
+        <div class="area-card"><h4>Morgan County</h4><p>West Liberty & Surrounding</p></div>
+        <div class="area-card"><h4>Rowan County</h4><p>Morehead & Surrounding</p></div>
+        <div class="area-card"><h4>Elliott County</h4><p>Sandy Hook & Surrounding</p></div>
+        <div class="area-card"><h4>Johnson County</h4><p>Paintsville & Surrounding</p></div>
+        <div class="area-card"><h4>Magoffin County</h4><p>Salyersville & Surrounding</p></div>
+        <div class="area-card"><h4>Wolfe County</h4><p>Campton & Surrounding</p></div>
+        <div class="area-card"><h4>Menifee County</h4><p>Frenchburg & Surrounding</p></div>
+        <div class="area-card"><h4>Floyd County</h4><p>Prestonsburg & Surrounding</p></div>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
-      </div>
-      <p style="margin: 0;">© 2026 Phipps Excavating & Land Management</p>
+      <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
-  <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
-
-  <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    const navItems = document.querySelectorAll('.nav-links a');
-
-    if(menu) {
-      menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-      });
-    }
-
-    navItems.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('is-active');
-        menuLinks.classList.remove('active');
-      });
-    });
-  </script>
 </body>
 </html>
