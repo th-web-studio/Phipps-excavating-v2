@@ -9,10 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* PREMIUM ORGANIZED CARD STYLES 
-       These styles target only the services section to ensure 
-       nothing else on your site changes.
-    */
+    /* PREMIUM ORGANIZED CARD STYLES */
     .section-services {
       background-color: #fcfcfc;
       padding: 100px 0;
@@ -29,13 +26,12 @@
     .service-card {
       background-color: #0B1F3B; /* Deep Brand Navy */
       border-top: 6px solid #F2C200; /* Precision Yellow Accent */
-      padding: 60px 35px;
-      text-align: center;
+      padding: 50px 40px;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-radius: 4px;
       display: flex;
       flex-direction: column;
-      align-items: center; 
+      align-items: flex-start; /* Left aligned for professional lists */
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
@@ -44,12 +40,13 @@
       font-size: 1.25rem;
       margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 2.5px; 
+      letter-spacing: 2px; 
       font-weight: 800;
       line-height: 1.2;
+      text-align: left;
     }
 
-    /* The Organizational Divider: Adds a 'Studio' touch */
+    /* The Organizational Divider */
     .service-card::after {
       content: "";
       width: 35px;
@@ -59,14 +56,33 @@
       display: block;
     }
 
-    .service-card p {
-      color: rgba(255, 255, 255, 0.85); 
-      line-height: 1.8; /* Professional leading */
+    /* --- POWER BULLETS STYLE --- */
+    .service-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .service-list li {
+      color: rgba(255, 255, 255, 0.9);
       font-size: 0.95rem;
-      max-width: 280px; /* Crucial for keeping text organized and readable */
-      margin: 0 auto;
-      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+      font-weight: 500;
       letter-spacing: 0.2px;
+    }
+
+    /* The custom yellow marker */
+    .service-list li::before {
+      content: "■"; 
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: #F2C200;
+      font-size: 0.75rem;
     }
 
     .service-card:hover {
@@ -83,7 +99,7 @@
     }
   </style>
 </head>
-<body>
+<body class="services-page">
 
   <nav class="navbar">
     <div class="container nav-container">
@@ -126,22 +142,42 @@
         
         <div class="service-card">
           <h3>Full Excavation</h3>
-          <p>High-precision site refining and tight-access digging. Specializing in surgical trenching for utilities, drainage lines, and small-scale property development.</p>
+          <ul class="service-list">
+            <li>Surgical Utility Trenching</li>
+            <li>Tight-Access Digging</li>
+            <li>Foundation & Building Pad Prep</li>
+            <li>Septic & Drainage Line Installation</li>
+          </ul>
         </div>
 
         <div class="service-card">
           <h3>Land Clearing</h3>
-          <p>Professional property line clearing and debris removal. Efficiently clearing thick brush and stumps to reclaim and restore usability to overgrown land.</p>
+          <ul class="service-list">
+            <li>Precision Property Line Clearing</li>
+            <li>Brush & Heavy Stump Removal</li>
+            <li>Forestry Mulching & Thinning</li>
+            <li>Debris Removal & Site Cleanup</li>
+          </ul>
         </div>
 
         <div class="service-card">
           <h3>Driveway Repair</h3>
-          <p>Expert gravel installation and restoration. We focus on precision leveling and culvert setting to ensure proper water runoff and long-term driveway durability.</p>
+          <ul class="service-list">
+            <li>Expert Precision Grading</li>
+            <li>Gravel Installation & Restoration</li>
+            <li>Culvert Setting & Replacement</li>
+            <li>Water Runoff & Erosion Solutions</li>
+          </ul>
         </div>
 
         <div class="service-card">
           <h3>Land Management</h3>
-          <p>Comprehensive water control and terrain transformation. We use custom drainage ditching and grading to protect your property’s integrity and improve land value.</p>
+          <ul class="service-list">
+            <li>Terrain Sculpting & Transformation</li>
+            <li>Comprehensive Water Erosion Control</li>
+            <li>Custom Drainage Ditching</li>
+            <li>Property Integrity Restoration</li>
+          </ul>
         </div>
 
       </div>
