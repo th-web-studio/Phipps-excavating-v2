@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- PREMIUM TYPOGRAPHY & LAYOUT REFINEMENT --- */
+    /* --- PREMIUM TYPOGRAPHY --- */
     .contact-details h2 {
       font-weight: 900;
       text-transform: uppercase;
@@ -25,10 +25,8 @@
       line-height: 1.8;
       color: #555;
       margin-bottom: 40px;
-      max-width: 450px;
     }
 
-    /* THE INFO BOXES */
     .info-item {
       margin-bottom: 30px;
       border-left: 4px solid #F2C200; 
@@ -51,10 +49,9 @@
       color: #0B1F3B !important;
       text-decoration: none;
       margin-bottom: 0;
-      letter-spacing: -0.5px;
     }
 
-    /* --- PREMIUM FORM STYLING --- */
+    /* --- FORM STYLING --- */
     .form-container {
       background: #fff;
       padding: 50px;
@@ -73,62 +70,45 @@
       letter-spacing: 2px;
     }
 
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
+    .form-group input, .form-group select, .form-group textarea {
       width: 100%;
       padding: 18px;
       border: 2px solid #f0f0f0;
-      border-radius: 0;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      transition: all 0.3s ease;
       background: #fafafa;
     }
 
-    .form-group input:focus, 
-    .form-group select:focus, 
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #0B1F3B;
-      background: #fff;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-
-    /* --- REFINED STAGGERED AREA GRID --- */
+    /* --- CLEAN REGIONAL GRID (NO OVERLAP) --- */
     .area-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 20px;
     }
 
     .area-card {
       background: #fff;
-      padding: 35px;
-      border-radius: 0;
-      border-bottom: 4px solid #f0f0f0;
-      transition: all 0.4s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      padding: 30px;
+      border: 1px solid #eee;
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     
-    /* Stagger the second column down slightly for a "Design Studio" feel */
-    .area-card:nth-child(even) {
-      transform: translateY(30px);
-    }
-
     .area-card strong {
       color: #0B1F3B;
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 10px;
+      letter-spacing: 1px;
       font-weight: 900;
+      margin-bottom: 5px;
     }
 
     .area-card p {
-      color: #F2C200; /* Use brand color for the city to make it pop */
-      font-size: 0.85rem;
+      color: #F2C200;
+      font-size: 0.8rem;
       margin: 0;
       font-weight: 800;
       text-transform: uppercase;
@@ -136,34 +116,23 @@
     }
 
     .area-card:hover {
-      border-bottom: 4px solid #F2C200;
+      border-color: #0B1F3B;
       background: #0B1F3B;
-      transform: translateY(-5px); /* Note: override even:nth stagger if needed, but simple hover lift works well */
     }
 
     .area-card:hover strong { color: #fff; }
-    .area-card:hover p { color: #F2C200; }
 
+    /* HERO STYLING */
     .small-hero {
       padding: 130px 20px !important;
     }
 
-    .small-hero .hero-subtitle {
-      font-weight: 900;
-      font-size: 0.9rem;
-      color: #F2C200;
-      letter-spacing: 3px;
-    }
-
     @media screen and (max-width: 992px) {
-        .area-grid { gap: 20px; }
-        .area-card:nth-child(even) { transform: translateY(0); }
+        .area-grid { grid-template-columns: 1fr; }
     }
 
     @media screen and (max-width: 768px) {
         .form-container { padding: 35px 25px; }
-        .contact-details h2 { font-size: 2.2rem; }
-        .area-card { padding: 25px; }
     }
   </style>
 </head>
@@ -172,13 +141,6 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
-      
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -192,76 +154,48 @@
 
   <header class="small-hero">
     <div class="container">
-      <span class="hero-subtitle">ESTABLISH YOUR FOUNDATION</span>
-      <h1>Contact Us</h1>
+      <span class="hero-subtitle" style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.9rem;">ESTABLISH YOUR FOUNDATION</span>
+      <h1 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1px;">Contact Us</h1>
       <p>Expert Residential Earthmoving & Site Solutions</p>
     </div>
   </header>
 
-  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 120px 0;">
+  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 80px 0;">
     <div class="container">
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 100px; align-items: start;">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: start;">
         
-        <div style="position: sticky; top: 120px;">
+        <div>
           <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; margin-bottom: 20px;">Site Availability</p>
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -2px; color: #0B1F3B; margin: 0; font-size: clamp(2.8rem, 6vw, 4rem); line-height: 0.95;">Regional<br>Coverage.</h2>
-          <p style="color: #666; margin-top: 35px; line-height: 1.9; max-width: 400px; font-size: 1.1rem; border-top: 2px solid #F2C200; padding-top: 30px;">
-            We maintain a broad operational radius, mobilizing heavy equipment to **Morgan County** and all surrounding Licking River Valley communities.
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; color: #0B1F3B; margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1;">Regional<br>Reach.</h2>
+          <p style="color: #666; margin-top: 30px; line-height: 1.8; max-width: 420px; font-size: 1.05rem; border-top: 2px solid #F2C200; padding-top: 25px;">
+            We mobilize specialized equipment to Morgan County and all surrounding communities, ensuring professional residential site results.
           </p>
         </div>
 
         <div class="area-grid">
-          <div class="area-card">
-            <strong>Rowan</strong>
-            <p>Morehead</p>
-          </div>
-          <div class="area-card">
-            <strong>Elliott</strong>
-            <p>Sandy Hook</p>
-          </div>
-          <div class="area-card">
-            <strong>Johnson</strong>
-            <p>Paintsville</p>
-          </div>
-          <div class="area-card">
-            <strong>Magoffin</strong>
-            <p>Salyersville</p>
-          </div>
-          <div class="area-card">
-            <strong>Wolfe</strong>
-            <p>Campton</p>
-          </div>
-          <div class="area-card">
-            <strong>Menifee</strong>
-            <p>Frenchburg</p>
-          </div>
+          <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
+          <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
+          <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
+          <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
+          <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
+          <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding: 120px 0;">
+  <section class="section" style="padding: 100px 0;">
     <div class="container">
       <div class="grid" style="align-items: start; gap: 80px;">
         
         <div class="contact-details">
           <h2>Ready To<br>Mobilize.</h2>
-          <p>Get a direct estimate for your residential excavating or land management project. We respond to all inquiries within 24 business hours.</p>
-          
+          <p>Get a direct estimate for your residential project. We respond to all inquiries within 24 business hours.</p>
           <div class="info-box">
-            <div class="info-item">
-              <strong>Direct Line</strong>
-              <p><a href="tel:6065480377">(606) 548-0377</a></p>
-            </div>
-            <div class="info-item">
-              <strong>Email</strong>
-              <p>jphipps275@hotmail.com</p>
-            </div>
-            <div class="info-item">
-              <strong>HQ Location</strong>
-              <p>West Liberty, KY</p>
-            </div>
+            <div class="info-item"><strong>Direct Line</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
+            <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
+            <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
           </div>
         </div>
 
@@ -292,46 +226,27 @@
             <button type="submit" class="btn primary" style="width: 100%; margin: 0; font-size: 1rem; padding: 22px; font-weight: 900;">Send Estimate Request</button>
           </form>
         </div>
-
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container" style="text-align: center;">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
-      </div>
-      <p style="margin-top: 25px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; opacity: 0.5;">© 2026 Phipps Excavating & Land Management</p>
+      <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; opacity: 0.5;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
-  <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
-
   <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    menu.addEventListener('click', function() {
-      menu.classList.toggle('is-active');
-      menuLinks.classList.toggle('active');
-    });
-
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', (e) => {
       let input = e.target.value.replace(/\D/g, ''); 
-      let size = input.length;
-      if (size > 0) {
-        if (size <= 3) {
-          input = `(${input}`;
-        } else if (size <= 6) {
-          input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
-        } else {
-          input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
-        }
+      if (input.length > 0) {
+        if (input.length <= 3) input = `(${input}`;
+        else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
+        else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
       }
       e.target.value = input;
     });
   </script>
-
 </body>
 </html>
