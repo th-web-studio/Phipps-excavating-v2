@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- BOX-SIZING RESET --- */
+    /* --- BOX-SIZING & BASE --- */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -29,12 +29,12 @@
       padding: 0 30px;
     }
 
-    /* --- HERO --- */
+    /* --- HERO: Tight & Balanced --- */
     .small-hero {
       background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
       background-size: cover;
       background-position: center;
-      padding: 110px 0 70px !important;
+      padding: 100px 0 60px !important;
       text-align: center;
       color: #fff;
     }
@@ -50,14 +50,14 @@
     /* --- REGIONAL SECTION --- */
     .regional-section {
       background: #fcfcfc;
-      padding: 60px 0;
+      padding: 50px 0;
       border-bottom: 1px solid #eee;
     }
 
     .flex-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 50px;
+      gap: 40px;
       align-items: center;
     }
 
@@ -69,21 +69,21 @@
     .area-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 15px;
+      gap: 12px;
     }
 
     .area-card {
       background: #fff;
-      padding: 20px;
+      padding: 15px;
       border: 1px solid #eee;
       text-align: center;
     }
 
-    .area-card strong { display: block; font-size: 1rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p { color: #F2C200; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-top: 4px; }
+    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* --- FORM & DETAILS --- */
-    .contact-main { padding: 70px 0; }
+    /* --- CONTACT DETAILS & FORM --- */
+    .contact-main { padding: 60px 0; }
 
     .info-item {
       margin-bottom: 25px;
@@ -92,7 +92,7 @@
     }
 
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
-    .info-item p, .info-item a { font-size: 1.3rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
+    .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
     .form-container {
       background: #fff;
@@ -101,12 +101,12 @@
       box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1);
     }
 
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
     .form-group input, .form-group select, .form-group textarea {
       width: 100%;
-      padding: 16px;
-      border: 2px solid #f0f0f0;
+      padding: 15px;
+      border: 2px solid #f2f2f2;
       background: #fafafa;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
@@ -114,7 +114,7 @@
 
     .submit-btn {
       width: 100%;
-      padding: 20px;
+      padding: 18px;
       background: #0B1F3B;
       color: #fff;
       border: none;
@@ -122,10 +122,14 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       cursor: pointer;
+      transition: 0.3s;
     }
+
+    .submit-btn:hover { background: #F2C200; color: #0B1F3B; }
 
     @media (max-width: 768px) {
       .flex-col-half { flex: 0 0 100%; }
+      .form-container { padding: 30px 20px; }
     }
   </style>
 </head>
@@ -159,17 +163,19 @@
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.5rem; margin: 0; line-height: 1;">Regional Reach.</h2>
-          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 20px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional Reach.</h2>
+          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
+            <div class="area-card"><strong>Morgan</strong><p>West Liberty</p></div>
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
             <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
             <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
             <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
             <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
+            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
           </div>
         </div>
       </div>
@@ -181,7 +187,7 @@
       <div class="flex-row" style="align-items: start;">
         
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.5rem; line-height: 1; margin-bottom: 30px;">Get In Touch<br>Locally.</h2>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
           <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
           <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
           <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
@@ -191,8 +197,8 @@
           <div class="form-container">
             <form action="#" method="POST">
               <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" name="name" placeholder="John Doe" required>
+                <label>First and Last Name</label>
+                <input type="text" name="name" placeholder="" required>
               </div>
               <div class="form-group">
                 <label>Phone Number</label>
@@ -202,10 +208,8 @@
                 <label>Service Category</label>
                 <select name="service" required>
                   <option value="" disabled selected>Choose a service...</option>
-                  <option value="Excavation">Residential Excavation</option>
-                  <option value="Driveway">Driveway Repair / Gravel</option>
-                  <option value="Clearing">Residential Land Clearing</option>
-                  <option value="Other">General Inquiry</option>
+                  <option value="Excavation">Excavation</option>
+                  <option value="Land Clearing">Land Clearing</option>
                 </select>
               </div>
               <div class="form-group">
@@ -222,7 +226,7 @@
   </section>
 
   <script>
-    /* PHONE FORMATTING */
+    /* PHONE FORMATTING (000) 000-0000 */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -236,7 +240,7 @@
       });
     }
 
-    /* MOBILE MENU */
+    /* MOBILE MENU TOGGLE */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
