@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- TIGHTENED PREMIUM HERO --- */
+    /* --- PREMIUM GALLERY HERO --- */
     .gallery-page-hero {
       position: relative;
-      padding: 100px 0 60px; /* Reduced from 150/110 */
+      padding: 100px 0 60px; 
       text-align: center;
       color: #fff;
       overflow: hidden;
@@ -34,20 +34,20 @@
       font-weight: 900;
       color: #F2C200;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.8rem;
-      margin-bottom: 10px; /* Tighter margin */
+      letter-spacing: 5px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
       border-bottom: 2px solid #F2C200;
-      padding-bottom: 3px;
+      padding-bottom: 5px;
     }
 
     .gallery-page-hero h1 {
-      font-size: clamp(2.5rem, 8vw, 4rem); /* Slightly smaller/tighter scale */
+      font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -2px;
-      line-height: 0.9;
-      margin: 0 auto 15px;
+      line-height: 0.95;
+      margin: 0 auto 20px;
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
@@ -57,37 +57,31 @@
       max-width: 800px;
       margin: 0 auto;
       text-transform: uppercase;
-      letter-spacing: 3px; 
+      letter-spacing: 4px; 
       font-weight: 800;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.2;
     }
 
-    /* --- TIGHTENED PULSE STYLES --- */
-    .pulse-section { padding: 50px 0 80px; background: #fcfcfc; } /* Reduced padding */
+    /* --- AUTO-PULSE TRANSFORMATION STYLES --- */
+    .pulse-section { padding: 50px 0 80px; background: #fcfcfc; }
     
     .pulse-wrapper {
-      margin-bottom: 60px; /* Reduced from 100px for a tighter flow */
+      margin-bottom: 60px; /* Tighter gap between projects */
     }
 
-    .section-title { 
-      text-align: center; 
-      margin-bottom: 25px; /* Reduced from 40px */
-      font-weight: 900; 
-      text-transform: uppercase; 
-      letter-spacing: -1px;
-      font-size: 1.8rem;
-    }
+    .section-title { text-align: center; margin-bottom: 30px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
 
     .pulse-container {
       position: relative;
       width: 100%;
-      max-width: 1000px; /* Slightly narrower for a more focused look */
+      max-width: 1100px;
       aspect-ratio: 16 / 9;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 4px;
-      box-shadow: 0 20px 40px rgba(11, 31, 59, 0.12);
+      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.15);
       background: #0B1F3B;
     }
 
@@ -115,27 +109,28 @@
 
     .pulse-badge {
       position: absolute;
-      bottom: 20px; /* Moved in slightly */
-      right: 20px;
+      bottom: 30px;
+      right: 30px;
       z-index: 10;
       background: rgba(11, 31, 59, 0.95);
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-left: 4px solid #F2C200;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     .status-text {
       color: #fff;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       font-weight: 900;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
 
     .dot {
-      width: 6px; height: 6px;
+      width: 8px; height: 8px;
       background: #F2C200;
       border-radius: 50%;
       animation: blink 1.2s infinite;
@@ -146,16 +141,25 @@
       50% { opacity: 1; transform: scale(1.2); }
     }
 
-    /* FOOTER TIGHTENING */
-    footer { padding: 40px 0; }
-    footer p { margin-top: 15px; font-size: 0.85rem; }
+    /* FOOTER FIX */
+    footer .social-links a, footer .social-links a:visited, footer .social-links a:active {
+      color: #F2C200 !important;
+      background: transparent !important;
+      border: 2px solid #F2C200 !important;
+      text-decoration: none;
+    }
+    
+    footer .social-links a:hover {
+      background: #F2C200 !important;
+      color: #0B1F3B !important;
+    }
 
-    @keyframes slow-pan { from { transform: scale(1); } to { transform: scale(1.05); } }
+    @keyframes slow-pan { from { transform: scale(1); } to { transform: scale(1.1); } }
 
     @media (max-width: 768px) {
       .pulse-container { aspect-ratio: 4 / 3; }
       .pulse-badge { bottom: 15px; right: 15px; padding: 8px 15px; }
-      .gallery-page-hero { padding: 80px 0 40px; }
+      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -163,7 +167,7 @@
 
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating</a>
+      <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
       <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
@@ -182,15 +186,15 @@
     <div class="container">
       <span class="hero-subtitle">Visual Portfolio</span>
       <h1>The Art of <span class="highlight">Excavation</span></h1>
-      <p class="hero-description">Precision Site Solutions</p>
+      <p class="hero-description">Site Solutions Executed with Detail</p>
     </div>
   </header>
 
   <section class="pulse-section">
     <div class="container">
-
+      
       <div class="pulse-wrapper">
-        <h2 class="section-title">Land <span class="highlight">Clearing</span></h2>
+        <h2 class="section-title">Land <span class="highlight">Clearing</span> Transformation</h2>
         <div class="pulse-container">
           <img src="land-clear-after.jpeg" class="pulse-img after" alt="After Clearing">
           <img src="land-clear-before.JPG" class="pulse-img before" alt="Before Clearing">
@@ -202,7 +206,7 @@
       </div>
 
       <div class="pulse-wrapper">
-        <h2 class="section-title">Driveway <span class="highlight">Repair</span></h2>
+        <h2 class="section-title">Driveway <span class="highlight">Repair</span> Transformation</h2>
         <div class="pulse-container">
           <img src="drive-after.JPG" class="pulse-img after" alt="After Driveway Repair">
           <img src="drive-before .JPG" class="pulse-img before" alt="Before Driveway Repair" style="animation-delay: 1.5s;">
@@ -219,7 +223,7 @@
   <footer>
     <div class="container">
       <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
       <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
