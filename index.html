@@ -117,6 +117,37 @@
       color: #0B1F3B;
     }
 
+    /* --- SERVICE AREA STYLES (NEW ADDITION) --- */
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+
+    .area-card {
+      padding: 25px 15px;
+      border: 1px solid rgba(11, 31, 59, 0.1); 
+      border-radius: 4px;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    .area-card h4 {
+      color: #0B1F3B;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .area-card p {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
+    }
+
     /* --- SYNCED NAV --- */
     .nav-call-btn {
       background: #F2C200;
@@ -223,6 +254,22 @@
           <h3>Land Management</h3>
           <p>Transforming terrain with drainage ditching.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="home-section-title">Service Areas</h2>
+      <div class="area-grid">
+        <div class="area-card"><h4>Morgan County</h4><p>West Liberty & Surrounding</p></div>
+        <div class="area-card"><h4>Rowan County</h4><p>Morehead & Surrounding</p></div>
+        <div class="area-card"><h4>Elliott County</h4><p>Sandy Hook & Surrounding</p></div>
+        <div class="area-card"><h4>Johnson County</h4><p>Paintsville & Surrounding</p></div>
+        <div class="area-card"><h4>Magoffin County</h4><p>Salyersville & Surrounding</p></div>
+        <div class="area-card"><h4>Wolfe County</h4><p>Campton & Surrounding</p></div>
+        <div class="area-card"><h4>Menifee County</h4><p>Frenchburg & Surrounding</p></div>
+        <div class="area-card"><h4>Floyd County</h4><p>Prestonsburg & Surrounding</p></div>
       </div>
     </div>
   </section>
