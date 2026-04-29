@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- SYNCED STUDIO SYSTEM --- */
+    /* --- SYNCED PREMIUM SYSTEM --- */
     body {
       background: #ffffff;
       color: #0B1F3B;
@@ -23,44 +23,71 @@
       padding: 0 20px;
     }
 
-    /* --- HERO: Tight & Professional --- */
+    /* --- HERO: Ultra-Premium Sync --- */
     .about-hero {
       position: relative;
       width: 100%;
-      min-height: 45vh;
+      min-height: 50vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 100px 0 60px;
-      background-size: cover !important;
-      background-position: center !important;
-      background-attachment: fixed;
+      padding: 120px 0 80px;
+      overflow: hidden;
       color: #fff;
       text-align: center;
     }
 
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: linear-gradient(rgba(11, 31, 59, 0.85), rgba(11, 31, 59, 0.75)), url('aboutheaderimage.JPG');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      animation: slow-pan 30s infinite alternate ease-in-out;
+    }
+
+    .hero-subtitle {
+      display: inline-block;
+      font-weight: 900;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F2C200;
+      padding-bottom: 5px;
+    }
+
     .about-hero h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -3px;
-      line-height: 0.9;
-      margin-bottom: 15px;
-      text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin: 0 auto 25px;
+      text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
-    .about-hero p {
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+    .highlight {
       color: #F2C200;
-      margin: 0;
     }
 
-    /* --- CONTENT --- */
+    .hero-description {
+      max-width: 800px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.4;
+    }
+
+    /* --- CONTENT SECTION --- */
     .content-section {
-      padding: 80px 0;
+      padding: 100px 0;
       background: #fff;
     }
 
@@ -76,7 +103,7 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -1px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #0B1F3B;
       line-height: 1.1;
     }
@@ -88,45 +115,53 @@
     }
 
     .roots-card {
-      padding: 40px;
+      padding: 50px 40px;
       background: #0B1F3B;
       color: #fff;
       border-radius: 4px;
-      box-shadow: 0 20px 40px rgba(11, 31, 59, 0.1);
+      border-top: 8px solid #F2C200;
+      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.15);
     }
 
     .roots-card h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 900;
       text-transform: uppercase;
       color: #F2C200;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      letter-spacing: -1px;
     }
 
     .leader-list {
       list-style: none;
       padding: 0;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .leader-list li {
-      padding: 12px 0;
+      padding: 15px 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
       display: flex;
       justify-content: space-between;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    /* FIXED: Prevent Facebook Button from turning into a yellow box when clicked */
+    .leader-list li span {
+      color: #F2C200;
+    }
+
+    /* FOOTER SYNC */
     footer .social-links a, 
     footer .social-links a:visited, 
     footer .social-links a:active {
       color: #F2C200 !important;
       background: transparent !important;
       border: 2px solid #F2C200 !important;
+      text-decoration: none;
     }
     
     footer .social-links a:hover {
@@ -134,10 +169,13 @@
       color: #0B1F3B !important;
     }
 
-    /* --- MOBILE NAV SYNC --- */
+    @keyframes slow-pan {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
     @media (max-width: 992px) {
       .content-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-hero { min-height: 40vh; padding: 120px 0 60px; }
     }
 
     @media (max-width: 768px) {
@@ -145,7 +183,7 @@
       .nav-cta-menu { 
         background: #F2C200; 
         color: #0B1F3B !important; 
-        padding: 15px 20px; 
+        padding: 15px; 
         border-radius: 4px; 
         font-weight: 900; 
         width: 80%; 
@@ -163,13 +201,9 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
-      
       <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
-
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -181,33 +215,32 @@
     </div>
   </nav>
 
-  <header class="about-hero" style="background: linear-gradient(rgba(11, 31, 59, 0.75), rgba(11, 31, 59, 0.75)), url('aboutheaderimage.JPG');">
+  <header class="about-hero">
     <div class="container">
-      <h1>Built on Trust.<br>Driven by Experience.</h1>
-      <p>A Legacy of Service in Morgan County and Surrounding Counties</p>
+      <span class="hero-subtitle">Establish Your Foundation</span>
+      <h1>Built on <span class="highlight">Trust.</span><br>Driven by <span class="highlight">Experience.</span></h1>
+      <p class="hero-description">A Legacy of Service in Morgan and Surrounding Counties</p>
     </div>
   </header>
 
   <section class="content-section">
     <div class="container">
       <div class="content-grid">
-        
         <div class="main-text">
           <h2>Professionalism in Every Yard of Dirt</h2>
-          <p>At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, brush cutting, and complex drainage solutions. Based in West Liberty, we proudly serve Morgan County and the surrounding Eastern Kentucky region.</p>
-          <p>What sets us apart is our relentless commitment to precision and detail.</p>
+          <p>At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, brush cutting, and complex drainage solutions.</p>
+          <p>Based in West Liberty, we proudly serve Morgan and the surrounding Eastern Kentucky region with a relentless commitment to precision and detail.</p>
         </div>
 
         <div class="roots-card">
           <h3>Jamie Phipps</h3>
-          <p style="opacity: 0.8; font-size: 1rem;">Owner/Operator dedicated to excellence in business and community service:</p>
+          <p style="opacity: 0.8; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Owner/Operator dedicated to excellence:</p>
           <ul class="leader-list">
             <li>Chief, West Liberty Fire Dept <span>→</span></li>
             <li>Member, White Oak Volunteer Fire <span>→</span></li>
             <li>Member, Highlands Masonic Lodge <span>→</span></li>
           </ul>
         </div>
-
       </div>
     </div>
   </section>
@@ -226,7 +259,6 @@
   <script>
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
-    
     if(menu) {
       menu.addEventListener('click', function() {
         menu.classList.toggle('is-active');
