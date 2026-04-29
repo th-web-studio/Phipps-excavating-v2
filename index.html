@@ -140,33 +140,48 @@
 
     .county-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .county-item {
-      padding: 15px;
+      padding: 20px 15px;
       background: #ffffff;
       border-left: 4px solid #F2C200;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.85rem;
-      color: #0B1F3B;
       transition: all 0.3s ease;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
+    .county-name {
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      color: #0B1F3B;
+    }
+
+    .city-name {
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
     .county-item:hover {
       background: #0B1F3B;
-      color: #fff;
       transform: translateY(-5px);
     }
+
+    .county-item:hover .county-name { color: #F2C200; }
+    .county-item:hover .city-name { color: rgba(255,255,255,0.7); }
 
     /* FOOTER FIXES */
     footer .social-links a, 
@@ -281,14 +296,38 @@
       <span class="area-subtitle">Based in West Liberty | Serving Morgan and Surrounding Counties</span>
       
       <div class="county-grid">
-        <div class="county-item">Morgan</div>
-        <div class="county-item">Rowan</div>
-        <div class="county-item">Elliott</div>
-        <div class="county-item">Johnson</div>
-        <div class="county-item">Magoffin</div>
-        <div class="county-item">Wolfe</div>
-        <div class="county-item">Menifee</div>
-        <div class="county-item">Floyd</div>
+        <div class="county-item">
+          <span class="county-name">Morgan</span>
+          <span class="city-name">West Liberty</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Rowan</span>
+          <span class="city-name">Morehead</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Elliott</span>
+          <span class="city-name">Sandy Hook</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Johnson</span>
+          <span class="city-name">Paintsville</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Magoffin</span>
+          <span class="city-name">Salyersville</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Wolfe</span>
+          <span class="city-name">Campton</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Menifee</span>
+          <span class="city-name">Frenchburg</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Floyd</span>
+          <span class="city-name">Prestonsburg</span>
+        </div>
       </div>
     </div>
   </section>
