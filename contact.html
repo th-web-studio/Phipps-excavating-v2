@@ -95,56 +95,47 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
-    /* --- ESTHETICALLY PLEASING AREA CARDS (NEW) --- */
+    /* --- ESTHETICALLY PLEASING AREA CARDS --- */
     .area-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
-      margin-top: 50px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .area-card {
       background: #fff;
-      padding: 40px 30px;
-      text-align: left; /* Left align is more premium than center */
+      padding: 30px;
+      text-align: left;
       border-radius: 4px;
-      border-left: 0px solid transparent; /* Hidden until hover */
+      border-left: 0px solid transparent;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Softest shadow possible */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
     
     .area-card strong {
       color: #0B1F3B;
       display: block;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       font-weight: 900;
-      line-height: 1.2;
     }
 
     .area-card p {
-      color: #777; /* Subtle text color for city */
-      font-size: 0.95rem;
+      color: #777;
+      font-size: 0.9rem;
       margin: 0;
       font-weight: 500;
-      letter-spacing: 0.3px;
     }
 
-    /* The Esthetic Hover State */
     .area-card:hover {
-      background: #fff;
-      border-left: 6px solid #F2C200; /* Yellow lights up on left */
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sophisticated lift shadow */
-      padding-left: 24px; /* Adjust padding to keep text aligned */
+      border-left: 6px solid #F2C200;
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      padding-left: 24px;
     }
 
-    /* HERO STYLING */
     .small-hero {
       padding: 130px 20px !important;
     }
@@ -156,10 +147,14 @@
       letter-spacing: 3px;
     }
 
+    @media screen and (max-width: 992px) {
+        .area-grid { grid-template-columns: 1fr; }
+    }
+
     @media screen and (max-width: 768px) {
         .form-container { padding: 35px 25px; }
         .contact-details h2 { font-size: 2.2rem; }
-        .area-card { padding: 30px 20px; }
+        .area-card { padding: 25px; }
     }
   </style>
 </head>
@@ -196,36 +191,41 @@
 
   <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 100px 0;">
     <div class="container">
-      <div style="text-align: center; max-width: 600px; margin: 0 auto 60px auto;">
-        <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 15px;">Kentucky Site Coverage</p>
-        <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; color: #0B1F3B; margin: 0; font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1.1;">Regional<br>Coverage</h2>
-      </div>
-      
-      <div class="area-grid">
-        <div class="area-card">
-          <strong>Rowan</strong>
-          <p>Morehead</p>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: center;">
+        
+        <div>
+          <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 15px;">Kentucky Site Coverage</p>
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; color: #0B1F3B; margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1;">Regional<br>Reach</h2>
+          <p style="color: #666; margin-top: 25px; line-height: 1.8; max-width: 420px; font-size: 1.05rem;">We mobilize specialized equipment to Morgan County and all surrounding regions, ensuring professional site results across the Licking River Valley and beyond.</p>
         </div>
-        <div class="area-card">
-          <strong>Elliott</strong>
-          <p>Sandy Hook</p>
+
+        <div class="area-grid">
+          <div class="area-card">
+            <strong>Rowan</strong>
+            <p>Morehead</p>
+          </div>
+          <div class="area-card">
+            <strong>Elliott</strong>
+            <p>Sandy Hook</p>
+          </div>
+          <div class="area-card">
+            <strong>Johnson</strong>
+            <p>Paintsville</p>
+          </div>
+          <div class="area-card">
+            <strong>Magoffin</strong>
+            <p>Salyersville</p>
+          </div>
+          <div class="area-card">
+            <strong>Wolfe</strong>
+            <p>Campton</p>
+          </div>
+          <div class="area-card">
+            <strong>Menifee</strong>
+            <p>Frenchburg</p>
+          </div>
         </div>
-        <div class="area-card">
-          <strong>Johnson</strong>
-          <p>Paintsville</p>
-        </div>
-        <div class="area-card">
-          <strong>Magoffin</strong>
-          <p>Salyersville</p>
-        </div>
-        <div class="area-card">
-          <strong>Wolfe</strong>
-          <p>Campton</p>
-        </div>
-        <div class="area-card">
-          <strong>Menifee</strong>
-          <p>Frenchburg</p>
-        </div>
+
       </div>
     </div>
   </section>
