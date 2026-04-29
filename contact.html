@@ -71,26 +71,43 @@
     
     .area-grid { 
       display: grid; 
-      grid-template-columns: repeat(4, 1fr); /* 4 small columns allow us to center the top box */
-      gap: 12px; 
+      grid-template-columns: 1fr 1fr; /* Strictly two columns */
+      gap: 12px;
+      max-width: 500px; /* Limits width so boxes don't get too wide */
     }
 
     .area-card { 
       background: #fff; 
       padding: 15px; 
       border: 1px solid #eee; 
-      text-align: center; 
-      grid-column: span 2; /* Every box occupies 2 of the 4 columns (making it 2-column look) */
-    }
-    
-    /* This centers Morgan by starting it at column 2 of 4 */
-    .morgan-centered {
-      grid-column: 2 / span 2; 
-      margin-bottom: 5px;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    /* Spacer creates an empty box to nudge Morgan to the right */
+    .grid-spacer {
+        content: "";
+        display: block;
+    }
+    
+    /* Using Flex approach inside a grid item to center Morgan between the columns */
+    .morgan-wrapper {
+        grid-column: 1 / span 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .morgan-box {
+        width: calc(50% - 6px); /* Half width minus half the gap */
+        background: #fff; 
+        padding: 15px; 
+        border: 1px solid #eee; 
+        text-align: center;
+    }
+
+    .area-card strong, .morgan-box strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p, .morgan-box p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0 120px; }
@@ -119,23 +136,13 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    footer .social-links a, 
-    footer .social-links a:visited, 
-    footer .social-links a:active {
-      color: #F2C200 !important;
-      background: transparent !important;
-      border: 2px solid #F2C200 !important;
-      text-decoration: none;
-    }
-    
-    footer .social-links a:hover {
-      background: #F2C200 !important;
-      color: #0B1F3B !important;
-    }
+    footer .social-links a { color: #F2C200 !important; border: 2px solid #F2C200 !important; padding: 10px 20px; display: inline-block; transition: 0.3s; }
+    footer .social-links a:hover { background: #F2C200 !important; color: #0B1F3B !important; }
 
     @media (max-width: 480px) {
       .area-grid { grid-template-columns: 1fr; }
-      .area-card, .morgan-centered { grid-column: span 1; }
+      .morgan-wrapper { grid-column: span 1; }
+      .morgan-box { width: 100%; }
     }
   </style>
 </head>
@@ -175,7 +182,12 @@
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
-            <div class="area-card morgan-centered"><strong>Morgan</strong><p>West Liberty</p></div>
+            <div class="morgan-wrapper">
+                <div class="morgan-box">
+                    <strong>Morgan</strong>
+                    <p>West Liberty</p>
+                </div>
+            </div>
             
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
@@ -240,7 +252,7 @@
       <div class="social-links">
         <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
-      <p>© 2026 Phipps Excavating & Land Management</p>
+      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
