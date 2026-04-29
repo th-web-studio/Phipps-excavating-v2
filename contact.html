@@ -6,79 +6,105 @@
   <title>Contact | Phipps Excavating & Land Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* FORM SPECIFIC LAYOUT - Ensuring it looks professional */
-    .form-container {
-      background: #fff;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 15px 35px rgba(11, 31, 59, 0.1);
-      border-top: 5px solid #F2C200;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #0B1F3B;
+    /* PREMIUM TYPOGRAPHY & LAYOUT REFINEMENT */
+    .contact-details h2 {
+      font-weight: 900;
       text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-    }
-
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-
-    .form-group input:focus, 
-    .form-group select:focus, 
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #F2C200;
-      box-shadow: 0 0 0 3px rgba(242, 194, 0, 0.1);
-    }
-
-    .info-box {
-      margin-top: 30px;
-    }
-
-    .info-item {
+      letter-spacing: -0.5px;
+      font-size: 2.2rem;
+      color: #0B1F3B;
+      line-height: 1.1;
       margin-bottom: 25px;
+    }
+
+    .contact-details p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* THE INFO BOXES */
+    .info-item {
+      margin-bottom: 30px;
+      border-left: 3px solid #F2C200; /* Subtle accent line */
+      padding-left: 20px;
     }
 
     .info-item strong {
       display: block;
       color: #F2C200;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.85rem;
-      margin-bottom: 5px;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+      font-weight: 800;
     }
 
-    /* Small Hero Adjustment for text visibility */
+    .info-item p, .info-item a {
+      font-size: 1.3rem !important;
+      font-weight: 700;
+      color: #0B1F3B !important;
+      margin-bottom: 0;
+    }
+
+    /* PREMIUM FORM STYLING */
+    .form-container {
+      background: #fff;
+      padding: 50px;
+      border-radius: 4px;
+      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1);
+      border-top: 8px solid #F2C200;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #0B1F3B;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #eee; /* Thicker, cleaner border */
+      border-radius: 0; /* Sharp corners feel more industrial/premium */
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #fcfcfc;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0B1F3B; /* Navy focus for high contrast */
+      background: #fff;
+    }
+
+    /* Small Hero Styling to match Home Page depth */
     .small-hero {
-        padding: 100px 20px !important;
+      padding: 120px 20px !important;
+    }
+
+    .small-hero h1 {
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
     }
 
     @media screen and (max-width: 768px) {
-        .form-container {
-            padding: 25px;
-        }
+        .form-container { padding: 30px; }
+        .contact-details h2 { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -107,32 +133,32 @@
 
   <header class="small-hero">
     <div class="container">
-      <span class="hero-subtitle">Get A Free Estimate</span>
+      <span class="hero-subtitle">Let's Build Your Foundation</span>
       <h1>Contact Us</h1>
-      <p>Let's discuss your next project and get you on the schedule.</p>
+      <p>Professional Earthmoving & Site Solutions in Kentucky</p>
     </div>
   </header>
 
   <section class="section">
     <div class="container">
-      <div class="grid">
+      <div class="grid" style="align-items: start; gap: 60px;">
         
         <div class="contact-details">
-          <h2 style="margin-bottom: 20px; font-weight: 800; text-transform: uppercase;">Let's Get To Work</h2>
-          <p style="font-size: 1.1rem; color: #555;">Ready to start your next project? Give us a call or send a message, and we'll get back to you as soon as possible.</p>
+          <h2>Let's Get<br>To Work.</h2>
+          <p>Phipps Excavating & Land Management delivers high-precision residential and commercial site services. Reach out today for a professional site assessment and estimate.</p>
           
           <div class="info-box">
             <div class="info-item">
-              <strong>Direct Phone</strong>
-              <p><a href="tel:6065480377" style="color: #0B1F3B; text-decoration: none; font-size: 1.2rem; font-weight: 700;">(606) 548-0377</a></p>
+              <strong>Direct Line</strong>
+              <p><a href="tel:6065480377">(606) 548-0377</a></p>
             </div>
             <div class="info-item">
-              <strong>Official Email</strong>
-              <p style="font-size: 1.1rem;">jphipps275@hotmail.com</p>
+              <strong>Official Correspondence</strong>
+              <p>jphipps275@hotmail.com</p>
             </div>
             <div class="info-item">
-              <strong>Service Area</strong>
-              <p style="font-size: 1.1rem;">West Liberty, KY & Surrounding Areas</p>
+              <strong>HQ Location</strong>
+              <p>West Liberty, KY</p>
             </div>
           </div>
         </div>
@@ -140,28 +166,28 @@
         <div class="form-container">
           <form action="#" method="POST"> 
             <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="name" placeholder="Full Name" required>
+              <label>Full Name</label>
+              <input type="text" name="name" placeholder="John Doe" required>
             </div>
             <div class="form-group">
               <label>Phone Number</label>
               <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
             </div>
             <div class="form-group">
-              <label>Project Type</label>
+              <label>Service Required</label>
               <select name="service" required>
-                <option value="" disabled selected>Select a Service</option>
+                <option value="" disabled selected>Choose a category...</option>
                 <option value="Excavation">Full Excavation</option>
                 <option value="Driveway">Driveway Repair / Gravel</option>
                 <option value="Clearing">Land Clearing</option>
-                <option value="Other">Other / General Inquiry</option>
+                <option value="Other">General Inquiry</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Message</label>
-              <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+              <label>Project Details</label>
+              <textarea name="message" rows="5" placeholder="Please describe the scope of your project..." required></textarea>
             </div>
-            <button type="submit" class="btn primary" style="width: 100%; margin: 0; font-size: 1rem; padding: 20px;">Send Estimate Request</button>
+            <button type="submit" class="btn primary" style="width: 100%; margin: 0; font-size: 1rem; padding: 22px; font-weight: 900;">Send Estimate Request</button>
           </form>
         </div>
 
@@ -174,7 +200,7 @@
       <div class="social-links">
         <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
-      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
+      <p style="margin-top: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; opacity: 0.6;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
