@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO STATS ALIGNMENT FIX --- */
+    /* --- HERO STATS BALANCED ALIGNMENT --- */
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -23,8 +23,9 @@
     .stat-item {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* Aligns single-line text to the bottom of the row */
-      min-height: 70px; /* Ensures all items have the same vertical space */
+      justify-content: center; 
+      align-items: center;     
+      min-height: 60px;        
       gap: 2px;
     }
 
@@ -45,6 +46,13 @@
       color: rgba(255, 255, 255, 0.85);
       margin: 0;
       line-height: 1.2;
+      max-width: 140px; 
+    }
+
+    /* BRAND YELLOW ACCENT FOR HERO TEXT */
+    .hero-accent {
+      color: #F2C200;
+      font-weight: 700;
     }
 
     /* --- DESIGN STUDIO CARDS --- */
@@ -139,6 +147,7 @@
       }
       .hero-stats {
         grid-template-columns: 1fr 1fr;
+        min-height: auto;
       }
     }
   </style>
@@ -166,7 +175,7 @@
     <div class="container">
       <h1>Expert Excavation & Land Management</h1>
       <img class="logo" src="logo.PNG" alt="Phipps Excavating Logo">
-      <p>Building Kentucky on 20+ years of experience and local trust.</p>
+      <p>Building Kentucky on <span class="hero-accent">20+ years of experience</span> and local trust.</p>
       
       <div class="hero-btns">
         <a class="btn primary" href="tel:6065480377">Request Estimate</a>
