@@ -9,44 +9,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Premium Navy Card Styles */
-    .card {
-      background-color: #0B1F3B; /* Your brand navy */
-      border-top: 5px solid #F2C200; /* Yellow accent bar */
-      padding: 50px 30px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 4px;
-      min-height: 250px;
+    /* Premium Organized Card Styles */
+    .section {
+      background-color: #fcfcfc;
+      padding: 100px 0;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background-color: #0B1F3B; /* Brand Navy */
+      border-top: 6px solid #F2C200; /* Bold Yellow Accent */
+      padding: 60px 35px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Organization: Vertical Centering */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .card h3 {
       color: #F2C200;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2.5px; /* Organization: Hierarchy through spacing */
       font-weight: 800;
     }
 
-    .card p {
-      color: #ffffff;
-      line-height: 1.7;
-      font-size: 1.05rem;
-      opacity: 0.95;
+    /* The Organizational Divider */
+    .card::after {
+      content: "";
+      width: 35px;
+      height: 2px;
+      background: rgba(242, 194, 0, 0.4);
+      margin-bottom: 25px;
+      display: block;
     }
 
-    /* Section adjustments for contrast */
-    .section {
-      background-color: #f9f9f9; /* Light grey background to make navy cards pop */
+    .card p {
+      color: rgba(255, 255, 255, 0.85); /* Organization: Soft white for readability */
+      line-height: 1.8; /* Organization: Leading for scanning */
+      font-size: 0.95rem;
+      max-width: 280px; /* Organization: Preventing long line lengths */
+      margin: 0 auto;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      background-color: #0e274a;
+    }
+
+    /* Hero Text Refinement */
+    .services-hero p {
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
     }
   </style>
 </head>
@@ -76,9 +103,9 @@
   <header class="small-hero services-hero">
     <div class="container">
       <div class="hero-content">
-        <span class="hero-subtitle">Residential Solutions</span>
-        <h1>Services</h1>
-        <p>Precision excavation and site prep tailored for your home and property projects.</p>
+        <span class="hero-subtitle">Professional Property Solutions</span>
+        <h1>Our Services</h1>
+        <p>High-precision site preparation and land management. We deliver expert residential solutions with minimal impact on your property.</p>
         <div class="hero-btns">
           <a href="contact.html" class="btn primary">Request Estimate</a>
           <a href="tel:6065480377" class="btn secondary">Call Now</a>
@@ -92,18 +119,18 @@
       <div class="grid">
         
         <div class="card">
-          <h3>Full Excavation</h3>
-          <p>Comprehensive site preparation, basement digging, and precision earthmoving for residential builds.</p>
+          <h3>Precision Excavation</h3>
+          <p>High-precision site refining and tight-access digging. Specializing in surgical trenching for utilities, drainage lines, and small-scale property development.</p>
         </div>
 
         <div class="card">
           <h3>Grading & Leveling</h3>
-          <p>Ensuring proper water drainage and a level foundation for driveways, lawns, and structures.</p>
+          <p>Ensuring proper water drainage and a level surface for driveways, lawns, and yard improvements to protect your property's integrity.</p>
         </div>
 
         <div class="card">
-          <h3>Foundation Digging</h3>
-          <p>Precise excavation for home additions, garages, and new residential builds.</p>
+          <h3>Land & Brush Clearing</h3>
+          <p>Professional property line clearing and debris removal. Efficiently clearing brush and stumps to restore usability to overgrown land.</p>
         </div>
 
       </div>
