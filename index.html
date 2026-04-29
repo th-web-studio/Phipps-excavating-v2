@@ -49,13 +49,12 @@
       max-width: 140px; 
     }
 
-    /* BRAND YELLOW ACCENT FOR HERO TEXT */
     .hero-accent {
       color: #F2C200;
       font-weight: 700;
     }
 
-    /* --- SERVICE AREA SECTION --- */
+    /* --- SERVICE AREA SECTION (REFINED HOVER) --- */
     .section-area {
       padding: 80px 0;
       background-color: #ffffff;
@@ -66,15 +65,16 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto 0;
     }
 
     .area-card {
       padding: 25px 15px;
-      border: 1px solid #eee;
+      border: 1px solid rgba(11, 31, 59, 0.1); /* Subtle Navy Border */
       border-radius: 4px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      background: #fff;
     }
 
     .area-card h4 {
@@ -93,9 +93,9 @@
     }
 
     .area-card:hover {
-      border-color: #F2C200;
-      background: #fcfcfc;
-      transform: translateY(-3px);
+      border-color: #F2C200; /* Switches to Brand Yellow */
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(11, 31, 59, 0.05);
     }
 
     /* --- DESIGN STUDIO CARDS --- */
@@ -190,7 +190,6 @@
       }
       .hero-stats {
         grid-template-columns: 1fr 1fr;
-        min-height: auto;
       }
     }
   </style>
@@ -290,6 +289,14 @@
         <div class="area-card">
           <h4>Wolfe County</h4>
           <p>Campton & Surrounding</p>
+        </div>
+        <div class="area-card">
+          <h4>Elliott County</h4>
+          <p>Sandy Hook & Surrounding</p>
+        </div>
+        <div class="area-card">
+          <h4>Floyd County</h4>
+          <p>Prestonsburg & Surrounding</p>
         </div>
       </div>
     </div>
