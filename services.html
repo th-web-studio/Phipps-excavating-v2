@@ -9,23 +9,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Card Background Logic */
+    /* Card Background Styles */
     .card.has-bg {
       position: relative;
+      background-color: #0B1F3B; /* Fallback color */
       background-size: cover;
       background-position: center;
       color: #ffffff;
-      border-top: none; 
+      border: none;
       overflow: hidden;
       z-index: 1;
-      min-height: 280px; /* Increased height since icons are gone */
+      min-height: 300px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
+      padding: 30px;
     }
 
-    /* Dark overlay to ensure text readability */
+    /* Dark Overlay for Text Pop */
     .card.has-bg::before {
       content: '';
       position: absolute;
@@ -33,23 +35,18 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(11, 31, 59, 0.6), rgba(11, 31, 59, 0.85));
+      background: linear-gradient(rgba(11, 31, 59, 0.5), rgba(11, 31, 59, 0.85));
       z-index: -1;
     }
 
     .card.has-bg h3 {
       color: #F2C200;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
-    .card.has-bg p {
-      max-width: 90%;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    /* Standard Card adjustment (removing icons) */
+    /* Standard Card Fixes (No Icons) */
     .card h3 {
       margin-top: 0;
     }
@@ -60,13 +57,11 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
-      
       <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html" style="color: #F2C200 !important;">Services</a></li>
@@ -96,7 +91,7 @@
     <div class="container">
       <div class="grid">
         
-        <div class="card has-bg" style="background-image: url('Images/full-excavation-card.jpeg');">
+        <div class="card has-bg" style="background-image: url('images/full-excavation-card.jpeg');">
           <h3>Full Excavation</h3>
           <p>Comprehensive site preparation, basement digging, and precision earthmoving for residential builds.</p>
         </div>
@@ -143,6 +138,5 @@
       });
     });
   </script>
-
 </body>
 </html>
