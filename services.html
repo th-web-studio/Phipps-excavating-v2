@@ -97,6 +97,38 @@
         margin: 0 auto;
         opacity: 0.9;
     }
+
+    /* SYNCED NAV CTA STYLE FROM CONTACT PAGE */
+    .nav-call-btn {
+      background: #F2C200;
+      color: #0B1F3B !important;
+      padding: 10px 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-left: 15px;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    
+    .nav-call-btn:hover {
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 0;
+      }
+      .nav-call-btn {
+        margin-left: 0;
+        width: 80%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body class="services-page">
@@ -117,7 +149,7 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="tel:6065480377" class="nav-cta">Call Now</a></li>
+        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -125,7 +157,7 @@
   <header class="small-hero services-hero">
     <div class="container">
       <div class="hero-content">
-        <span class="hero-subtitle">Professional Property Solutions</span>
+        <span style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Professional Property Solutions</span>
         <h1>Our Services</h1>
         <p>High-precision site preparation and land management. We deliver expert residential solutions with minimal impact on your property.</p>
         <div class="hero-btns">
@@ -200,10 +232,12 @@
     const menuLinks = document.querySelector('#nav-list');
     const navItems = document.querySelectorAll('.nav-links a');
 
-    menu.addEventListener('click', function() {
-      menu.classList.toggle('is-active');
-      menuLinks.classList.toggle('active');
-    });
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
 
     navItems.forEach(link => {
       link.addEventListener('click', () => {
