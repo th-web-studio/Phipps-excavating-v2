@@ -64,50 +64,32 @@
       line-height: 1;
     }
 
-    /* --- THE GRID FIX --- */
+    /* --- REGIONAL SECTION (REVERTED TO STRETCHED TOP) --- */
     .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
     .flex-col-half { flex: 1; min-width: 320px; }
     
     .area-grid { 
       display: grid; 
-      grid-template-columns: 1fr 1fr; /* Strictly two columns */
-      gap: 12px;
-      max-width: 500px; /* Limits width so boxes don't get too wide */
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 12px; 
     }
 
     .area-card { 
       background: #fff; 
       padding: 15px; 
       border: 1px solid #eee; 
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Spacer creates an empty box to nudge Morgan to the right */
-    .grid-spacer {
-        content: "";
-        display: block;
+      text-align: center; 
+      transition: 0.3s;
     }
     
-    /* Using Flex approach inside a grid item to center Morgan between the columns */
-    .morgan-wrapper {
-        grid-column: 1 / span 2;
-        display: flex;
-        justify-content: center;
+    .featured-area {
+      grid-column: 1 / span 2; /* Stretches across both columns */
+      border-bottom: 3px solid #F2C200;
     }
 
-    .morgan-box {
-        width: calc(50% - 6px); /* Half width minus half the gap */
-        background: #fff; 
-        padding: 15px; 
-        border: 1px solid #eee; 
-        text-align: center;
-    }
-
-    .area-card strong, .morgan-box strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p, .morgan-box p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0 120px; }
@@ -136,13 +118,26 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    footer .social-links a { color: #F2C200 !important; border: 2px solid #F2C200 !important; padding: 10px 20px; display: inline-block; transition: 0.3s; }
-    footer .social-links a:hover { background: #F2C200 !important; color: #0B1F3B !important; }
+    footer .social-links a {
+      color: #F2C200 !important;
+      border: 2px solid #F2C200 !important;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    footer .social-links a:hover {
+      background: #F2C200 !important;
+      color: #0B1F3B !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+    }
 
     @media (max-width: 480px) {
+      .featured-area { grid-column: span 1; }
       .area-grid { grid-template-columns: 1fr; }
-      .morgan-wrapper { grid-column: span 1; }
-      .morgan-box { width: 100%; }
     }
   </style>
 </head>
@@ -182,12 +177,7 @@
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
-            <div class="morgan-wrapper">
-                <div class="morgan-box">
-                    <strong>Morgan</strong>
-                    <p>West Liberty</p>
-                </div>
-            </div>
+            <div class="area-card featured-area"><strong>Morgan</strong><p>West Liberty</p></div>
             
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
