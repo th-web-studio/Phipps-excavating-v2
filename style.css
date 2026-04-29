@@ -37,44 +37,61 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .menu-toggle { display: none; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background: #fff; }
 
-/* --- HERO SECTION --- */
-.hero { 
+/* --- HERO CORE LOGIC --- */
+.hero, .small-hero { 
   position: relative; 
   overflow: hidden;   
   color: #fff; 
   text-align: center; 
-  padding: 60px 20px 100px 20px; 
-  min-height: 75vh; /* [FIX] Reduced height so the photo isn't forced to zoom as deep */
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
   align-items: center;
 }
 
-/* [NEW TRANSITION] Slow Pan & Subtle Scale */
-.hero::before {
+.hero { padding: 60px 20px 100px 20px; min-height: 75vh; }
+.small-hero { padding: 80px 20px; min-height: 40vh; }
+
+/* The Animation Layer */
+.hero::before, .small-hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.8)), url('image.JPG');
   background-size: cover;
   background-position: center;
   z-index: -1;
-  /* 30s duration makes the movement buttery smooth */
   animation: slow-pan 30s infinite alternate ease-in-out; 
 }
 
-@keyframes slow-pan {
-  from { 
-    transform: scale(1.05) translateX(-2%); /* Starts slightly left */
-  } 
-  to { 
-    transform: scale(1.05) translateX(2%);  /* Gently pans right */
-  }    
+/* [FIXED] Assigning specific photos to specific classes */
+.hero::before { 
+  background-image: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.8)), url('image.JPG'); 
 }
 
+/* About Page Header */
+.about-page .small-hero::before { 
+  background-image: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('aboutheaderimage.JPG'); 
+}
+
+/* Services Page Header */
+.services-hero::before { 
+  background-image: radial-gradient(circle at center, rgba(11, 31, 59, 0.6) 0%, rgba(11, 31, 59, 0.85) 100%), url('images/services-hero.jpeg') !important; 
+}
+
+/* Contact Page Header */
+.contact-page .small-hero::before {
+  background-image: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('contactheaderimage.JPG') !important;
+}
+
+@keyframes slow-pan {
+  from { transform: scale(1.05) translateX(-2%); } 
+  to { transform: scale(1.05) translateX(2%); }    
+}
+
+/* --- HERO CONTENT --- */
 .logo { width: 320px; margin-bottom: 15px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); }
-.hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); text-transform: uppercase; margin-bottom: 10px; line-height: 1.1; font-weight: 900; }
+.hero h1, .small-hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); text-transform: uppercase; margin-bottom: 10px; line-height: 1.1; font-weight: 900; }
+.hero-subtitle { display: block; color: #F2C200; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 10px; z-index: 1; }
 .hero p { max-width: 750px; margin: 15px auto 30px auto !important; font-size: 1.15rem; color: rgba(255,255,255,0.9); }
 
 /* --- BUTTONS --- */
@@ -104,7 +121,6 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .section.alt { background: #f8fafc; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
-/* Service Card Fade-Up */
 .card { 
   background: #fff; 
   padding: 45px 30px; 
@@ -117,7 +133,6 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
   transform: translateY(40px);
   animation: fadeInUp 1s ease forwards;
 }
-
 .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(11, 31, 59, 0.15); }
 
 @keyframes fadeInUp {
@@ -139,7 +154,7 @@ footer .social-links a {
 }
 footer .social-links a:hover { background: #F2C200; color: #081424; transform: scale(1.05); }
 
-/* --- STICKY CALL --- */
+/* --- MOBILE RESPONSIVE --- */
 .sticky-call { 
   display: none; 
   position: fixed; 
@@ -158,7 +173,6 @@ footer .social-links a:hover { background: #F2C200; color: #081424; transform: s
   border: 2px solid #0B1F3B;
 }
 
-/* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 960px) {
   .nav-links { 
     position: absolute; 
