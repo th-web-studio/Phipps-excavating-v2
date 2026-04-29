@@ -4,7 +4,15 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
 /* --- NAVIGATION --- */
-.navbar { background: #0B1F3B; padding: 1.2rem 0; border-bottom: 4px solid #F2C200; position: sticky; top: 0; z-index: 1000; }
+.navbar { 
+  background: rgba(11, 31, 59, 0.95); /* [STUDIO MOVE] Slight transparency */
+  backdrop-filter: blur(10px);        /* [STUDIO MOVE] Glass blur effect */
+  padding: 1.2rem 0; 
+  border-bottom: 4px solid #F2C200; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+}
 .nav-container { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 
 .nav-brand { 
@@ -21,14 +29,44 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 
 .nav-links { display: flex; list-style: none; align-items: center; }
 .nav-links li { margin-left: 18px; }
-.nav-links a { color: #fff !important; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
+.nav-links a { color: #fff !important; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
+.nav-links a:hover { color: #F2C200 !important; } /* Added hover state */
+
 .nav-cta { background: #F2C200; color: #0B1F3B !important; padding: 8px 15px; border-radius: 4px; font-weight: 800 !important; }
 
 .menu-toggle { display: none; cursor: pointer; flex-shrink: 0; margin-left: 10px; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background: #fff; }
 
 /* --- HERO & HEADERS --- */
-.hero { background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('image.JPG'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 30px 20px 140px 20px; }
+.hero { 
+  position: relative; /* Required for the animation */
+  overflow: hidden;   /* Keeps the zoom effect inside the box */
+  color: #fff; 
+  text-align: center; 
+  padding: 80px 20px 140px 20px; 
+  min-height: 80vh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+
+/* [STUDIO MOVE] The Ken Burns Zoom Effect */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.8)), url('image.JPG');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: kenburns 20s infinite alternate; /* This creates the movement */
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
 
 .small-hero { 
   background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('aboutheaderimage.JPG'); 
@@ -39,24 +77,19 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
   color: #fff;
 }
 
-/* Services Hero - Added for your new page */
-.services-hero {
-  background: radial-gradient(circle at center, rgba(11, 31, 59, 0.6) 0%, rgba(11, 31, 59, 0.85) 100%), 
-              url('images/services-hero.jpeg') !important; 
-  background-size: cover !important;
-  background-position: center !important;
-}
-
 .small-hero h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); text-transform: uppercase; margin-bottom: 10px; }
 .hero-subtitle { display: block; color: #F2C200; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 10px; }
 
-.logo { width: 320px; margin: 0; }
-.hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin-bottom: 0; }
-.hero p { margin: 15px 0 !important; }
+.logo { width: 320px; margin-bottom: 20px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); text-transform: uppercase; margin-bottom: 10px; line-height: 1.1; }
+.hero p { max-width: 700px; margin: 15px auto 30px auto !important; font-size: 1.1rem; }
 
-.btn { display: inline-block; padding: 15px 30px; margin: 10px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; border: none; transition: 0.3s; text-align: center; }
-.primary { background: #F2C200; color: #0B1F3B; }
+/* --- BUTTONS --- */
+.btn { display: inline-block; padding: 15px 30px; margin: 10px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; border: none; transition: 0.3s; text-align: center; cursor: pointer; }
+.primary { background: #F2C200; color: #0B1F3B; box-shadow: 0 4px 15px rgba(242, 194, 0, 0.3); }
+.primary:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(242, 194, 0, 0.4); }
 .secondary { border: 2px solid #fff; color: #fff; background: transparent; }
+.secondary:hover { background: #fff; color: #0B1F3B; }
 .facebook-btn { background: #1877F2 !important; color: #fff !important; }
 
 /* --- HERO STATS --- */
@@ -68,6 +101,7 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
   gap: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 30px;
+  z-index: 1;
 }
 .stat-item { padding: 0 15px; min-width: 150px; }
 .stat-value { display: block; font-size: 1.4rem; font-weight: 800; color: #F2C200; text-transform: uppercase; }
@@ -77,32 +111,43 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 .section { padding: 80px 0; }
 .section.alt { background: #f4f7f9; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.card { background: #fff; padding: 40px; border-radius: 8px; border-top: 6px solid #F2C200; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-.icon { font-size: 3rem; margin-bottom: 20px; }
 
-/* --- CONTACT PAGE SPECIFICS --- */
-.contact-details { padding-right: 20px; }
-.info-box { margin-top: 30px; }
-.info-item { margin-bottom: 25px; }
-.info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 5px; }
-.info-item p { font-size: 1.2rem; font-weight: 700; color: #0B1F3B; }
-
-.form-container { background: #f4f7f9; padding: 30px; border-radius: 8px; border: 1px solid #ddd; }
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #0B1F3B; }
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 1rem;
+/* [STUDIO MOVE] Card Animations */
+.card { 
+  background: #fff; 
+  padding: 40px; 
+  border-radius: 8px; 
+  border-top: 6px solid #F2C200; 
+  text-align: center; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: 0.4s ease;
+  opacity: 0;               /* Start hidden */
+  transform: translateY(30px); /* Start slightly lower */
+  animation: fadeInUp 0.8s ease forwards; /* Smooth entrance */
 }
 
-/* --- FOOTER & STICKY --- */
-footer { padding: 40px 20px; background: #081424; color: #888; text-align: center; }
-footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800; text-transform: uppercase; border: 1px solid #F2C200; padding: 10px 20px; border-radius: 4px; display: inline-block; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FOOTER --- */
+footer { padding: 40px 20px; background: #081424; color: #888; text-align: center; }
+footer .social-links a { 
+  color: #F2C200; 
+  text-decoration: none; 
+  font-weight: 800; 
+  text-transform: uppercase; 
+  border: 1px solid #F2C200; 
+  padding: 10px 20px; 
+  border-radius: 4px; 
+  display: inline-block; 
+  transition: 0.3s;
+}
+footer .social-links a:hover { background: #F2C200; color: #081424; }
+
+/* --- MOBILE RESPONSIVE --- */
 .sticky-call { 
   display: none; 
   position: fixed; 
@@ -121,36 +166,19 @@ footer .social-links a { color: #F2C200; text-decoration: none; font-weight: 800
   border: 2px solid #0B1F3B;
 }
 
-/* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 960px) {
-  .nav-brand { font-size: clamp(0.75rem, 3.8vw, 1rem); }
   .nav-links { 
-    display: flex; 
-    flex-direction: column; 
-    width: 100%; 
     position: absolute; 
     top: -1000px; 
     left: 0; 
-    transition: 0.4s ease; 
+    width: 100%; 
+    flex-direction: column; 
     background: #0B1F3B; 
+    transition: 0.4s ease; 
     padding: 30px 0; 
-    border-bottom: 4px solid #F2C200; 
   }
-  .nav-links.active { top: 76px; } 
-  .nav-links li { margin: 12px 0; text-align: center; }
+  .nav-links.active { top: 76px; }
   .menu-toggle { display: block; }
-  .sticky-call { display: block; } 
-  #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
-  #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-  .hero-stats { gap: 15px; }
-  .stat-item { min-width: 120px; padding: 5px; }
-  .stat-value { font-size: 1.1rem; }
-}
-
-/* --- OVERRIDE CONTACT HEADER IMAGE --- */
-.contact-page .small-hero {
-  background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('contactheaderimage.JPG') !important;
-  background-size: cover !important;
-  background-position: center !important;
+  .sticky-call { display: block; }
+  .hero { padding-bottom: 80px; }
 }
