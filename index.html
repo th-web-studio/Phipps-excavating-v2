@@ -12,13 +12,16 @@
     /* --- HERO ARCHITECTURE --- */
     .hero {
       position: relative;
-      height: 100vh;
+      /* Changed to min-height so it expands if content is too tall */
+      min-height: 100vh; 
       width: 100%;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: #000; 
+      /* Added bottom padding to ensure the stats don't hit the very edge */
+      padding-bottom: 40px; 
     }
 
     #hero-video {
@@ -39,35 +42,36 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
       z-index: 2;
       pointer-events: none;
     }
 
-    /* --- HERO CONTENT & COMPACT LAYOUT --- */
+    /* --- HERO CONTENT --- */
     .hero .container {
       position: relative;
-      padding: 20px;
-      /* Balanced padding to clear nav without pushing footer off */
-      padding-top: 80px; 
+      padding: 0 20px;
+      /* Clears the navbar (approx 80px) */
+      padding-top: 100px; 
       z-index: 3;
       text-align: center;
       width: 100%;
+      max-width: 1200px;
     }
 
     .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 3.5rem); /* Slightly smaller max size */
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
       line-height: 1.1;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 0px; 
+      margin-bottom: 0; 
       text-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 
     .logo {
       display: block;
-      margin: -10px auto -10px auto; /* Tighter margins to save space */
-      max-width: 240px; /* Reduced from 280px */
+      margin: -15px auto -15px auto; 
+      max-width: 220px; 
       height: auto;
     }
 
@@ -80,26 +84,27 @@
     .hero-sub-title {
       display: block;
       font-weight: 600; 
-      font-size: 0.65em;
+      font-size: 0.6em;
       letter-spacing: 6px; 
       color: #F2C200; 
       margin-top: 5px;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.6);
     }
 
     .hero p {
-      margin: 10px 0 20px 0;
-      font-size: 0.95rem;
+      margin: 15px 0 25px 0;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
     }
 
     /* --- COMPACT HERO STATS --- */
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 15px;
-      margin-top: 20px; 
-      padding-top: 15px;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 30px; 
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .stat-item {
@@ -109,28 +114,27 @@
     }
 
     .stat-value {
-      font-size: 1.1rem;
+      font-size: clamp(0.9rem, 2vw, 1.2rem);
       font-weight: 800;
       color: #F2C200;
       text-transform: uppercase;
-      line-height: 1.1;
     }
 
     .stat-label {
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-size: 0.65rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .hero-accent { color: #F2C200; font-weight: 700; }
 
     /* --- MOBILE RESPONSIVENESS --- */
     @media (max-width: 768px) {
-      .hero-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .hero .container { padding-top: 100px; }
-      .logo { max-width: 200px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .hero { padding-bottom: 60px; } /* More room for mobile thumbs */
+      .logo { max-width: 180px; }
     }
   </style>
 </head>
@@ -195,63 +199,5 @@
     </div>
   </header>
 
-  <section id="services" class="section alt">
-    <div class="container">
-      <h2 style="text-align: center; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; color: #0B1F3B;">Professional Services</h2>
-      <div class="home-grid">
-        <div class="home-card">
-          <h3>Full Excavation</h3>
-          <p>Site prep and precision grading.</p>
-        </div>
-        <div class="home-card">
-          <h3>Land Clearing</h3>
-          <p>Clear thick brush and reclaim acreage.</p>
-        </div>
-        <div class="home-card">
-          <h3>Driveway Repair</h3>
-          <p>Gravel installation and leveling.</p>
-        </div>
-        <div class="home-card">
-          <h3>Land Management</h3>
-          <p>Terrain and drainage ditching.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="service-areas">
-    <div class="container">
-      <h2>Regional Reach</h2>
-      <span class="area-subtitle">Based in West Liberty</span>
-      <div class="county-grid">
-        <div class="county-item"><span class="county-name">Morgan</span><br><span class="city-name">West Liberty</span></div>
-        <div class="county-item"><span class="county-name">Rowan</span><br><span class="city-name">Morehead</span></div>
-        <div class="county-item"><span class="county-name">Elliott</span><br><span class="city-name">Sandy Hook</span></div>
-        <div class="county-item"><span class="county-name">Johnson</span><br><span class="city-name">Paintsville</span></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/" target="_blank">Find us on Facebook</a>
-      </div>
-      <p>© 2026 Phipps Excavating & Land Management</p>
-    </div>
-  </footer>
-
-  <a class="sticky-call" href="tel:6065480377">Call Now</a>
-
-  <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    if(menu) {
-      menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-      });
-    }
-  </script>
-</body>
+  </body>
 </html>
