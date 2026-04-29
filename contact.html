@@ -27,6 +27,7 @@
       margin-bottom: 40px;
     }
 
+    /* THE INFO BOXES */
     .info-item {
       margin-bottom: 30px;
       border-left: 4px solid #F2C200; 
@@ -58,6 +59,7 @@
       border-radius: 2px;
       box-shadow: 0 40px 80px rgba(11, 31, 59, 0.12);
       border-top: 10px solid #F2C200;
+      position: relative;
     }
 
     .form-group label {
@@ -77,20 +79,30 @@
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       background: #fafafa;
+      border-radius: 0;
+      transition: border-color 0.3s ease;
     }
 
-    /* --- CLEAN REGIONAL GRID (NO OVERLAP) --- */
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #0B1F3B;
+      background: #fff;
+    }
+
+    /* --- CLEAN REGIONAL GRID --- */
     .area-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      position: relative;
+      z-index: 1; /* Keeping cards below the main text layer if they overlap on small screens */
     }
 
     .area-card {
       background: #fff;
       padding: 30px;
       border: 1px solid #eee;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -118,6 +130,7 @@
     .area-card:hover {
       border-color: #0B1F3B;
       background: #0B1F3B;
+      transform: translateY(-5px);
     }
 
     .area-card:hover strong { color: #fff; }
@@ -133,6 +146,7 @@
 
     @media screen and (max-width: 768px) {
         .form-container { padding: 35px 25px; }
+        .contact-details h2 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -160,15 +174,15 @@
     </div>
   </header>
 
-  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 80px 0;">
+  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 100px 0;">
     <div class="container">
       <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: start;">
         
-        <div>
+        <div style="position: relative; z-index: 10;">
           <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; margin-bottom: 20px;">Site Availability</p>
           <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; color: #0B1F3B; margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1;">Regional<br>Reach.</h2>
           <p style="color: #666; margin-top: 30px; line-height: 1.8; max-width: 420px; font-size: 1.05rem; border-top: 2px solid #F2C200; padding-top: 25px;">
-            We mobilize specialized equipment to Morgan County and all surrounding communities, ensuring professional residential site results.
+            Serving Morgan County and beyond, we bring professional-grade site solutions directly to your property.
           </p>
         </div>
 
@@ -237,6 +251,7 @@
   </footer>
 
   <script>
+    /* Phone formatting logic */
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', (e) => {
       let input = e.target.value.replace(/\D/g, ''); 
