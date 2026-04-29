@@ -27,7 +27,6 @@
       margin-bottom: 40px;
     }
 
-    /* THE INFO BOXES */
     .info-item {
       margin-bottom: 30px;
       border-left: 4px solid #F2C200; 
@@ -59,7 +58,6 @@
       border-radius: 2px;
       box-shadow: 0 40px 80px rgba(11, 31, 59, 0.12);
       border-top: 10px solid #F2C200;
-      position: relative;
     }
 
     .form-group label {
@@ -80,13 +78,6 @@
       font-size: 1rem;
       background: #fafafa;
       border-radius: 0;
-      transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: #0B1F3B;
-      background: #fff;
     }
 
     /* --- CLEAN REGIONAL GRID --- */
@@ -94,8 +85,6 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      position: relative;
-      z-index: 1; /* Keeping cards below the main text layer if they overlap on small screens */
     }
 
     .area-card {
@@ -155,6 +144,13 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
+      
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -251,7 +247,18 @@
   </footer>
 
   <script>
-    /* Phone formatting logic */
+    /* MOBILE MENU LOGIC */
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
+    
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
+
+    /* PHONE FORMATTING LOGIC */
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', (e) => {
       let input = e.target.value.replace(/\D/g, ''); 
