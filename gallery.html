@@ -51,9 +51,7 @@
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
-    .highlight {
-      color: #F2C200;
-    }
+    .highlight { color: #F2C200; }
 
     .hero-description {
       max-width: 800px;
@@ -66,8 +64,80 @@
       line-height: 1.2;
     }
 
+    /* --- BEFORE/AFTER SLIDER STYLES --- */
+    .comparison-section { padding: 80px 0 40px; background: #fcfcfc; }
+    .section-title { text-align: center; margin-bottom: 40px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
+
+    .comparison-slider {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 500px; /* Adjust based on photo height */
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .image-after, .image-before {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-before {
+      width: 50%;
+      border-right: 3px solid #F2C200;
+    }
+
+    .label {
+      position: absolute;
+      top: 20px;
+      padding: 6px 12px;
+      background: rgba(11, 31, 59, 0.9);
+      color: #fff;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+    .label.before { left: 20px; border-left: 3px solid #F2C200; }
+    .label.after { right: 20px; border-right: 3px solid #F2C200; }
+
+    .slider-input {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+
+    .slider-line {
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 2px;
+      background: #F2C200;
+      pointer-events: none;
+      z-index: 9;
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      background: #F2C200;
+      border-radius: 50%;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .slider-button::before { content: '◀ ▶'; color: #0B1F3B; font-weight: 900; font-size: 14px; }
+
     /* --- GALLERY GRID REFINEMENT --- */
-    .gallery-section { padding: 80px 0 120px; background: #fcfcfc; }
+    .gallery-section { padding: 40px 0 120px; background: #fcfcfc; }
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
     
     .gallery-item {
@@ -98,10 +168,8 @@
     .gallery-overlay h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #F2C200; margin-bottom: 8px; font-weight: 900; }
     .gallery-overlay p { font-size: 1.3rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
 
-    /* FIXED: Prevent Facebook Button glitch on click */
-    footer .social-links a, 
-    footer .social-links a:visited, 
-    footer .social-links a:active {
+    /* FOOTER SOCIAL FIX */
+    footer .social-links a, footer .social-links a:visited, footer .social-links a:active {
       color: #F2C200 !important;
       background: transparent !important;
       border: 2px solid #F2C200 !important;
@@ -113,14 +181,11 @@
       color: #0B1F3B !important;
     }
 
-    @keyframes slow-pan {
-      from { transform: scale(1); }
-      to { transform: scale(1.1); }
-    }
+    @keyframes slow-pan { from { transform: scale(1); } to { transform: scale(1.1); } }
 
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: 1fr; }
-      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+      .comparison-slider { height: 350px; }
     }
   </style>
 </head>
@@ -150,6 +215,27 @@
       <p class="hero-description">Site Solutions Executed with Detail</p>
     </div>
   </header>
+
+  <section class="comparison-section">
+    <div class="container">
+      <h2 class="section-title">Land <span class="highlight">Clearing</span> Transformation</h2>
+      
+      <div class="comparison-slider">
+        <div class="image-after" style="background-image: url('land-clear-after.jpeg');">
+          <div class="label after">After</div>
+        </div>
+        
+        <div class="image-before" style="background-image: url('land-clear-before.JPG');">
+          <div class="label before">Before</div>
+        </div>
+        
+        <input type="range" min="0" max="100" value="50" class="slider-input">
+        <div class="slider-line">
+          <div class="slider-button"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="gallery-section">
     <div class="container">
@@ -203,6 +289,7 @@
   <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
+    // MOBILE MENU
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
@@ -211,6 +298,19 @@
         menuLinks.classList.toggle('active');
       });
     }
+
+    // BEFORE & AFTER SLIDERS
+    document.querySelectorAll('.comparison-slider').forEach(sliderContainer => {
+      const slider = sliderContainer.querySelector('.slider-input');
+      const beforeImg = sliderContainer.querySelector('.image-before');
+      const sliderLine = sliderContainer.querySelector('.slider-line');
+
+      slider.addEventListener('input', (e) => {
+        const value = e.target.value + "%";
+        beforeImg.style.width = value;
+        sliderLine.style.left = value;
+      });
+    });
   </script>
 </body>
 </html>
