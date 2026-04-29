@@ -12,7 +12,6 @@
     /* PREMIUM ORGANIZED CARD STYLES */
     .section-services {
       background-color: #fcfcfc;
-      /* REDUCED TOP PADDING TO PULL CARDS UP */
       padding: 40px 0 100px 0; 
     }
 
@@ -25,14 +24,14 @@
     }
 
     .service-card {
-      background-color: #0B1F3B; /* Deep Brand Navy */
-      border-top: 6px solid #F2C200; /* Precision Yellow Accent */
+      background-color: #0B1F3B; 
+      border-top: 6px solid #F2C200; 
       padding: 50px 40px;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-radius: 4px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Left aligned for professional lists */
+      align-items: flex-start; 
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
@@ -47,7 +46,6 @@
       text-align: left;
     }
 
-    /* The Organizational Divider */
     .service-card::after {
       content: "";
       width: 35px;
@@ -57,7 +55,6 @@
       display: block;
     }
 
-    /* --- POWER BULLETS STYLE --- */
     .service-list {
       list-style: none;
       padding: 0;
@@ -76,7 +73,6 @@
       letter-spacing: 0.2px;
     }
 
-    /* The custom yellow marker */
     .service-list li::before {
       content: "■"; 
       position: absolute;
@@ -92,47 +88,27 @@
       background-color: #0e274a;
     }
 
-    /* Hero Refinement */
-    .services-hero p {
-        max-width: 600px;
-        margin: 0 auto;
-        opacity: 0.9;
-    }
-
-    /* REDUCED HERO BOTTOM PADDING */
     .small-hero {
       padding-bottom: 40px !important;
     }
 
-    /* SYNCED NAV CTA STYLE FROM CONTACT PAGE */
-    .nav-call-btn {
-      background: #F2C200;
-      color: #0B1F3B !important;
-      padding: 10px 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      border-radius: 4px;
-      margin-left: 15px;
-      transition: 0.3s;
-      text-decoration: none;
-    }
-    
-    .nav-call-btn:hover {
-      background: #fff;
-    }
-
+    /* --- MOBILE NAV SYNC --- */
     @media (max-width: 768px) {
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 0;
-      }
-      .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
+      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+      
+      /* EXACT MATCH TO ALL OTHER PAGES */
+      .nav-cta-menu { 
+        background: #F2C200; 
+        color: #0B1F3B !important; 
+        padding: 15px 20px; 
+        border-radius: 4px; 
+        font-weight: 900; 
+        width: 80%; 
+        margin: 0 auto; 
+        display: block; 
+        text-transform: uppercase; 
+        font-size: 0.9rem;
+        text-decoration: none;
       }
     }
   </style>
@@ -155,7 +131,7 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
+        <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -224,33 +200,21 @@
 
   <footer>
     <div class="container" style="text-align: center;">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
-      </div>
-      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
+      <p style="font-weight: 700; color: #0B1F3B;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
-  <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
+  <a class="sticky-call" href="tel:6065480377">Call Now</a>
 
   <script>
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
-    const navItems = document.querySelectorAll('.nav-links a');
-
     if(menu) {
       menu.addEventListener('click', function() {
         menu.classList.toggle('is-active');
         menuLinks.classList.toggle('active');
       });
     }
-
-    navItems.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('is-active');
-        menuLinks.classList.remove('active');
-      });
-    });
   </script>
 
 </body>
