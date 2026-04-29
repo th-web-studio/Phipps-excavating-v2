@@ -30,7 +30,7 @@
     /* THE INFO BOXES */
     .info-item {
       margin-bottom: 30px;
-      border-left: 3px solid #F2C200; /* Subtle accent line */
+      border-left: 4px solid #F2C200; 
       padding-left: 20px;
     }
 
@@ -49,6 +49,7 @@
       font-weight: 700;
       color: #0B1F3B !important;
       margin-bottom: 0;
+      text-decoration: none;
     }
 
     /* PREMIUM FORM STYLING */
@@ -75,8 +76,8 @@
     .form-group textarea {
       width: 100%;
       padding: 15px;
-      border: 2px solid #eee; /* Thicker, cleaner border */
-      border-radius: 0; /* Sharp corners feel more industrial/premium */
+      border: 2px solid #eee;
+      border-radius: 0;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       transition: all 0.3s ease;
@@ -87,11 +88,24 @@
     .form-group select:focus, 
     .form-group textarea:focus {
       outline: none;
-      border-color: #0B1F3B; /* Navy focus for high contrast */
+      border-color: #0B1F3B;
       background: #fff;
     }
 
-    /* Small Hero Styling to match Home Page depth */
+    /* AREA CARDS (SEO SECTION) */
+    .area-card {
+      padding: 25px;
+      background: #fff;
+      border: 1px solid #eee;
+      transition: 0.3s ease;
+    }
+    
+    .area-card:hover {
+      border-color: #F2C200;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
     .small-hero {
       padding: 120px 20px !important;
     }
@@ -133,9 +147,9 @@
 
   <header class="small-hero">
     <div class="container">
-      <span class="hero-subtitle">Let's Build Your Foundation</span>
+      <span class="hero-subtitle" style="font-weight: 800; color: #F2C200; letter-spacing: 2px;">ESTABLISH YOUR FOUNDATION</span>
       <h1>Contact Us</h1>
-      <p>Professional Earthmoving & Site Solutions in Kentucky</p>
+      <p>Professional Residential Earthmoving & Site Solutions</p>
     </div>
   </header>
 
@@ -145,7 +159,7 @@
         
         <div class="contact-details">
           <h2>Let's Get<br>To Work.</h2>
-          <p>Phipps Excavating & Land Management delivers high-precision residential and commercial site services. Reach out today for a professional site assessment and estimate.</p>
+          <p>Phipps Excavating & Land Management delivers high-precision residential site services. Reach out today for a professional site assessment and estimate.</p>
           
           <div class="info-box">
             <div class="info-item">
@@ -153,12 +167,12 @@
               <p><a href="tel:6065480377">(606) 548-0377</a></p>
             </div>
             <div class="info-item">
-              <strong>Official Correspondence</strong>
+              <strong>Email</strong>
               <p>jphipps275@hotmail.com</p>
             </div>
             <div class="info-item">
-              <strong>HQ Location</strong>
-              <p>West Liberty, KY</p>
+              <strong>Service Area</strong>
+              <p>West Liberty, KY & Surrounding Areas</p>
             </div>
           </div>
         </div>
@@ -174,23 +188,59 @@
               <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
             </div>
             <div class="form-group">
-              <label>Service Required</label>
+              <label>Service Category</label>
               <select name="service" required>
                 <option value="" disabled selected>Choose a category...</option>
-                <option value="Excavation">Full Excavation</option>
+                <option value="Excavation">Residential Excavation</option>
                 <option value="Driveway">Driveway Repair / Gravel</option>
-                <option value="Clearing">Land Clearing</option>
+                <option value="Clearing">Residential Land Clearing</option>
                 <option value="Other">General Inquiry</option>
               </select>
             </div>
             <div class="form-group">
               <label>Project Details</label>
-              <textarea name="message" rows="5" placeholder="Please describe the scope of your project..." required></textarea>
+              <textarea name="message" rows="5" placeholder="Describe your residential project goals..." required></textarea>
             </div>
             <button type="submit" class="btn primary" style="width: 100%; margin: 0; font-size: 1rem; padding: 22px; font-weight: 900;">Send Estimate Request</button>
           </form>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: #f8fafc; border-top: 1px solid #eee;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1px; color: #0B1F3B;">Regional Coverage</h2>
+        <p style="color: #F2C200; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Serving Morgan County & Bordering Regions</p>
+      </div>
+      
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center; gap: 20px;">
+        <div class="area-card">
+          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Rowan</strong>
+          <p style="color: #666; font-weight: 600;">Morehead</p>
+        </div>
+        <div class="area-card">
+          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Elliott</strong>
+          <p style="color: #666; font-weight: 600;">Sandy Hook</p>
+        </div>
+        <div class="area-card">
+          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Johnson</strong>
+          <p style="color: #666; font-weight: 600;">Paintsville</p>
+        </div>
+        <div class="area-card">
+          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Magoffin</strong>
+          <p style="color: #666; font-weight: 600;">Salyersville</p>
+        </div>
+        <div class="area-card">
+          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Wolfe</strong>
+          <p style="color: #666; font-weight: 600;">Campton</p>
+        </div>
+        <div class="area-card">
+          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Menifee</strong>
+          <p style="color: #666; font-weight: 600;">Frenchburg</p>
+        </div>
       </div>
     </div>
   </section>
@@ -220,7 +270,6 @@
     phoneInput.addEventListener('input', (e) => {
       let input = e.target.value.replace(/\D/g, ''); 
       let size = input.length;
-      
       if (size > 0) {
         if (size <= 3) {
           input = `(${input}`;
