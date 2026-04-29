@@ -95,46 +95,54 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
-    /* --- ESTHETICALLY PLEASING AREA CARDS --- */
+    /* --- REFINED STAGGERED AREA GRID --- */
     .area-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 30px;
     }
 
     .area-card {
       background: #fff;
-      padding: 30px;
-      text-align: left;
-      border-radius: 4px;
-      border-left: 0px solid transparent;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      padding: 35px;
+      border-radius: 0;
+      border-bottom: 4px solid #f0f0f0;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
     }
     
+    /* Stagger the second column down slightly for a "Design Studio" feel */
+    .area-card:nth-child(even) {
+      transform: translateY(30px);
+    }
+
     .area-card strong {
       color: #0B1F3B;
       display: block;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
       font-weight: 900;
     }
 
     .area-card p {
-      color: #777;
-      font-size: 0.9rem;
+      color: #F2C200; /* Use brand color for the city to make it pop */
+      font-size: 0.85rem;
       margin: 0;
-      font-weight: 500;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .area-card:hover {
-      border-left: 6px solid #F2C200;
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      padding-left: 24px;
+      border-bottom: 4px solid #F2C200;
+      background: #0B1F3B;
+      transform: translateY(-5px); /* Note: override even:nth stagger if needed, but simple hover lift works well */
     }
+
+    .area-card:hover strong { color: #fff; }
+    .area-card:hover p { color: #F2C200; }
 
     .small-hero {
       padding: 130px 20px !important;
@@ -148,7 +156,8 @@
     }
 
     @media screen and (max-width: 992px) {
-        .area-grid { grid-template-columns: 1fr; }
+        .area-grid { gap: 20px; }
+        .area-card:nth-child(even) { transform: translateY(0); }
     }
 
     @media screen and (max-width: 768px) {
@@ -189,14 +198,16 @@
     </div>
   </header>
 
-  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 100px 0;">
+  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 120px 0;">
     <div class="container">
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; align-items: center;">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 100px; align-items: start;">
         
-        <div>
-          <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 15px;">Kentucky Site Coverage</p>
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; color: #0B1F3B; margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1;">Regional<br>Reach</h2>
-          <p style="color: #666; margin-top: 25px; line-height: 1.8; max-width: 420px; font-size: 1.05rem;">We mobilize specialized equipment to Morgan County and all surrounding regions, ensuring professional site results across the Licking River Valley and beyond.</p>
+        <div style="position: sticky; top: 120px;">
+          <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; margin-bottom: 20px;">Site Availability</p>
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -2px; color: #0B1F3B; margin: 0; font-size: clamp(2.8rem, 6vw, 4rem); line-height: 0.95;">Regional<br>Coverage.</h2>
+          <p style="color: #666; margin-top: 35px; line-height: 1.9; max-width: 400px; font-size: 1.1rem; border-top: 2px solid #F2C200; padding-top: 30px;">
+            We maintain a broad operational radius, mobilizing heavy equipment to **Morgan County** and all surrounding Licking River Valley communities.
+          </p>
         </div>
 
         <div class="area-grid">
@@ -230,13 +241,13 @@
     </div>
   </section>
 
-  <section class="section" style="padding: 100px 0;">
+  <section class="section" style="padding: 120px 0;">
     <div class="container">
       <div class="grid" style="align-items: start; gap: 80px;">
         
         <div class="contact-details">
-          <h2>Let's Get<br>To Work.</h2>
-          <p>Phipps Excavating & Land Management delivers high-precision residential site services. Reach out today for a professional site assessment and estimate.</p>
+          <h2>Ready To<br>Mobilize.</h2>
+          <p>Get a direct estimate for your residential excavating or land management project. We respond to all inquiries within 24 business hours.</p>
           
           <div class="info-box">
             <div class="info-item">
@@ -248,8 +259,8 @@
               <p>jphipps275@hotmail.com</p>
             </div>
             <div class="info-item">
-              <strong>Service Area</strong>
-              <p>West Liberty, KY & Surrounding Areas</p>
+              <strong>HQ Location</strong>
+              <p>West Liberty, KY</p>
             </div>
           </div>
         </div>
