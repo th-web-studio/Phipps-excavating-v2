@@ -58,7 +58,7 @@
 
     .highlight { color: #F2C200; }
 
-    /* --- TRANSFORMATIONS (PRESERVED INDIVIDUAL) --- */
+    /* --- TRANSFORMATIONS --- */
     .pulse-section { padding: 40px 0; background: #fcfcfc; }
     .pulse-wrapper { margin-bottom: 60px; }
     .section-title { text-align: center; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
@@ -96,12 +96,7 @@
     .dot { width: 6px; height: 6px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
 
     /* --- VIDEO SECTION --- */
-    .video-section {
-      padding: 60px 0;
-      background: #0B1F3B;
-      text-align: center;
-    }
-
+    .video-section { padding: 60px 0; background: #0B1F3B; text-align: center; }
     .video-container {
       position: relative;
       max-width: 1000px;
@@ -111,49 +106,26 @@
       box-shadow: 0 0 40px rgba(242, 194, 0, 0.15);
       border: 1px solid rgba(255,255,255,0.1);
     }
-
-    .video-container video { width: 100%; display: block; filter: brightness(0.95); outline: none; }
-
+    .video-container video { width: 100%; display: block; filter: brightness(0.95); }
     #replay-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(11, 31, 59, 0.85);
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 5;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(11, 31, 59, 0.85); display: none;
+      flex-direction: column; justify-content: center; align-items: center; z-index: 5;
     }
-
     .replay-btn {
-      background: #F2C200;
-      color: #0B1F3B;
-      border: none;
-      padding: 14px 32px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+      background: #F2C200; color: #0B1F3B; border: none; padding: 14px 32px;
+      font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; cursor: pointer;
     }
-    .replay-btn:hover { transform: scale(1.05); }
 
     /* --- MASONRY GRID --- */
     .masonry-section { padding: 80px 0; background: #fff; }
     .masonry-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr); 
-      grid-auto-rows: 140px;
-      gap: 15px;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(6, 1fr); 
+      grid-auto-rows: 140px; gap: 15px; max-width: 1100px; margin: 0 auto;
     }
-
     .grid-item { position: relative; overflow: hidden; border-radius: 4px; cursor: zoom-in; }
     .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
     .grid-item:hover img { transform: scale(1.08); }
-
     .item-1 { grid-column: span 3; grid-row: span 3; } 
     .item-2 { grid-column: span 3; grid-row: span 2; }
     .item-3 { grid-column: span 2; grid-row: span 2; } 
@@ -163,15 +135,9 @@
 
     /* --- LIGHTBOX --- */
     .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 10001;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(11, 31, 59, 0.98);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: none; position: fixed; z-index: 10001; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(11, 31, 59, 0.98);
+      flex-direction: column; justify-content: center; align-items: center;
     }
     .lightbox.active { display: flex; }
     .close-lightbox {
@@ -197,12 +163,16 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html" style="color: #F2C200 !important;">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -224,12 +194,11 @@
           <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
         </div>
       </div>
-
       <div class="pulse-wrapper">
         <h2 class="section-title">Driveway <span class="highlight">Repair</span></h2>
         <div class="pulse-container lightbox-trigger" data-type="transform" data-before="drive-before .JPG" data-after="drive-after.JPG">
           <img src="drive-after.JPG" class="pulse-img after" alt="After">
-          <img src="drive-before .JPG" class="pulse-img before" alt="Before" style="animation-delay: 1.5s;">
+          <img src="drive-before .JPG" class="pulse-img before" alt="Before">
           <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
         </div>
       </div>
@@ -273,20 +242,39 @@
     </div>
   </div>
 
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank">Find us on Facebook</a>
+      </div>
+      <p>© 2026 Phipps Excavating & Land Management</p>
+    </div>
+  </footer>
+
+  <a href="tel:6065480377" class="sticky-call">Call Now</a>
+
   <script>
-    // VIDEO SCROLL & REPLAY
+    // NAVBAR LOGIC
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
+    if(menu) {
+      menu.addEventListener('click', () => {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
+
+    // VIDEO LOGIC
     const video = document.getElementById('gallery-video');
     const replayOverlay = document.getElementById('replay-overlay');
     const replayTrigger = document.getElementById('replay-trigger');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) { video.play(); } 
+        if (entry.isIntersecting) { video.play().catch(() => {}); } 
         else { video.pause(); }
       });
     }, { threshold: 0.5 });
     observer.observe(video);
-
     video.onended = () => { replayOverlay.style.display = 'flex'; };
     replayTrigger.addEventListener('click', () => {
       replayOverlay.style.display = 'none';
@@ -294,7 +282,7 @@
       video.play();
     });
 
-    // LIGHTBOX 
+    // LIGHTBOX LOGIC
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('main-lb-img');
     const lbControls = document.getElementById('lb-controls');
