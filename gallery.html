@@ -9,21 +9,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- PAGE SPECIFIC OVERRIDES --- */
+    /* --- PREMIUM GALLERY HERO --- */
+    .gallery-page-hero {
+      position: relative;
+      padding: 150px 0 110px; 
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
     .gallery-page-hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
+      background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('aboutheaderimage.JPG');
       background-size: cover;
       background-position: center;
       z-index: -1;
       animation: slow-pan 30s infinite alternate ease-in-out;
     }
 
+    .hero-subtitle {
+      display: inline-block;
+      font-weight: 900;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F2C200;
+      padding-bottom: 5px;
+    }
+
+    .gallery-page-hero h1 {
+      font-size: clamp(2.8rem, 9vw, 4.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin: 0 auto 20px;
+      text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
+    }
+
+    .highlight {
+      color: #F2C200;
+    }
+
+    .hero-description {
+      max-width: 800px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      letter-spacing: 4px; 
+      font-weight: 800;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.2;
+    }
+
     /* --- GALLERY GRID REFINEMENT --- */
-    .gallery-section { padding: 80px 0 120px; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+    .gallery-section { padding: 80px 0 120px; background: #fcfcfc; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
     
     .gallery-item {
       position: relative;
@@ -32,26 +77,26 @@
       background: #0B1F3B;
       border-radius: 4px;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); opacity: 0.85; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); opacity: 0.9; }
     
     .gallery-overlay {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(11, 31, 59, 0.95));
-      padding: 40px 25px 25px;
+      background: linear-gradient(transparent, rgba(11, 31, 59, 0.98));
+      padding: 60px 25px 30px;
       color: #fff;
       transform: translateY(100%);
-      transition: transform 0.4s ease;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    .gallery-item:hover img { transform: scale(1.08); opacity: 1; }
+    .gallery-item:hover img { transform: scale(1.1); opacity: 0.7; }
     .gallery-item:hover .gallery-overlay { transform: translateY(0); }
 
-    .gallery-overlay h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #F2C200; margin-bottom: 5px; font-weight: 900; }
-    .gallery-overlay p { font-size: 1.2rem; font-weight: 800; margin: 0; }
+    .gallery-overlay h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #F2C200; margin-bottom: 8px; font-weight: 900; }
+    .gallery-overlay p { font-size: 1.3rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
 
     /* FIXED: Prevent Facebook Button glitch on click */
     footer .social-links a, 
@@ -68,10 +113,14 @@
       color: #0B1F3B !important;
     }
 
+    @keyframes slow-pan {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-      .nav-cta-menu { background: #F2C200; color: #0B1F3B !important; padding: 12px; border-radius: 4px; font-weight: 900; width: 80%; margin: 0 auto; display: block; text-transform: uppercase; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -96,9 +145,9 @@
 
   <header class="small-hero gallery-page-hero">
     <div class="container">
-      <span class="hero-subtitle">Portfolio of Excellence</span>
-      <h1>Our Work</h1>
-      <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Precision Earthmoving & Site Transformations</p>
+      <span class="hero-subtitle">Visual Portfolio</span>
+      <h1>The Art of <span class="highlight">Excavation</span></h1>
+      <p class="hero-description">Site Solutions Executed with Detail</p>
     </div>
   </header>
 
