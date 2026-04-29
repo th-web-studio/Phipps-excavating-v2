@@ -8,6 +8,79 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* FORM SPECIFIC LAYOUT - Ensuring it looks professional */
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(11, 31, 59, 0.1);
+      border-top: 5px solid #F2C200;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0B1F3B;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #F2C200;
+      box-shadow: 0 0 0 3px rgba(242, 194, 0, 0.1);
+    }
+
+    .info-box {
+      margin-top: 30px;
+    }
+
+    .info-item {
+      margin-bottom: 25px;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+
+    /* Small Hero Adjustment for text visibility */
+    .small-hero {
+        padding: 100px 20px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        .form-container {
+            padding: 25px;
+        }
+    }
+  </style>
 </head>
 <body class="contact-page">
 
@@ -23,10 +96,10 @@
 
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#services">Services</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
         <li><a href="tel:6065480377" class="nav-cta">Call Now</a></li>
       </ul>
     </div>
@@ -34,8 +107,9 @@
 
   <header class="small-hero">
     <div class="container">
+      <span class="hero-subtitle">Get A Free Estimate</span>
       <h1>Contact Us</h1>
-      <p>Get a Professional Estimate on Your Next Project</p>
+      <p>Let's discuss your next project and get you on the schedule.</p>
     </div>
   </header>
 
@@ -44,27 +118,27 @@
       <div class="grid">
         
         <div class="contact-details">
-          <h2 style="margin-bottom: 20px;">Let's Get To Work</h2>
-          <p>Ready to start your next project? Give us a call or send a message, and we'll get back to you as soon as possible.</p>
+          <h2 style="margin-bottom: 20px; font-weight: 800; text-transform: uppercase;">Let's Get To Work</h2>
+          <p style="font-size: 1.1rem; color: #555;">Ready to start your next project? Give us a call or send a message, and we'll get back to you as soon as possible.</p>
           
           <div class="info-box">
             <div class="info-item">
-              <strong>Phone</strong>
-              <p><a href="tel:6065480377" style="color: #0B1F3B; text-decoration: none;">(606) 548-0377</a></p>
+              <strong>Direct Phone</strong>
+              <p><a href="tel:6065480377" style="color: #0B1F3B; text-decoration: none; font-size: 1.2rem; font-weight: 700;">(606) 548-0377</a></p>
             </div>
             <div class="info-item">
-              <strong>Email</strong>
-              <p>jphipps275@hotmail.com</p>
+              <strong>Official Email</strong>
+              <p style="font-size: 1.1rem;">jphipps275@hotmail.com</p>
             </div>
             <div class="info-item">
               <strong>Service Area</strong>
-              <p>West Liberty, KY & Surrounding Areas</p>
+              <p style="font-size: 1.1rem;">West Liberty, KY & Surrounding Areas</p>
             </div>
           </div>
         </div>
 
         <div class="form-container">
-          <form action="" method="POST"> 
+          <form action="#" method="POST"> 
             <div class="form-group">
               <label>Name</label>
               <input type="text" name="name" placeholder="Full Name" required>
@@ -87,7 +161,7 @@
               <label>Message</label>
               <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
             </div>
-            <button type="submit" class="btn primary" style="width: 100%; margin: 0;">Send Estimate Request</button>
+            <button type="submit" class="btn primary" style="width: 100%; margin: 0; font-size: 1rem; padding: 20px;">Send Estimate Request</button>
           </form>
         </div>
 
@@ -96,7 +170,7 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="container" style="text-align: center;">
       <div class="social-links">
         <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
@@ -118,7 +192,7 @@
     /* --- AUTOMATIC PHONE FORMATTING SCRIPT --- */
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', (e) => {
-      let input = e.target.value.replace(/\D/g, ''); // Remove non-digits
+      let input = e.target.value.replace(/\D/g, ''); 
       let size = input.length;
       
       if (size > 0) {
