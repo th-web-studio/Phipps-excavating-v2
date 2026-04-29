@@ -9,30 +9,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- THE PREMIUM CANVAS --- */
+    /* --- THE STUDIO SPACING SYSTEM --- */
+    :root {
+      --section-spacing: 160px; /* Massive breathing room between sections */
+      --container-width: 1100px;
+    }
+
     body {
-      /* Subtle radial gradient prevents "boring" flat white */
-      background: radial-gradient(circle at top right, #ffffff, #f8f9fa 50%, #f2f2f2 100%);
+      background: #ffffff;
       color: #0B1F3B;
-      overflow-x: hidden;
+      margin: 0;
+      line-height: 1.7;
     }
 
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    /* --- HERO: Massive impact, no clutter --- */
     .about-hero {
-      padding: 180px 0 100px;
-      position: relative;
-    }
-
-    /* Subtle geometric watermark for brand depth */
-    .about-hero::before {
-      content: 'PHIPPS';
-      position: absolute;
-      top: 120px;
-      left: -50px;
-      font-size: 15rem;
-      font-weight: 900;
-      color: rgba(11, 31, 59, 0.03);
-      z-index: -1;
-      letter-spacing: -10px;
+      padding: 220px 0 100px; /* Huge top padding to clear the navbar */
+      background: #fcfcfc;
     }
 
     .editorial-label {
@@ -42,107 +41,108 @@
       letter-spacing: 5px;
       font-size: 0.75rem;
       display: block;
-      margin-bottom: 20px;
-    }
-
-    .about-hero h1 {
-      font-size: clamp(3rem, 10vw, 5.5rem);
-      line-height: 0.85;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -4px;
       margin-bottom: 30px;
     }
 
-    /* --- CONTENT STRUCTURE --- */
+    .about-hero h1 {
+      font-size: clamp(3.5rem, 10vw, 6.5rem);
+      line-height: 0.85;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -5px;
+      margin: 0;
+    }
+
+    /* --- THE GRID: Intentional imbalance --- */
+    .content-section {
+      padding: var(--section-spacing) 0;
+    }
+
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 120px;
-      padding: 100px 0;
+      gap: 100px; /* Wide gap prevents visual crowding */
       align-items: start;
     }
 
-    .main-text p {
-      font-size: 1.3rem;
-      line-height: 1.9;
-      color: #444;
-      margin-bottom: 40px;
-    }
-
-    .main-text strong {
-      color: #0B1F3B;
-      font-weight: 800;
-    }
-
-    /* --- THE LEADERSHIP SUITE --- */
-    .leader-suite {
-      background: #0B1F3B;
-      color: white;
-      padding: 80px;
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 50px 100px rgba(11, 31, 59, 0.2);
-    }
-
-    /* Modern accent line */
-    .leader-suite::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 12px;
-      background: #F2C200;
-    }
-
-    .leader-header h3 {
+    .main-text h2 {
       font-size: 2.5rem;
-      text-transform: uppercase;
       font-weight: 900;
-      letter-spacing: -1px;
-      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 40px;
+      color: #0B1F3B;
     }
 
-    .leader-list {
+    .main-text p {
+      font-size: 1.25rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    /* --- THE SIDEBAR CARD: Refined & Spaced --- */
+    .profile-card {
+      padding: 60px;
+      background: #0B1F3B;
+      color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 40px 80px rgba(11, 31, 59, 0.15);
+      position: sticky;
+      top: 140px; /* Card floats as you scroll past text */
+    }
+
+    .profile-card h3 {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0 0 15px;
+      color: #F2C200;
+    }
+
+    .profile-card p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 30px;
+    }
+
+    .role-list {
       list-style: none;
       padding: 0;
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
+      margin: 0;
     }
 
-    .leader-list li {
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      font-weight: 700;
+    .role-list li {
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .leader-list li:hover {
-      background: rgba(242, 194, 0, 0.1);
-      border-color: #F2C200;
-      transform: translateX(10px);
-    }
-
-    .leader-list li span {
+    .role-list li span {
       color: #F2C200;
-      margin-right: 20px;
-      font-size: 1.5rem;
+    }
+
+    /* Footer Spacing */
+    footer {
+      padding: 100px 0 60px;
+      border-top: 1px solid #eee;
+      background: #fff;
+      text-align: center;
     }
 
     @media (max-width: 992px) {
       .content-grid { grid-template-columns: 1fr; gap: 60px; }
-      .leader-suite { padding: 40px; }
-      .about-hero::before { display: none; }
+      .about-hero { padding: 160px 0 80px; }
+      .profile-card { padding: 40px; position: static; }
+      :root { --section-spacing: 100px; }
     }
   </style>
 </head>
@@ -171,33 +171,30 @@
 
   <header class="about-hero">
     <div class="container">
-      <span class="editorial-label">The Digital Design Studio Approach</span>
-      <h1>Built on Trust.<br>Driven by<br>Experience.</h1>
-      <p style="font-size: 1.4rem; color: #666; max-width: 500px; font-weight: 500;">Establishing site foundations across Eastern Kentucky with twenty years of precision.</p>
+      <span class="editorial-label">Est. 2006 — Morgan County</span>
+      <h1>Hard Work.<br>Done Right.</h1>
     </div>
   </header>
 
-  <section class="section" style="padding-top: 0;">
+  <section class="content-section">
     <div class="container">
       <div class="content-grid">
         
         <div class="main-text">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin-bottom: 30px; letter-spacing: -1px;">Precision in every<br>yard of dirt.</h2>
-          <p>At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, and complex drainage solutions.</p>
-          <p>What sets us apart is our relentless commitment to precision. We understand that excavation is about <strong>preparing a foundation for the future.</strong></p>
+          <h2>Precision At<br>The Controls.</h2>
+          <p>At <strong>Phipps Excavating</strong>, we move more than earth. We prepare the ground for the structures and homes that define our community. With twenty years of experience, our reputation is built on one premise: <strong>accuracy matters.</strong></p>
+          
+          <p>Whether we are reclaiming overgrown acreage or restoring a critical gravel driveway, our workmanship is defined by efficiency, detail, and local reliability.</p>
         </div>
 
-        <div class="leader-suite">
-          <div class="leader-header">
-            <span class="editorial-label" style="color: #F2C200; margin-bottom: 10px;">Executive Leadership</span>
-            <h3>Jamie Phipps</h3>
-            <p style="opacity: 0.7; font-size: 1.1rem; line-height: 1.6;">Owner and operator bringing the same dedication to site management as he provides to his public service roles.</p>
-          </div>
-
-          <ul class="leader-list">
-            <li><span>•</span> Chief, West Liberty Fire Dept</li>
-            <li><span>•</span> Member, White Oak Vol. Fire Dept</li>
-            <li><span>•</span> Member, Highlands Masonic Lodge</li>
+        <div class="profile-card">
+          <h3>Jamie Phipps</h3>
+          <p>Owner, Operator, and dedicated community member serving the Eastern Kentucky region.</p>
+          
+          <ul class="role-list">
+            <li>Fire Chief, West Liberty <span>→</span></li>
+            <li>White Oak Volunteer Fire <span>→</span></li>
+            <li>Highlands Masonic Lodge <span>→</span></li>
           </ul>
         </div>
 
@@ -205,9 +202,9 @@
     </div>
   </section>
 
-  <footer style="padding: 100px 0 40px; border-top: 1px solid #eee;">
-    <div class="container" style="text-align: center;">
-      <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 800; opacity: 0.3;">© 2026 Phipps Excavating & Land Management</p>
+  <footer>
+    <div class="container">
+      <p style="font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 900; opacity: 0.3;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
