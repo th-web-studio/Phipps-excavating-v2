@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO & TRANSFORMATIONS (UNCHANGED BRANDING) --- */
+    /* --- HERO & TRANSFORMATIONS (PRESERVED) --- */
     .gallery-page-hero {
       position: relative;
       padding: 80px 0 40px; 
@@ -106,9 +106,8 @@
     .status-text { color: #fff; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
     .dot { width: 6px; height: 6px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
 
-    /* --- PREMIUM OFFSET MASONRY (REHUNG) --- */
+    /* --- MASONRY GRID --- */
     .masonry-section { padding: 40px 0 80px; background: #fff; }
-    
     .masonry-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr); 
@@ -118,25 +117,11 @@
       margin: 0 auto;
     }
 
-    .grid-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      cursor: zoom-in;
-      transition: all 0.4s ease;
-    }
-
-    .grid-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.8s ease;
-    }
-
+    .grid-item { position: relative; overflow: hidden; border-radius: 4px; cursor: zoom-in; transition: all 0.4s ease; }
+    .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
     .grid-item:hover { z-index: 10; transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
     .grid-item:hover img { transform: scale(1.08); }
 
-    /* The "Anti-Block" Logic Classes */
     .item-1 { grid-column: span 3; grid-row: span 3; } 
     .item-2 { grid-column: span 3; grid-row: span 2; }
     .item-3 { grid-column: span 2; grid-row: span 2; } 
@@ -144,50 +129,77 @@
     .item-5 { grid-column: span 3; grid-row: span 2; margin-top: -40px; } 
     .item-6 { grid-column: span 3; grid-row: span 3; }
 
-    /* --- LIGHTBOX (THE ENLARGING EFFECT) --- */
+    /* --- ENHANCED LIGHTBOX WITH TOGGLE --- */
     .lightbox {
       display: none;
       position: fixed;
-      z-index: 10000;
+      z-index: 10001;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: rgba(11, 31, 59, 0.98);
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      cursor: zoom-out;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      cursor: default;
     }
 
-    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox.active { display: flex; }
 
-    .lightbox-img {
+    .lightbox-img-container {
+      position: relative;
       max-width: 90%;
       max-height: 80%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
       border-radius: 4px;
       border: 2px solid #F2C200;
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
-      transform: scale(0.95);
-      transition: transform 0.3s ease;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
     }
 
-    .lightbox.active .lightbox-img { transform: scale(1); }
-
-    /* FOOTER (UNCHANGED) */
-    footer .social-links a, footer .social-links a:visited, footer .social-links a:active {
-      color: #F2C200 !important;
-      background: transparent !important;
-      border: 2px solid #F2C200 !important;
-      text-decoration: none;
+    .lightbox-controls {
+      margin-top: 25px;
+      display: none; /* Hidden by default, shown for transformations */
+      gap: 15px;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-    @keyframes slow-pan { from { transform: scale(1); } to { transform: scale(1.05); } }
+    .toggle-btn {
+      background: transparent;
+      border: 1px solid #F2C200;
+      color: #F2C200;
+      padding: 10px 25px;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn.active {
+      background: #F2C200;
+      color: #0B1F3B;
+    }
+
+    .close-hint {
+      position: absolute;
+      top: 20px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    footer .social-links a { color: #F2C200 !important; border: 2px solid #F2C200 !important; text-decoration: none; }
 
     @media (max-width: 768px) {
       .masonry-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
       .grid-item { grid-column: span 1 !important; grid-row: span 1 !important; margin-top: 0 !important; }
-      .pulse-badge { bottom: 15px; right: 15px; }
     }
   </style>
 </head>
@@ -222,7 +234,7 @@
     <div class="container">
       <div class="pulse-wrapper">
         <h2 class="section-title">Land <span class="highlight">Clearing</span></h2>
-        <div class="pulse-container lightbox-trigger">
+        <div class="pulse-container lightbox-trigger" data-type="transform" data-before="land-clear-before.JPG" data-after="land-clear-after.jpeg">
           <img src="land-clear-after.jpeg" class="pulse-img after" alt="After Clearing">
           <img src="land-clear-before.JPG" class="pulse-img before" alt="Before Clearing">
           <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
@@ -231,9 +243,9 @@
 
       <div class="pulse-wrapper">
         <h2 class="section-title">Driveway <span class="highlight">Repair</span></h2>
-        <div class="pulse-container lightbox-trigger">
+        <div class="pulse-container lightbox-trigger" data-type="transform" data-before="drive-before .JPG" data-after="drive-after.JPG">
           <img src="drive-after.JPG" class="pulse-img after" alt="After Driveway Repair">
-          <img src="drive-before .JPG" class="pulse-img before" alt="Before Driveway Repair" style="animation-delay: 1.5s;">
+          <img src="drive-before .JPG" class="pulse-img before" alt="Before Driveway Repair">
           <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
         </div>
       </div>
@@ -255,13 +267,20 @@
   </section>
 
   <div class="lightbox" id="lightbox">
-    <img src="" alt="Enlarged Project Photo" class="lightbox-img">
+    <div class="close-hint" id="close-btn">Click Backdrop to Close</div>
+    <div class="lightbox-img-container">
+      <img src="" alt="View" class="lightbox-img" id="main-lb-img">
+    </div>
+    <div class="lightbox-controls" id="lb-controls">
+      <button class="toggle-btn" id="show-before">Before</button>
+      <button class="toggle-btn active" id="show-after">After</button>
+    </div>
   </div>
 
   <footer>
     <div class="container">
       <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
+        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank">Find us on Facebook</a>
       </div>
       <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
@@ -270,7 +289,6 @@
   <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
-    // MOBILE MENU
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
@@ -280,18 +298,49 @@
       });
     }
 
-    // LIGHTBOX SCRIPT
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
+    const lbImg = document.getElementById('main-lb-img');
+    const lbControls = document.getElementById('lb-controls');
+    const btnBefore = document.getElementById('show-before');
+    const btnAfter = document.getElementById('show-after');
     const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    let currentBefore = "";
+    let currentAfter = "";
 
     triggers.forEach(trigger => {
       trigger.addEventListener('click', () => {
-        // Grab 'after' image if it exists (for pulses), otherwise grab standard img
-        const sourceImg = trigger.querySelector('.after') || trigger.querySelector('img');
-        lightboxImg.src = sourceImg.src;
+        const type = trigger.getAttribute('data-type');
+        
+        if (type === 'transform') {
+          currentBefore = trigger.getAttribute('data-before');
+          currentAfter = trigger.getAttribute('data-after');
+          lbImg.src = currentAfter;
+          lbControls.style.display = 'flex';
+          btnAfter.classList.add('active');
+          btnBefore.classList.remove('active');
+        } else {
+          const img = trigger.querySelector('img');
+          lbImg.src = img.src;
+          lbControls.style.display = 'none';
+        }
+        
         lightbox.classList.add('active');
       });
+    });
+
+    btnBefore.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lbImg.src = currentBefore;
+      btnBefore.classList.add('active');
+      btnAfter.classList.remove('active');
+    });
+
+    btnAfter.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lbImg.src = currentAfter;
+      btnAfter.classList.add('active');
+      btnBefore.classList.remove('active');
     });
 
     lightbox.addEventListener('click', () => {
