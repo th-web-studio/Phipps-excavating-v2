@@ -7,80 +7,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
-    /* --- NAV STYLING FOR CALL BUTTON --- */
+    /* --- CORE RESET & LAYOUT --- */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: 0; overflow-x: hidden; background: #ffffff; color: #0B1F3B; line-height: 1.6; font-family: 'Inter', sans-serif; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+
+    /* --- NAVIGATION --- */
+    .navbar { background: #0B1F3B; padding: 20px 0; position: relative; z-index: 1000; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-brand { color: #fff; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px; }
+    .nav-brand span { color: #F2C200; }
+    
+    .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; align-items: center; }
+    .nav-links a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+    .nav-links a:hover { color: #F2C200; }
+
     .nav-call-btn {
       background: #F2C200;
       color: #0B1F3B !important;
       padding: 10px 20px;
       font-weight: 900;
-      text-transform: uppercase;
       border-radius: 4px;
-      margin-left: 15px;
-      transition: 0.3s;
-    }
-    
-    .nav-call-btn:hover {
-      background: #fff;
     }
 
-    /* Mobile Menu & Sticky Button Adjustments */
+    /* --- MOBILE MENU --- */
+    .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .bar { width: 25px; height: 3px; background: #fff; transition: 0.3s; }
+
     @media (max-width: 768px) {
-      .nav-links.active {
-        display: flex;
+      .menu-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0B1F3B;
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 0;
+        padding: 30px 0;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
       }
+      .nav-links.active { display: flex; }
+      
+      /* STICKY BOTTOM CALL BUTTON */
       .nav-call-btn {
         position: fixed;
         bottom: 0;
         left: 0;
+        width: 100%;
         margin-left: 0;
-        width: 100%;
-        text-align: center;
         border-radius: 0;
-        padding: 20px;
+        padding: 22px;
+        text-align: center;
         z-index: 9999;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
       }
-      
-      .trust-bar-container {
-        padding: 20px !important;
-        border-radius: 15px !important;
-        margin: 0 15px; /* Adds air on mobile */
-      }
-      .trust-item {
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding: 12px 0 !important;
-        width: 100%;
-        justify-content: center;
-      }
-      .trust-item:last-child { border-bottom: none; }
-    }
-
-    /* --- CORE RESET & LAYOUT --- */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background: #ffffff;
-      color: #0B1F3B;
-      line-height: 1.6;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 30px;
     }
 
     /* --- HERO --- */
@@ -88,135 +71,49 @@
       background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
       background-size: cover;
       background-position: center;
-      padding: 100px 0 60px !important;
+      padding: 100px 0 60px;
       text-align: center;
       color: #fff;
     }
+    .small-hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; text-transform: uppercase; margin: 10px 0; }
 
-    .small-hero h1 {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-      margin: 10px 0;
-    }
-
-    /* --- PILL-STYLE TRUST BAR --- */
-    .trust-bar {
-      padding: 40px 0;
-      background: #fff;
-    }
+    /* --- PILL TRUST BAR --- */
+    .trust-bar { padding: 40px 0; background: #fff; }
     .trust-bar-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      background: #0B1F3B;
-      padding: 15px 10px;
-      border-radius: 100px;
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      background: #0B1F3B; padding: 15px 10px; border-radius: 100px;
       box-shadow: 0 15px 35px rgba(11, 31, 59, 0.15);
     }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      padding: 0 30px;
-      border-right: 1px solid rgba(242, 194, 0, 0.3);
-    }
-    .trust-item:last-child {
-      border-right: none;
-    }
-    .trust-text {
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .trust-text span {
-      color: #F2C200;
-      margin-right: 4px;
+    .trust-item { display: flex; align-items: center; padding: 0 30px; border-right: 1px solid rgba(242, 194, 0, 0.3); }
+    .trust-item:last-child { border-right: none; }
+    .trust-text { color: #fff; font-weight: 800; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; }
+    .trust-text span { color: #F2C200; margin-right: 4px; }
+
+    @media (max-width: 768px) {
+      .trust-bar-container { border-radius: 15px; margin: 0 10px; padding: 10px; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; padding: 15px 0; }
     }
 
     /* --- REGIONAL SECTION --- */
-    .regional-section {
-      background: #fcfcfc;
-      padding: 50px 0;
-      border-bottom: 1px solid #eee;
-    }
+    .regional-section { background: #fcfcfc; padding: 50px 0; border-bottom: 1px solid #eee; }
+    .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+    .flex-col-half { flex: 1; min-width: 320px; }
+    .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
+    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; color: #0B1F3B; }
+    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; margin-top: 2px; }
 
-    .flex-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .flex-col-half {
-      flex: 1;
-      min-width: 320px;
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-    }
-
-    .area-card {
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #eee;
-      text-align: center;
-    }
-
-    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
-
-    /* --- CONTACT MAIN --- */
+    /* --- FORM & CONTACT --- */
     .contact-main { padding: 60px 0; }
-
-    .info-item {
-      margin-bottom: 25px;
-      border-left: 4px solid #F2C200;
-      padding-left: 20px;
-    }
-
-    .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
-    .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
-
-    /* --- FORM STYLING --- */
-    .form-container {
-      background: #fff;
-      padding: 40px;
-      border-top: 10px solid #F2C200;
-      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1);
-    }
-
+    .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
+    .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; font-weight: 900; }
+    .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; }
+    
+    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
     .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 15px;
-      border: 2px solid #f2f2f2;
-      background: #fafafa;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 18px;
-      background: #0B1F3B;
-      color: #fff;
-      border: none;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
+    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; outline: none; }
+    .submit-btn { width: 100%; padding: 18px; background: #0B1F3B; color: #fff; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
     .submit-btn:hover { background: #F2C200; color: #0B1F3B; }
   </style>
 </head>
@@ -250,18 +147,10 @@
   <section class="trust-bar">
     <div class="container">
       <div class="trust-bar-container">
-        <div class="trust-item">
-          <span class="trust-text"><span>Fully</span> Licensed & Insured</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-text"><span>Locally</span> Owned & Operated</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-text"><span>Free</span> Project Estimates</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-text"><span>Guaranteed</span> 24-Hour Response</span>
-        </div>
+        <div class="trust-item"><span class="trust-text"><span>Fully</span> Licensed & Insured</span></div>
+        <div class="trust-item"><span class="trust-text"><span>Locally</span> Owned & Operated</span></div>
+        <div class="trust-item"><span class="trust-text"><span>Free</span> Project Estimates</span></div>
+        <div class="trust-item"><span class="trust-text"><span>Guaranteed</span> 24-Hour Response</span></div>
       </div>
     </div>
   </section>
@@ -270,7 +159,7 @@
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional Reach.</h2>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin: 0;">Regional Reach.</h2>
           <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Areas with professional site solutions.</p>
         </div>
         <div class="flex-col-half">
@@ -293,38 +182,20 @@
     <div class="container">
       <div class="flex-row" style="align-items: start;">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
           <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
           <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
           <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
-
         <div class="flex-col-half">
           <div class="form-container">
             <form action="#" method="POST">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" placeholder="First and Last Name" required>
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
-              </div>
-              <div class="form-group">
-                <label>Service Category</label>
-                <select name="service" required>
-                  <option value="" disabled selected>Choose a service...</option>
-                  <option value="Excavation">Excavation</option>
-                  <option value="Land Clearing">Land Clearing</option>
-                  <option value="Driveway Repair">Driveway Repair</option>
-                  <option value="Land Management">Land Management</option>
-                  <option value="General Inquiry">General Inquiry / Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Project Scope</label>
-                <textarea name="message" rows="4" placeholder="Describe your residential project..." required></textarea>
-              </div>
+              <div class="form-group"><label>Name</label><input type="text" placeholder="First and Last Name" required></div>
+              <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(000) 000-0000" maxlength="14" required></div>
+              <div class="form-group"><label>Service Category</label>
+                <select required><option value="" disabled selected>Choose a service...</option>
+                  <option>Excavation</option><option>Land Clearing</option><option>Driveway Repair</option><option>Land Management</option><option>General Inquiry</option></select></div>
+              <div class="form-group"><label>Project Scope</label><textarea rows="4" placeholder="Describe your residential project..." required></textarea></div>
               <button type="submit" class="submit-btn">Send Estimate Request</button>
             </form>
           </div>
@@ -349,14 +220,11 @@
     }
 
     /* MOBILE MENU TOGGLE */
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    if(menu) {
-      menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-      });
-    }
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-list');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
