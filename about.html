@@ -121,23 +121,7 @@
       justify-content: space-between;
     }
 
-    /* SYNCED NAV CTA STYLE FROM CONTACT PAGE */
-    .nav-call-btn {
-      background: #F2C200;
-      color: #0B1F3B !important;
-      padding: 10px 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      border-radius: 4px;
-      margin-left: 15px;
-      transition: 0.3s;
-      text-decoration: none;
-    }
-    
-    .nav-call-btn:hover {
-      background: #fff;
-    }
-
+    /* --- MOBILE NAV SYNC --- */
     @media (max-width: 992px) {
       .content-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-hero { min-height: 40vh; padding: 120px 0 60px; }
@@ -145,22 +129,26 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 0;
-      }
-      .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
+      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+      
+      /* EXACT MATCH TO ALL OTHER PAGES */
+      .nav-cta-menu { 
+        background: #F2C200; 
+        color: #0B1F3B !important; 
+        padding: 15px 20px; 
+        border-radius: 4px; 
+        font-weight: 900; 
+        width: 80%; 
+        margin: 0 auto; 
+        display: block; 
+        text-transform: uppercase; 
+        font-size: 0.9rem;
+        text-decoration: none;
       }
     }
   </style>
 </head>
-<body>
+<body class="about-page">
 
   <nav class="navbar">
     <div class="container nav-container">
@@ -178,7 +166,7 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html" style="color: #F2C200 !important;">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
+        <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -214,12 +202,11 @@
     </div>
   </section>
 
-  <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
+  <a class="sticky-call" href="tel:6065480377">Call Now</a>
 
   <script>
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
-    const navItems = document.querySelectorAll('.nav-links a');
     
     if(menu) {
       menu.addEventListener('click', function() {
@@ -227,13 +214,6 @@
         menuLinks.classList.toggle('active');
       });
     }
-
-    navItems.forEach(link => {
-      link.addEventListener('click', () => {
-        if(menu) menu.classList.remove('is-active');
-        if(menuLinks) menuLinks.classList.remove('active');
-      });
-    });
   </script>
 </body>
 </html>
