@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO (TIGHTENED & PULLED UP) --- */
+    /* --- HERO --- */
     .gallery-page-hero {
       position: relative;
-      padding: 60px 0 30px; /* Reduced to pull text higher in the box */
+      padding: 60px 0 30px; 
       text-align: center;
       color: #fff;
       overflow: hidden;
@@ -20,7 +20,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 250px; /* Compact box feel */
+      min-height: 250px;
     }
 
     .gallery-page-hero::before {
@@ -79,6 +79,11 @@
     .pulse-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .pulse-img.before { animation: pulse-fade 6s infinite ease-in-out; z-index: 2; }
     .pulse-img.after { z-index: 1; }
+
+    /* DELAY THE SECOND TRANSFORMATION */
+    .pulse-wrapper:nth-child(2) .pulse-img.before {
+      animation-delay: 3s;
+    }
 
     @keyframes pulse-fade { 0%, 15% { opacity: 1; } 40%, 65% { opacity: 0; } 90%, 100% { opacity: 1; } }
 
