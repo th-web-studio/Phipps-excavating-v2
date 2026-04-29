@@ -30,7 +30,7 @@
       padding: 0 30px;
     }
 
-    /* --- NAV CTA STYLE --- */
+    /* --- NAV CTA STYLE (DESKTOP) --- */
     .nav-call-btn {
       background: #F2C200;
       color: #0B1F3B !important;
@@ -131,7 +131,7 @@
 
     /* --- FOOTER --- */
     footer {
-      padding: 40px 0;
+      padding: 40px 0 100px 0; /* Extra bottom padding for mobile button */
       text-align: center;
       border-top: 1px solid #eee;
     }
@@ -141,18 +141,16 @@
       .gallery-grid {
         grid-template-columns: 1fr;
       }
-      .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
-        margin-top: 10px;
-      }
       .nav-links.active {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 20px;
         padding: 40px 0;
+      }
+      /* Hide the original nav button on mobile to favor the sticky one */
+      .nav-call-btn {
+        display: none;
       }
     }
   </style>
@@ -229,6 +227,8 @@
       <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
+
+  <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
     /* MOBILE MENU TOGGLE */
