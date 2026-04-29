@@ -39,11 +39,19 @@
         width: 80%;
         text-align: center;
       }
-      /* Added mobile fix for new trust bar */
+      /* Mobile Trust Bar Adjustments */
       .trust-bar-container {
         flex-direction: column !important;
-        gap: 15px !important;
+        gap: 0 !important;
       }
+      .trust-item {
+        border-right: none !important;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0 !important;
+        width: 100%;
+        justify-content: center;
+      }
+      .trust-item:last-child { border-bottom: none; }
     }
 
     /* --- CORE RESET & LAYOUT --- */
@@ -85,36 +93,39 @@
       margin: 10px 0;
     }
 
-    /* --- NEW TRUST BAR STYLING --- */
+    /* --- REFINED MINIMALIST TRUST BAR --- */
     .trust-bar {
-      background: #0B1F3B;
-      padding: 25px 0;
-      border-bottom: 5px solid #F2C200;
+      background: #ffffff;
+      padding: 35px 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
     }
     .trust-bar-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 0;
     }
     .trust-item {
       display: flex;
       align-items: center;
-      gap: 10px;
+      padding: 0 35px;
+      border-right: 2px solid #F2C200;
     }
-    .trust-dot {
-      width: 8px;
-      height: 8px;
-      background: #F2C200;
-      border-radius: 50%;
+    .trust-item:last-child {
+      border-right: none;
     }
     .trust-text {
-      color: #fff;
-      font-weight: 900;
-      font-size: 0.75rem;
+      color: #0B1F3B;
+      font-weight: 800;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
+    }
+    .trust-text span {
+      color: #F2C200;
+      margin-right: 4px;
     }
 
     /* --- REGIONAL SECTION --- */
@@ -231,20 +242,16 @@
     <div class="container">
       <div class="trust-bar-container">
         <div class="trust-item">
-          <div class="trust-dot"></div>
-          <span class="trust-text">Fully Licensed & Insured</span>
+          <span class="trust-text"><span>Fully</span> Licensed & Insured</span>
         </div>
         <div class="trust-item">
-          <div class="trust-dot"></div>
-          <span class="trust-text">Locally Owned & Operated</span>
+          <span class="trust-text"><span>Locally</span> Owned & Operated</span>
         </div>
         <div class="trust-item">
-          <div class="trust-dot"></div>
-          <span class="trust-text">Free Project Estimates</span>
+          <span class="trust-text"><span>Free</span> Project Estimates</span>
         </div>
         <div class="trust-item">
-          <div class="trust-dot"></div>
-          <span class="trust-text">Guaranteed 24-Hour Response</span>
+          <span class="trust-text"><span>Guaranteed</span> 24-Hour Response</span>
         </div>
       </div>
     </div>
