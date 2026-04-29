@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- COMPACT STUDIO SYSTEM --- */
+    /* --- SYNCED STUDIO SYSTEM --- */
     body {
       background: #ffffff;
       color: #0B1F3B;
@@ -17,10 +17,11 @@
       line-height: 1.6;
     }
 
+    /* FIXED: Matches the Index/Contact container precisely to stop the 'jump' */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 20px;
     }
 
     /* --- HERO: Tight & Professional --- */
@@ -58,9 +59,9 @@
       margin: 0;
     }
 
-    /* --- CONTENT: Tightened Gaps --- */
+    /* --- CONTENT --- */
     .content-section {
-      padding: 60px 0;
+      padding: 80px 0;
       background: #fff;
     }
 
@@ -87,7 +88,6 @@
       margin-bottom: 20px;
     }
 
-    /* --- PROFILE CARD --- */
     .roots-card {
       padding: 40px;
       background: #0B1F3B;
@@ -125,13 +125,10 @@
     @media (max-width: 992px) {
       .content-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-hero { min-height: 40vh; padding: 120px 0 60px; }
-      .content-section { padding: 40px 0; }
     }
 
     @media (max-width: 768px) {
       .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-      
-      /* EXACT MATCH TO ALL OTHER PAGES */
       .nav-cta-menu { 
         background: #F2C200; 
         color: #0B1F3B !important; 
@@ -185,7 +182,7 @@
         <div class="main-text">
           <h2>Professionalism in Every Yard of Dirt</h2>
           <p>At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, brush cutting, and complex drainage solutions. Based in West Liberty, we proudly serve Morgan County and the surrounding Eastern Kentucky region.</p>
-          <p>What sets us apart is our relentless commitment to precision and detail. We understand that excavation is about <strong>preparing a foundation for the future.</strong></p>
+          <p>What sets us apart is our relentless commitment to precision and detail.</p>
         </div>
 
         <div class="roots-card">
@@ -201,6 +198,12 @@
       </div>
     </div>
   </section>
+
+  <footer>
+    <div class="container">
+      <p style="font-weight: 700; color: #0B1F3B; text-align: center;">© 2026 Phipps Excavating & Land Management</p>
+    </div>
+  </footer>
 
   <a class="sticky-call" href="tel:6065480377">Call Now</a>
 
