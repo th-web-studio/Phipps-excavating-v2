@@ -49,7 +49,7 @@
       padding: 40px 20px;
     }
 
-    /* --- HERO STATS: Tighter Spacing --- */
+    /* --- HERO STATS --- */
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -89,23 +89,11 @@
       max-width: 140px; 
     }
 
-    .hero-accent {
-      color: #F2C200;
-      font-weight: 700;
-    }
+    .hero-accent { color: #F2C200; font-weight: 700; }
 
     /* --- PROFESSIONAL SERVICES --- */
-    #services {
-      padding: 40px 0 80px 0;
-    }
-
-    .home-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
+    #services { padding: 40px 0 80px 0; }
+    .home-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
     .home-card {
       background-color: #0B1F3B;
       border-top: 5px solid #F2C200;
@@ -118,123 +106,35 @@
       align-items: center;
       text-decoration: none;
     }
+    .home-card h3 { color: #F2C200; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+    .home-card::after { content: ""; width: 30px; height: 2px; background: rgba(242, 194, 0, 0.4); margin-bottom: 20px; }
+    .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; font-weight: 400; }
+    .home-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); background-color: #0e274a; }
 
-    .home-card h3 {
-      color: #F2C200;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
-    }
-
-    .home-card::after {
-      content: "";
-      width: 30px;
-      height: 2px;
-      background: rgba(242, 194, 0, 0.4);
-      margin-bottom: 20px;
-    }
-
-    .home-card p {
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.6;
-      font-size: 0.9rem;
-      margin: 0 auto;
-      max-width: 220px;
-      font-weight: 400;
-    }
-
-    .home-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      background-color: #0e274a;
-    }
-
-    .home-section-title {
-      text-align: center; 
-      margin-bottom: 10px; 
-      text-transform: uppercase; 
-      letter-spacing: 3px; 
-      font-weight: 800;
-      color: #0B1F3B;
-    }
-
-    .section-area {
-      padding: 40px 0; 
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px; 
-      max-width: 1100px;
-      margin: 30px auto 0;
-    }
-
-    .area-card {
-      padding: 20px 10px;
-      border: 1px solid rgba(11, 31, 59, 0.1); 
-      border-radius: 4px;
-      transition: 0.3s ease;
-      text-align: center;
-    }
-
-    .area-card h4 {
-      color: #0B1F3B;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      font-weight: 800;
-      margin-bottom: 3px;
-    }
-
-    .area-card p {
-      font-size: 0.75rem;
-      color: #666;
-      margin: 0;
-    }
-
-    /* --- MOBILE NAV CTA SYNC --- */
-    .nav-call-btn {
-      background: #F2C200;
-      color: #0B1F3B !important;
-      padding: 10px 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      border-radius: 4px;
-      margin-left: 15px;
-      transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .nav-call-btn:hover { background: #fff; }
-
+    /* --- MOBILE NAV SYNC --- */
     @media (max-width: 768px) {
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 0;
+      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+      
+      /* EXACT MATCH TO CONTACT/GALLERY BUTTON STYLE */
+      .nav-cta-menu { 
+        background: #F2C200; 
+        color: #0B1F3B !important; 
+        padding: 12px; 
+        border-radius: 4px; 
+        font-weight: 900; 
+        width: 80%; 
+        margin: 0 auto; 
+        display: block; 
+        text-transform: uppercase; 
+        font-size: 0.8rem;
+        text-decoration: none;
       }
-      /* SYNCED WITH CONTACT/GALLERY: Big, Premium Button */
-      .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
-        padding: 15px 20px; 
-        margin-top: 10px;
-        font-size: 0.9rem;
-      }
-      .hero-stats {
-        grid-template-columns: 1fr 1fr;
-        min-height: auto;
-      }
+
+      .hero-stats { grid-template-columns: 1fr 1fr; min-height: auto; }
     }
   </style>
 </head>
-<body>
+<body class="home-page">
 
   <nav class="navbar">
     <div class="container nav-container">
@@ -248,7 +148,7 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
+        <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -292,7 +192,7 @@
 
   <section id="services" class="section alt">
     <div class="container">
-      <h2 class="home-section-title">Professional Services</h2>
+      <h2 style="text-align: center; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; color: #0B1F3B;">Professional Services</h2>
       <div class="home-grid">
         <div class="home-card">
           <h3>Full Excavation</h3>
@@ -314,28 +214,9 @@
     </div>
   </section>
 
-  <section class="section-area">
-    <div class="container">
-      <h2 class="home-section-title">Service Areas</h2>
-      <div class="area-grid">
-        <div class="area-card"><h4>Morgan County</h4><p>West Liberty & Surrounding</p></div>
-        <div class="area-card"><h4>Rowan County</h4><p>Morehead & Surrounding</p></div>
-        <div class="area-card"><h4>Elliott County</h4><p>Sandy Hook & Surrounding</p></div>
-        <div class="area-card"><h4>Johnson County</h4><p>Paintsville & Surrounding</p></div>
-        <div class="area-card"><h4>Magoffin County</h4><p>Salyersville & Surrounding</p></div>
-        <div class="area-card"><h4>Wolfe County</h4><p>Campton & Surrounding</p></div>
-        <div class="area-card"><h4>Menifee County</h4><p>Frenchburg & Surrounding</p></div>
-        <div class="area-card"><h4>Floyd County</h4><p>Prestonsburg & Surrounding</p></div>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="container">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
-      </div>
-      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
+      <p style="font-weight: 700; color: #0B1F3B;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
@@ -344,21 +225,12 @@
   <script>
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
-    const navItems = document.querySelectorAll('.nav-links a');
-
     if(menu) {
       menu.addEventListener('click', function() {
         menu.classList.toggle('is-active');
         menuLinks.classList.toggle('active');
       });
     }
-
-    navItems.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('is-active');
-        menuLinks.classList.remove('active');
-      });
-    });
   </script>
 </body>
 </html>
