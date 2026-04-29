@@ -69,6 +69,7 @@
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
     .flex-col-half { flex: 1; min-width: 320px; }
     
+    /* Grid layout logic */
     .area-grid { 
       display: grid; 
       grid-template-columns: repeat(2, 1fr); 
@@ -83,25 +84,25 @@
       transition: 0.3s;
     }
     
-    /* MORGAN BOX: Forced same size and centered using grid-placement */
-    .featured-area {
+    /* MORGAN BOX FIX: Uses Flex centering instead of Grid spanning to prevent stretching */
+    .centered-header-wrapper {
       grid-column: 1 / span 2;
       display: flex;
-      justify-content: center; /* Centers the inner card */
+      justify-content: center;
+      width: 100%;
     }
 
-    .inner-card {
-      width: 100%;
-      /* Exactly matches the width calculation of the grid columns below */
-      max-width: calc(50% - 6px); 
+    .morgan-box {
+      /* This matches the exact width calculation of the 2-column items below */
+      width: calc(50% - 6px); 
       background: #fff;
       padding: 15px;
       border: 1px solid #eee;
       text-align: center;
     }
 
-    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .area-card strong, .morgan-box strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p, .morgan-box p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0 120px; }
@@ -149,7 +150,8 @@
     }
 
     @media (max-width: 480px) {
-      .inner-card { max-width: 100%; } 
+      .morgan-box { width: 100%; } 
+      .area-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -189,8 +191,8 @@
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
-            <div class="featured-area">
-              <div class="inner-card">
+            <div class="centered-header-wrapper">
+              <div class="morgan-box">
                 <strong>Morgan</strong>
                 <p>West Liberty</p>
               </div>
