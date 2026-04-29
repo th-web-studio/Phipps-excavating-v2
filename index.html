@@ -9,16 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- TARGETED PREMIUM TYPOGRAPHY --- */
+    /* --- SURGICAL PREMIUM TEXT POP --- */
     .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-size: clamp(2rem, 6vw, 3.8rem);
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 4px; /* Increased for premium spacing */
-      line-height: 1.2;
       color: #ffffff;
-      text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-      margin-bottom: 15px;
+      
+      /* Premium Tracking & Balance */
+      letter-spacing: 3px; 
+      line-height: 1.05;
+      
+      /* Multi-layer Shadow for Depth */
+      text-shadow: 
+        0px 2px 4px rgba(0,0,0,0.3),
+        0px 8px 16px rgba(0,0,0,0.4),
+        0px 15px 35px rgba(0,0,0,0.2);
+      
+      margin-bottom: 25px;
       text-align: center;
     }
 
@@ -132,13 +140,13 @@
 
     /* --- SERVICE AREA STYLES (TIGHTENED) --- */
     .section-area {
-      padding: 40px 0; /* Reduced padding to pull section up */
+      padding: 40px 0; 
     }
 
     .area-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px; /* Tighter gap between county cards */
+      gap: 15px; 
       max-width: 1100px;
       margin: 30px auto 0;
     }
