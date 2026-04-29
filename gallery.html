@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO RE-CENTERING & TIGHTENING --- */
+    /* --- HERO (UNCHANGED & CENTERED) --- */
     .gallery-page-hero {
       position: relative;
-      padding: 100px 0 60px; 
+      padding: 90px 0 50px; /* Tightened slightly */
       text-align: center;
       color: #fff;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Forces horizontal center */
+      align-items: center;
       justify-content: center;
     }
 
@@ -39,119 +39,119 @@
       color: #F2C200;
       text-transform: uppercase;
       letter-spacing: 5px;
-      font-size: 0.85rem;
-      margin: 0 auto 15px;
+      font-size: 0.8rem;
+      margin: 0 auto 10px;
       border-bottom: 2px solid #F2C200;
       padding-bottom: 5px;
       width: fit-content;
     }
 
     .gallery-page-hero h1 {
-      font-size: clamp(2.8rem, 9vw, 4.8rem);
+      font-size: clamp(2.5rem, 8vw, 4.2rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -2px;
       line-height: 0.95;
-      margin: 0 auto 20px;
+      margin: 0 auto 15px;
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
       width: 100%;
     }
+
+    .highlight { color: #F2C200; }
 
     .hero-description {
       max-width: 800px;
       margin: 0 auto;
       text-transform: uppercase;
-      letter-spacing: 4px; 
+      letter-spacing: 3px; 
       font-weight: 800;
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
       text-align: center;
     }
 
-    /* --- TRANSFORMATION SECTION --- */
-    .pulse-section { padding: 50px 0 60px; background: #fcfcfc; }
-    .pulse-wrapper { margin-bottom: 60px; }
-    .section-title { text-align: center; margin-bottom: 35px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
+    /* --- TRANSFORMATION SECTION (TIGHTENED) --- */
+    .pulse-section { padding: 40px 0 40px; background: #fcfcfc; }
+    .pulse-wrapper { margin-bottom: 50px; }
+    .section-title { text-align: center; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
 
     .pulse-container {
       position: relative;
       width: 100%;
-      max-width: 1100px;
+      max-width: 1050px;
       aspect-ratio: 16 / 9;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 4px;
-      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.15);
+      box-shadow: 0 25px 50px rgba(11, 31, 59, 0.12);
     }
 
     .pulse-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .pulse-img.before { animation: pulse-fade 6s infinite ease-in-out; z-index: 2; }
     .pulse-img.after { z-index: 1; }
 
-    @keyframes pulse-fade {
-      0%, 15% { opacity: 1; }   
-      40%, 65% { opacity: 0; }  
-      90%, 100% { opacity: 1; } 
-    }
+    @keyframes pulse-fade { 0%, 15% { opacity: 1; } 40%, 65% { opacity: 0; } 90%, 100% { opacity: 1; } }
 
     .pulse-badge {
       position: absolute;
-      bottom: 30px; right: 30px;
+      bottom: 25px; right: 25px;
       z-index: 10;
       background: rgba(11, 31, 59, 0.95);
-      padding: 10px 20px;
+      padding: 8px 18px;
       border-left: 4px solid #F2C200;
       display: flex;
-      align-items: center; gap: 12px;
+      align-items: center; gap: 10px;
     }
 
-    .status-text { color: #fff; font-size: 0.7rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
-    .dot { width: 8px; height: 8px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
+    .status-text { color: #fff; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+    .dot { width: 6px; height: 6px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
 
-    /* --- FLUID MASONRY (ANTI-BLOCK) --- */
-    .masonry-section { padding: 60px 0 100px; background: #fff; }
-    
-    .masonry-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr); /* 6 column grid for more flexibility */
-      grid-auto-rows: 150px;
-      gap: 15px;
-      max-width: 1200px;
+    /* --- PREMIUM COLUMNAR GALLERY (ANTI-BLOCK) --- */
+    .masonry-section { padding: 40px 0 80px; background: #fff; }
+
+    .gallery-columns {
+      column-count: 3; /* Creates 3 vertical flows */
+      column-gap: 15px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .grid-item {
+    .gallery-card {
+      display: inline-block; /* Essential for columns to work */
+      width: 100%;
+      margin-bottom: 15px;
       position: relative;
       overflow: hidden;
       border-radius: 4px;
-      transition: all 0.4s ease;
+      background: #0B1F3B;
+      cursor: pointer;
     }
 
-    .grid-item img {
+    .gallery-card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
-      transition: transform 0.8s ease;
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      filter: saturate(0.9);
     }
 
-    .grid-item:hover {
-      z-index: 10;
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    /* Premium Overlay Shine */
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+      transform: skewX(-25deg);
+      transition: 0.7s;
     }
 
-    .grid-item:hover img { transform: scale(1.1); }
+    .gallery-card:hover::after { left: 150%; }
 
-    /* Custom sizing to break the "block" look */
-    .item-1 { grid-column: span 3; grid-row: span 3; } /* Large Hero Square */
-    .item-2 { grid-column: span 3; grid-row: span 2; } /* Wide */
-    .item-3 { grid-column: span 2; grid-row: span 2; } /* Standard */
-    .item-4 { grid-column: span 1; grid-row: span 2; } /* Tall/Thin */
-    .item-5 { grid-column: span 3; grid-row: span 2; margin-top: -50px; } /* Offset upward */
-    .item-6 { grid-column: span 3; grid-row: span 3; } /* Large square */
+    .gallery-card:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.1);
+    }
 
-    /* FOOTER */
+    /* FOOTER (UNCHANGED) */
     footer .social-links a, footer .social-links a:visited, footer .social-links a:active {
       color: #F2C200 !important;
       background: transparent !important;
@@ -162,12 +162,10 @@
     footer .social-links a:hover { background: #F2C200 !important; color: #0B1F3B !important; }
 
     @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-    @keyframes slow-pan { from { transform: scale(1); } to { transform: scale(1.1); } }
+    @keyframes slow-pan { from { transform: scale(1); } to { transform: scale(1.05); } }
 
-    @media (max-width: 768px) {
-      .masonry-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
-      .grid-item { grid-column: span 1 !important; grid-row: span 1 !important; margin-top: 0 !important; }
-    }
+    @media (max-width: 900px) { .gallery-columns { column-count: 2; } }
+    @media (max-width: 600px) { .gallery-columns { column-count: 1; } }
   </style>
 </head>
 <body class="gallery-page">
@@ -200,7 +198,7 @@
   <section class="pulse-section">
     <div class="container">
       <div class="pulse-wrapper">
-        <h2 class="section-title">Land <span class="highlight">Clearing</span> Transformation</h2>
+        <h2 class="section-title">Land <span class="highlight">Clearing</span></h2>
         <div class="pulse-container">
           <img src="land-clear-after.jpeg" class="pulse-img after" alt="After Clearing">
           <img src="land-clear-before.JPG" class="pulse-img before" alt="Before Clearing">
@@ -209,7 +207,7 @@
       </div>
 
       <div class="pulse-wrapper">
-        <h2 class="section-title">Driveway <span class="highlight">Repair</span> Transformation</h2>
+        <h2 class="section-title">Driveway <span class="highlight">Repair</span></h2>
         <div class="pulse-container">
           <img src="drive-after.JPG" class="pulse-img after" alt="After Driveway Repair">
           <img src="drive-before .JPG" class="pulse-img before" alt="Before Driveway Repair" style="animation-delay: 1.5s;">
@@ -222,13 +220,13 @@
   <section class="masonry-section">
     <div class="container">
       <h2 class="section-title">Recent <span class="highlight">Works</span></h2>
-      <div class="masonry-grid">
-        <div class="grid-item item-1"><img src="images/gal-1.JPG" alt="Project 1"></div>
-        <div class="grid-item item-2"><img src="images/gal-2.JPG" alt="Project 2"></div>
-        <div class="grid-item item-3"><img src="images/gal-3.JPG" alt="Project 3"></div>
-        <div class="grid-item item-4"><img src="images/gal-4.JPG" alt="Project 4"></div>
-        <div class="grid-item item-5"><img src="images/gal-5.JPG" alt="Project 5"></div>
-        <div class="grid-item item-6"><img src="images/gal-6.JPG" alt="Project 6"></div>
+      <div class="gallery-columns">
+        <div class="gallery-card"><img src="images/gal-1.JPG" alt="Work 1"></div>
+        <div class="gallery-card"><img src="images/gal-2.JPG" alt="Work 2"></div>
+        <div class="gallery-card"><img src="images/gal-3.JPG" alt="Work 3"></div>
+        <div class="gallery-card"><img src="images/gal-4.JPG" alt="Work 4"></div>
+        <div class="gallery-card"><img src="images/gal-5.JPG" alt="Work 5"></div>
+        <div class="gallery-card"><img src="images/gal-6.JPG" alt="Work 6"></div>
       </div>
     </div>
   </section>
