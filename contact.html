@@ -64,16 +64,19 @@
       line-height: 1;
     }
 
-    /* --- REGIONAL SECTION --- */
+    /* --- REGIONAL SECTION FIX --- */
     .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
     .flex-col-half { flex: 1; min-width: 320px; }
     
-    /* Grid layout logic */
-    .area-grid { 
-      display: grid; 
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 12px; 
+    /* Using Flexbox instead of Grid for the area container */
+    .area-grid-flex { 
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Centers the Morgan box at the top */
+      gap: 12px;
+      max-width: 400px; /* Keeps the grid tight and professional */
+      margin: 0 auto;
     }
 
     .area-card { 
@@ -82,27 +85,19 @@
       border: 1px solid #eee; 
       text-align: center; 
       transition: 0.3s;
+      /* This makes each box exactly half the width minus the gap */
+      width: calc(50% - 6px); 
+      box-sizing: border-box;
     }
     
-    /* MORGAN BOX FIX: Uses Flex centering instead of Grid spanning to prevent stretching */
-    .centered-header-wrapper {
-      grid-column: 1 / span 2;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .morgan-box {
-      /* This matches the exact width calculation of the 2-column items below */
+    /* This makes Morgan stay centered and same size */
+    .morgan-special {
       width: calc(50% - 6px); 
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #eee;
-      text-align: center;
+      margin-bottom: 5px; /* Slight separation from the 2 columns below */
     }
 
-    .area-card strong, .morgan-box strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p, .morgan-box p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0 120px; }
@@ -150,8 +145,7 @@
     }
 
     @media (max-width: 480px) {
-      .morgan-box { width: 100%; } 
-      .area-grid { grid-template-columns: 1fr; }
+      .area-card { width: 100%; } 
     }
   </style>
 </head>
@@ -190,12 +184,10 @@
           <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
         </div>
         <div class="flex-col-half">
-          <div class="area-grid">
-            <div class="centered-header-wrapper">
-              <div class="morgan-box">
-                <strong>Morgan</strong>
-                <p>West Liberty</p>
-              </div>
+          <div class="area-grid-flex">
+            <div class="area-card morgan-special">
+              <strong>Morgan</strong>
+              <p>West Liberty</p>
             </div>
             
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
