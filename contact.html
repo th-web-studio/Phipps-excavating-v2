@@ -247,7 +247,7 @@
   </footer>
 
   <script>
-    /* MOBILE MENU LOGIC */
+    /* MOBILE MENU TOGGLE LOGIC */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     
@@ -260,15 +260,17 @@
 
     /* PHONE FORMATTING LOGIC */
     const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', (e) => {
-      let input = e.target.value.replace(/\D/g, ''); 
-      if (input.length > 0) {
-        if (input.length <= 3) input = `(${input}`;
-        else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
-        else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
-      }
-      e.target.value = input;
-    });
+    if(phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        let input = e.target.value.replace(/\D/g, ''); 
+        if (input.length > 0) {
+          if (input.length <= 3) input = `(${input}`;
+          else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
+          else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
+        }
+        e.target.value = input;
+      });
+    }
   </script>
 </body>
 </html>
