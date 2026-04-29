@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* PREMIUM TYPOGRAPHY & LAYOUT REFINEMENT */
+    /* --- PREMIUM TYPOGRAPHY & LAYOUT REFINEMENT --- */
     .contact-details h2 {
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -0.5px;
-      font-size: 2.2rem;
+      letter-spacing: -1px;
+      font-size: clamp(2rem, 5vw, 2.8rem);
       color: #0B1F3B;
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 25px;
     }
 
@@ -25,6 +25,7 @@
       line-height: 1.8;
       color: #555;
       margin-bottom: 40px;
+      max-width: 450px;
     }
 
     /* THE INFO BOXES */
@@ -41,24 +42,25 @@
       letter-spacing: 2px;
       font-size: 0.75rem;
       margin-bottom: 8px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .info-item p, .info-item a {
-      font-size: 1.3rem !important;
-      font-weight: 700;
+      font-size: 1.35rem !important;
+      font-weight: 800;
       color: #0B1F3B !important;
-      margin-bottom: 0;
       text-decoration: none;
+      margin-bottom: 0;
+      letter-spacing: -0.5px;
     }
 
-    /* PREMIUM FORM STYLING */
+    /* --- PREMIUM FORM STYLING --- */
     .form-container {
       background: #fff;
       padding: 50px;
-      border-radius: 4px;
-      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1);
-      border-top: 8px solid #F2C200;
+      border-radius: 2px;
+      box-shadow: 0 40px 80px rgba(11, 31, 59, 0.12);
+      border-top: 10px solid #F2C200;
     }
 
     .form-group label {
@@ -68,20 +70,20 @@
       color: #0B1F3B;
       text-transform: uppercase;
       font-size: 0.75rem;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
 
     .form-group input, 
     .form-group select, 
     .form-group textarea {
       width: 100%;
-      padding: 15px;
-      border: 2px solid #eee;
+      padding: 18px;
+      border: 2px solid #f0f0f0;
       border-radius: 0;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       transition: all 0.3s ease;
-      background: #fcfcfc;
+      background: #fafafa;
     }
 
     .form-group input:focus, 
@@ -90,35 +92,74 @@
       outline: none;
       border-color: #0B1F3B;
       background: #fff;
-    }
-
-    /* AREA CARDS (SEO SECTION) */
-    .area-card {
-      padding: 25px;
-      background: #fff;
-      border: 1px solid #eee;
-      transition: 0.3s ease;
-    }
-    
-    .area-card:hover {
-      border-color: #F2C200;
-      transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
-    .small-hero {
-      padding: 120px 20px !important;
+    /* --- ESTHETICALLY PLEASING AREA CARDS (NEW) --- */
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
     }
 
-    .small-hero h1 {
-      font-weight: 900;
+    .area-card {
+      background: #fff;
+      padding: 40px 30px;
+      text-align: left; /* Left align is more premium than center */
+      border-radius: 4px;
+      border-left: 0px solid transparent; /* Hidden until hover */
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Softest shadow possible */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .area-card strong {
+      color: #0B1F3B;
+      display: block;
+      font-size: 1.15rem;
       text-transform: uppercase;
-      letter-spacing: -1px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .area-card p {
+      color: #777; /* Subtle text color for city */
+      font-size: 0.95rem;
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* The Esthetic Hover State */
+    .area-card:hover {
+      background: #fff;
+      border-left: 6px solid #F2C200; /* Yellow lights up on left */
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sophisticated lift shadow */
+      padding-left: 24px; /* Adjust padding to keep text aligned */
+    }
+
+    /* HERO STYLING */
+    .small-hero {
+      padding: 130px 20px !important;
+    }
+
+    .small-hero .hero-subtitle {
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: #F2C200;
+      letter-spacing: 3px;
     }
 
     @media screen and (max-width: 768px) {
-        .form-container { padding: 30px; }
-        .contact-details h2 { font-size: 1.8rem; }
+        .form-container { padding: 35px 25px; }
+        .contact-details h2 { font-size: 2.2rem; }
+        .area-card { padding: 30px 20px; }
     }
   </style>
 </head>
@@ -147,15 +188,51 @@
 
   <header class="small-hero">
     <div class="container">
-      <span class="hero-subtitle" style="font-weight: 800; color: #F2C200; letter-spacing: 2px;">ESTABLISH YOUR FOUNDATION</span>
+      <span class="hero-subtitle">ESTABLISH YOUR FOUNDATION</span>
       <h1>Contact Us</h1>
-      <p>Professional Residential Earthmoving & Site Solutions</p>
+      <p>Expert Residential Earthmoving & Site Solutions</p>
     </div>
   </header>
 
-  <section class="section">
+  <section class="section" style="background: #fcfcfc; border-bottom: 1px solid #eee; padding: 100px 0;">
     <div class="container">
-      <div class="grid" style="align-items: start; gap: 60px;">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 60px auto;">
+        <p style="color: #F2C200; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 15px;">Kentucky Site Coverage</p>
+        <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; color: #0B1F3B; margin: 0; font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1.1;">Regional<br>Coverage</h2>
+      </div>
+      
+      <div class="area-grid">
+        <div class="area-card">
+          <strong>Rowan</strong>
+          <p>Morehead</p>
+        </div>
+        <div class="area-card">
+          <strong>Elliott</strong>
+          <p>Sandy Hook</p>
+        </div>
+        <div class="area-card">
+          <strong>Johnson</strong>
+          <p>Paintsville</p>
+        </div>
+        <div class="area-card">
+          <strong>Magoffin</strong>
+          <p>Salyersville</p>
+        </div>
+        <div class="area-card">
+          <strong>Wolfe</strong>
+          <p>Campton</p>
+        </div>
+        <div class="area-card">
+          <strong>Menifee</strong>
+          <p>Frenchburg</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding: 100px 0;">
+    <div class="container">
+      <div class="grid" style="align-items: start; gap: 80px;">
         
         <div class="contact-details">
           <h2>Let's Get<br>To Work.</h2>
@@ -190,7 +267,7 @@
             <div class="form-group">
               <label>Service Category</label>
               <select name="service" required>
-                <option value="" disabled selected>Choose a category...</option>
+                <option value="" disabled selected>Choose a service...</option>
                 <option value="Excavation">Residential Excavation</option>
                 <option value="Driveway">Driveway Repair / Gravel</option>
                 <option value="Clearing">Residential Land Clearing</option>
@@ -198,7 +275,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Project Details</label>
+              <label>Project Scope</label>
               <textarea name="message" rows="5" placeholder="Describe your residential project goals..." required></textarea>
             </div>
             <button type="submit" class="btn primary" style="width: 100%; margin: 0; font-size: 1rem; padding: 22px; font-weight: 900;">Send Estimate Request</button>
@@ -209,55 +286,18 @@
     </div>
   </section>
 
-  <section class="section" style="background: #f8fafc; border-top: 1px solid #eee;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1px; color: #0B1F3B;">Regional Coverage</h2>
-        <p style="color: #F2C200; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Serving Morgan County & Bordering Regions</p>
-      </div>
-      
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center; gap: 20px;">
-        <div class="area-card">
-          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Rowan</strong>
-          <p style="color: #666; font-weight: 600;">Morehead</p>
-        </div>
-        <div class="area-card">
-          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Elliott</strong>
-          <p style="color: #666; font-weight: 600;">Sandy Hook</p>
-        </div>
-        <div class="area-card">
-          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Johnson</strong>
-          <p style="color: #666; font-weight: 600;">Paintsville</p>
-        </div>
-        <div class="area-card">
-          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Magoffin</strong>
-          <p style="color: #666; font-weight: 600;">Salyersville</p>
-        </div>
-        <div class="area-card">
-          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Wolfe</strong>
-          <p style="color: #666; font-weight: 600;">Campton</p>
-        </div>
-        <div class="area-card">
-          <strong style="color: #0B1F3B; display: block; margin-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Menifee</strong>
-          <p style="color: #666; font-weight: 600;">Frenchburg</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="container" style="text-align: center;">
       <div class="social-links">
         <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
-      <p style="margin-top: 20px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; opacity: 0.6;">© 2026 Phipps Excavating & Land Management</p>
+      <p style="margin-top: 25px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; opacity: 0.5;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
   <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
 
   <script>
-    /* Mobile Menu Logic */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     menu.addEventListener('click', function() {
@@ -265,7 +305,6 @@
       menuLinks.classList.toggle('active');
     });
 
-    /* --- AUTOMATIC PHONE FORMATTING SCRIPT --- */
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', (e) => {
       let input = e.target.value.replace(/\D/g, ''); 
