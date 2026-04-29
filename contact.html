@@ -9,19 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- EMERGENCY LAYOUT FIX --- */
+    /* --- BOX-SIZING RESET --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden; /* Prevents the horizontal scroll/push */
-      background: #fff;
+      overflow-x: hidden;
+      background: #ffffff;
+      color: #0B1F3B;
+      line-height: 1.6;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
-      box-sizing: border-box;
+      padding: 0 30px;
     }
 
     /* --- HERO --- */
@@ -29,107 +34,135 @@
       background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
       background-size: cover;
       background-position: center;
-      padding: 100px 20px 60px !important;
+      padding: 110px 0 70px !important;
       text-align: center;
       color: #fff;
     }
 
     .small-hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 900;
       text-transform: uppercase;
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      letter-spacing: -2px;
       margin: 10px 0;
     }
 
-    /* --- SECTION WRAPPERS --- */
-    .section-wrap {
-      padding: 50px 0;
-      width: 100%;
+    /* --- REGIONAL SECTION --- */
+    .regional-section {
+      background: #fcfcfc;
+      padding: 60px 0;
+      border-bottom: 1px solid #eee;
     }
 
-    /* --- THE FLEX GRID (More stable than CSS Grid for some browsers) --- */
     .flex-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
-      justify-content: space-between;
+      gap: 50px;
+      align-items: center;
     }
 
-    .flex-col {
+    .flex-col-half {
       flex: 1;
-      min-width: 300px;
+      min-width: 320px;
     }
 
-    /* --- REGIONAL BOXES --- */
     .area-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
     }
 
     .area-card {
       background: #fff;
-      padding: 15px;
+      padding: 20px;
       border: 1px solid #eee;
       text-align: center;
     }
 
-    .area-card strong { display: block; color: #0B1F3B; font-weight: 900; text-transform: uppercase; }
-    .area-card p { color: #F2C200; font-size: 0.75rem; margin: 0; font-weight: 800; }
+    .area-card strong { display: block; font-size: 1rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p { color: #F2C200; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-top: 4px; }
 
-    /* --- FORM --- */
+    /* --- FORM & DETAILS --- */
+    .contact-main { padding: 70px 0; }
+
+    .info-item {
+      margin-bottom: 25px;
+      border-left: 4px solid #F2C200;
+      padding-left: 20px;
+    }
+
+    .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
+    .info-item p, .info-item a { font-size: 1.3rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
+
     .form-container {
       background: #fff;
-      padding: 30px;
-      border-top: 6px solid #F2C200;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 40px;
+      border-top: 10px solid #F2C200;
+      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1);
     }
 
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
     .form-group input, .form-group select, .form-group textarea {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      box-sizing: border-box; /* Crucial to keep inputs from pushing out */
+      padding: 16px;
+      border: 2px solid #f0f0f0;
+      background: #fafafa;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
     }
 
-    .info-item { border-left: 3px solid #F2C200; padding-left: 15px; margin-bottom: 20px; }
-    .info-item strong { display: block; color: #F2C200; font-size: 0.7rem; text-transform: uppercase; }
-    .info-item p { font-size: 1.2rem; font-weight: 800; margin: 0; color: #0B1F3B; }
+    .submit-btn {
+      width: 100%;
+      padding: 20px;
+      background: #0B1F3B;
+      color: #fff;
+      border: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
 
     @media (max-width: 768px) {
-      .flex-col { flex: 0 0 100%; }
+      .flex-col-half { flex: 0 0 100%; }
     }
   </style>
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="container">
+    <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
       <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
+      <ul class="nav-links" id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
   <header class="small-hero">
     <div class="container">
-      <span style="color: #F2C200; font-weight: 900; letter-spacing: 2px;">ESTABLISH YOUR FOUNDATION</span>
+      <span style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Establish Your Foundation</span>
       <h1>Contact Us</h1>
-      <p>Residential Earthmoving & Site Solutions</p>
+      <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Residential Earthmoving & Site Solutions</p>
     </div>
   </header>
 
-  <section class="section-wrap" style="background: #f9f9f9;">
+  <section class="regional-section">
     <div class="container">
       <div class="flex-row">
-        <div class="flex-col">
-          <h2 style="font-weight: 900; text-transform: uppercase;">Regional Reach.</h2>
-          <p>Serving Morgan County and Surrounding Counties.</p>
+        <div class="flex-col-half">
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.5rem; margin: 0; line-height: 1;">Regional Reach.</h2>
+          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 20px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
         </div>
-        <div class="flex-col">
+        <div class="flex-col-half">
           <div class="area-grid">
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
@@ -143,29 +176,47 @@
     </div>
   </section>
 
-  <section class="section-wrap">
+  <section class="contact-main">
     <div class="container">
-      <div class="flex-row">
-        <div class="flex-col">
-          <h2 style="font-weight: 900; text-transform: uppercase;">Ready To Mobilize.</h2>
-          <div class="info-item"><strong>Direct Line</strong><p>(606) 548-0377</p></div>
+      <div class="flex-row" style="align-items: start;">
+        
+        <div class="flex-col-half">
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.5rem; line-height: 1; margin-bottom: 30px;">Get In Touch<br>Locally.</h2>
+          <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
           <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
+          <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
-        <div class="flex-col">
+
+        <div class="flex-col-half">
           <div class="form-container">
             <form action="#" method="POST">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required>
+              </div>
               <div class="form-group">
                 <label>Phone Number</label>
                 <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
               </div>
               <div class="form-group">
-                <label>Project Scope</label>
-                <textarea name="message" rows="3" required></textarea>
+                <label>Service Category</label>
+                <select name="service" required>
+                  <option value="" disabled selected>Choose a service...</option>
+                  <option value="Excavation">Residential Excavation</option>
+                  <option value="Driveway">Driveway Repair / Gravel</option>
+                  <option value="Clearing">Residential Land Clearing</option>
+                  <option value="Other">General Inquiry</option>
+                </select>
               </div>
-              <button type="submit" style="width: 100%; padding: 15px; background: #0B1F3B; color: #fff; font-weight: 900; border: none; cursor: pointer;">SEND REQUEST</button>
+              <div class="form-group">
+                <label>Project Scope</label>
+                <textarea name="message" rows="4" placeholder="Describe your residential project..." required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Estimate Request</button>
             </form>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -187,10 +238,11 @@
 
     /* MOBILE MENU */
     const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
     if(menu) {
       menu.addEventListener('click', function() {
-        this.classList.toggle('is-active');
-        document.querySelector('.nav-links')?.classList.toggle('active');
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
       });
     }
   </script>
