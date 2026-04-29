@@ -65,8 +65,19 @@
     }
 
     /* --- AUTO-PULSE TRANSFORMATION STYLES --- */
-    .pulse-section { padding: 100px 0 120px; background: #fcfcfc; }
-    .section-title { text-align: center; margin-bottom: 40px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
+    .pulse-section { padding: 80px 0 120px; background: #fcfcfc; }
+    
+    .pulse-wrapper {
+      margin-bottom: 100px; /* Space between different projects */
+    }
+
+    .section-title { 
+      text-align: center; 
+      margin-bottom: 40px; 
+      font-weight: 900; 
+      text-transform: uppercase; 
+      letter-spacing: -1px; 
+    }
 
     .pulse-container {
       position: relative;
@@ -87,7 +98,7 @@
       object-fit: cover;
     }
 
-    /* The "Before" image fades in and out over the "After" image */
+    /* Animation logic */
     .pulse-img.before {
       animation: pulse-fade 6s infinite ease-in-out;
       z-index: 2;
@@ -155,7 +166,6 @@
     @media (max-width: 768px) {
       .pulse-container { aspect-ratio: 4 / 3; }
       .pulse-badge { bottom: 15px; right: 15px; padding: 8px 15px; }
-      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -188,18 +198,31 @@
 
   <section class="pulse-section">
     <div class="container">
-      <h2 class="section-title">Land <span class="highlight">Clearing</span> Transformation</h2>
-      
-      <div class="pulse-container">
-        <img src="land-clear-after.jpeg" class="pulse-img after" alt="After Clearing">
-        
-        <img src="land-clear-before.JPG" class="pulse-img before" alt="Before Clearing">
-        
-        <div class="pulse-badge">
-          <span class="status-text">Transformation Live</span>
-          <div class="dot"></div>
+
+      <div class="pulse-wrapper">
+        <h2 class="section-title">Land <span class="highlight">Clearing</span> Transformation</h2>
+        <div class="pulse-container">
+          <img src="land-clear-after.jpeg" class="pulse-img after" alt="After Clearing">
+          <img src="land-clear-before.JPG" class="pulse-img before" alt="Before Clearing">
+          <div class="pulse-badge">
+            <span class="status-text">Transformation Live</span>
+            <div class="dot"></div>
+          </div>
         </div>
       </div>
+
+      <div class="pulse-wrapper">
+        <h2 class="section-title">Driveway <span class="highlight">Repair</span> Transformation</h2>
+        <div class="pulse-container">
+          <img src="drive-after.JPG" class="pulse-img after" alt="After Driveway Repair">
+          <img src="drive-before .JPG" class="pulse-img before" alt="Before Driveway Repair" style="animation-delay: 1.5s;">
+          <div class="pulse-badge">
+            <span class="status-text">Transformation Live</span>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
