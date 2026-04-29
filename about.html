@@ -9,81 +9,95 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO SYSTEM --- */
+    /* --- TIGHTENED SPACING SYSTEM --- */
+    body {
+      background: #ffffff;
+      color: #0B1F3B;
+      margin: 0;
+      line-height: 1.6; /* Tighter line height for a more compact feel */
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* --- HERO: Compact & Impactful --- */
     .about-hero {
       position: relative;
       width: 100%;
-      min-height: 60vh;
+      min-height: 45vh; /* Reduced height to bring content up */
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 0; /* Spacing for the top */
-      /* Ensure your image filename is correct below */
-      background: linear-gradient(rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.7)), url('hero-about.jpg');
-      background-size: cover;
-      background-position: center;
+      padding: 100px 0 60px; /* Tighter padding */
+      background-size: cover !important;
+      background-position: center !important;
       background-attachment: fixed;
       color: #fff;
       text-align: center;
     }
 
     .about-hero h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
+      font-size: clamp(2.5rem, 8vw, 5rem); /* Slightly smaller for a tighter fit */
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -4px;
+      letter-spacing: -3px;
       line-height: 0.9;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.4);
     }
 
     .about-hero p {
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 1.2rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: #F2C200;
+      margin: 0;
     }
 
-    /* --- CONTENT SPACING --- */
+    /* --- CONTENT SECTION: Removing the Gaps --- */
     .content-section {
-      padding: 100px 0;
+      padding: 60px 0; /* Reduced from 140px to 60px */
       background: #fff;
     }
 
     .content-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 80px;
-      align-items: start;
+      gap: 60px; /* Tighter gap between columns */
+      align-items: center; /* Centered alignment feels more 'fitted' */
     }
 
     .main-text h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -1.5px;
-      margin-bottom: 30px;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
       color: #0B1F3B;
+      line-height: 1.1;
     }
 
     .main-text p {
-      font-size: 1.25rem;
-      line-height: 1.8;
+      font-size: 1.15rem;
       color: #444;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
-    /* --- SIDEBAR CARD --- */
+    /* --- PROFILE CARD: Solid & Structured --- */
     .roots-card {
-      padding: 50px;
+      padding: 40px; /* Reduced padding */
       background: #0B1F3B;
       color: #fff;
-      border-radius: 2px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(11, 31, 59, 0.1);
     }
 
     .roots-card h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 900;
       text-transform: uppercase;
       color: #F2C200;
@@ -93,21 +107,24 @@
     .leader-list {
       list-style: none;
       padding: 0;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .leader-list li {
-      padding: 15px 0;
+      padding: 12px 0;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 1px;
+      display: flex;
+      justify-content: space-between;
     }
 
     @media (max-width: 992px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .about-hero { min-height: 50vh; background-attachment: scroll; }
+      .content-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-hero { min-height: 40vh; padding: 120px 0 60px; }
+      .content-section { padding: 40px 0; }
     }
   </style>
 </head>
@@ -116,6 +133,13 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
+      
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -127,7 +151,7 @@
     </div>
   </nav>
 
-  <header class="about-hero">
+  <header class="about-hero" style="background: linear-gradient(rgba(11, 31, 59, 0.75), rgba(11, 31, 59, 0.75)), url('aboutheaderimage.JPG');">
     <div class="container">
       <h1>Built on Trust.<br>Driven by Experience.</h1>
       <p>A Legacy of Service in West Liberty, KY.</p>
@@ -141,16 +165,16 @@
         <div class="main-text">
           <h2>Professionalism in Every Yard of Dirt</h2>
           <p>At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, brush cutting, and complex drainage solutions.</p>
-          <p>What sets us apart is our relentless commitment to precision and detail. We understand that excavation is more than just moving dirt; it is about <strong>preparing a foundation for the future.</strong></p>
+          <p>What sets us apart is our relentless commitment to precision and detail. We understand that excavation is about <strong>preparing a foundation for the future.</strong></p>
         </div>
 
         <div class="roots-card">
           <h3>Jamie Phipps</h3>
-          <p style="opacity: 0.8;">Owner and operator dedicated to the same excellence in business as his community service roles:</p>
+          <p style="opacity: 0.8; font-size: 1rem;">Owner/Operator dedicated to excellence in business and community service:</p>
           <ul class="leader-list">
-            <li>• Chief, West Liberty Fire Dept</li>
-            <li>• Member, White Oak Volunteer Fire</li>
-            <li>• Member, Highlands Masonic Lodge</li>
+            <li>Chief, West Liberty Fire Dept <span>→</span></li>
+            <li>Member, White Oak Volunteer Fire <span>→</span></li>
+            <li>Member, Highlands Masonic Lodge <span>→</span></li>
           </ul>
         </div>
 
@@ -160,5 +184,16 @@
 
   <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
 
+  <script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
+    
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
+  </script>
 </body>
 </html>
