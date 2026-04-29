@@ -11,7 +11,7 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 
 /* --- NAVIGATION --- */
 .navbar { 
-  background: rgba(11, 31, 59, 0.98); /* Slightly more solid for better contrast */
+  background: rgba(11, 31, 59, 0.98); 
   backdrop-filter: blur(10px);        
   padding: 1.2rem 0; 
   border-bottom: 4px solid #F2C200; 
@@ -98,20 +98,23 @@ body { font-family: 'Inter', sans-serif; color: #0B1F3B; line-height: 1.6; backg
 /* --- FOOTER: High Contrast Fix --- */
 footer { 
   padding: 60px 20px; 
-  background: #0B1F3B; /* Deep brand navy */
-  color: rgba(255, 255, 255, 0.6); /* Readable light grey/white */
+  background: #0B1F3B !important; /* Forces background to Navy */
+  color: #ffffff !important; /* Forces text to White */
   text-align: center; 
   border-top: 1px solid rgba(255,255,255,0.1); 
 }
 footer p { 
+  display: block !important; /* Forces the line to exist */
+  color: #ffffff !important; /* Master override for visibility */
   font-size: 0.85rem; 
   font-weight: 600; 
   text-transform: uppercase; 
   letter-spacing: 1px;
+  margin-top: 20px;
 }
 footer .social-links { margin-bottom: 25px; }
 footer .social-links a { 
-  color: #F2C200; 
+  color: #F2C200 !important; 
   text-decoration: none; 
   font-weight: 800; 
   text-transform: uppercase; 
@@ -157,7 +160,6 @@ footer .social-links a:hover { background: #F2C200; color: #0B1F3B; }
   .nav-links.active { top: 76px; }
   .nav-links li { margin: 12px 0; width: 100%; text-align: center; }
   
-  /* FIXED: Mobile CTA Match */
   .nav-cta-menu {
     width: 80%;
     margin: 0 auto;
