@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- PREMIUM HERO TYPOGRAPHY --- */
+    /* --- ORIGINAL HERO TYPOGRAPHY --- */
     .hero h1 {
       font-size: clamp(2rem, 6vw, 4rem);
       line-height: 1.1;
@@ -111,7 +111,64 @@
     .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; font-weight: 400; }
     .home-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); background-color: #0e274a; }
 
-    /* FIXED: Prevent Facebook Button glitch on click */
+    /* --- ADDED: SERVICE AREAS STYLES --- */
+    .service-areas {
+      padding: 100px 0;
+      background: #f9f9f9;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    .service-areas h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+      color: #0B1F3B;
+    }
+
+    .area-subtitle {
+      font-weight: 800;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 50px;
+    }
+
+    .county-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .county-item {
+      padding: 15px;
+      background: #ffffff;
+      border-left: 4px solid #F2C200;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      color: #0B1F3B;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .county-item:hover {
+      background: #0B1F3B;
+      color: #fff;
+      transform: translateY(-5px);
+    }
+
+    /* FOOTER FIXES */
     footer .social-links a, 
     footer .social-links a:visited, 
     footer .social-links a:active {
@@ -129,21 +186,11 @@
     /* --- MOBILE NAV SYNC --- */
     @media (max-width: 768px) {
       .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-      
       .nav-cta-menu { 
-        background: #F2C200; 
-        color: #0B1F3B !important; 
-        padding: 12px; 
-        border-radius: 4px; 
-        font-weight: 900; 
-        width: 80%; 
-        margin: 0 auto; 
-        display: block; 
-        text-transform: uppercase; 
-        font-size: 0.8rem;
-        text-decoration: none;
+        background: #F2C200; color: #0B1F3B !important; padding: 12px; border-radius: 4px; 
+        font-weight: 900; width: 80%; margin: 0 auto; display: block; text-transform: uppercase; 
+        font-size: 0.8rem; text-decoration: none;
       }
-
       .hero-stats { grid-template-columns: 1fr 1fr; min-height: auto; }
     }
   </style>
@@ -224,6 +271,24 @@
           <h3>Land Management</h3>
           <p>Transforming terrain with drainage ditching.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-areas">
+    <div class="container">
+      <h2>Regional Reach</h2>
+      <span class="area-subtitle">Morgan and Surrounding Counties</span>
+      
+      <div class="county-grid">
+        <div class="county-item">Morgan</div>
+        <div class="county-item">Rowan</div>
+        <div class="county-item">Elliott</div>
+        <div class="county-item">Johnson</div>
+        <div class="county-item">Magoffin</div>
+        <div class="county-item">Wolfe</div>
+        <div class="county-item">Menifee</div>
+        <div class="county-item">Floyd</div>
       </div>
     </div>
   </section>
