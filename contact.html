@@ -85,12 +85,14 @@
       transition: 0.3s;
     }
     
-    /* MORGAN BOX: Centered, same size as others */
+    /* MORGAN BOX: Pixel-perfect size match & Centered */
     .featured-area {
-      grid-column: 1 / span 2;
-      width: calc(50% - 6px); /* Matches the width of one column minus half the gap */
-      margin: 0 auto 10px; /* Centers the box between columns */
-      border-left: 1px solid #eee; /* Resetting to match others */
+      grid-column: 1 / span 2; /* Span across both columns */
+      justify-self: center;    /* Center the box within that span */
+      width: 100%;
+      /* Math: 50% of parent minus half the grid gap (6px) makes it identical to boxes below */
+      max-width: calc(50% - 6px); 
+      margin-bottom: 0px; 
     }
 
     .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
@@ -142,7 +144,7 @@
     }
 
     @media (max-width: 480px) {
-      .featured-area { width: 100%; } /* Stacks naturally on mobile */
+      .featured-area { max-width: 100%; } /* Standard full width on small mobile */
     }
   </style>
 </head>
@@ -254,6 +256,7 @@
   <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
+    /* PHONE MASK */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -267,6 +270,7 @@
       });
     }
 
+    /* MOBILE MENU TOGGLE */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
