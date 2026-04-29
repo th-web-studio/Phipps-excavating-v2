@@ -9,42 +9,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Premium Organized Card Styles */
-    .section {
+    /* PREMIUM ORGANIZED CARD STYLES 
+       These styles target only the services section to ensure 
+       nothing else on your site changes.
+    */
+    .section-services {
       background-color: #fcfcfc;
       padding: 100px 0;
     }
 
-    .grid {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .card {
-      background-color: #0B1F3B; /* Brand Navy */
-      border-top: 6px solid #F2C200; /* Bold Yellow Accent */
+    .service-card {
+      background-color: #0B1F3B; /* Deep Brand Navy */
+      border-top: 6px solid #F2C200; /* Precision Yellow Accent */
       padding: 60px 35px;
       text-align: center;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-radius: 4px;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Organization: Vertical Centering */
+      align-items: center; 
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .card h3 {
+    .service-card h3 {
       color: #F2C200;
       font-size: 1.25rem;
       margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 2.5px; /* Organization: Hierarchy through spacing */
+      letter-spacing: 2.5px; 
       font-weight: 800;
+      line-height: 1.2;
     }
 
-    /* The Organizational Divider */
-    .card::after {
+    /* The Organizational Divider: Adds a 'Studio' touch */
+    .service-card::after {
       content: "";
       width: 35px;
       height: 2px;
@@ -53,23 +59,23 @@
       display: block;
     }
 
-    .card p {
-      color: rgba(255, 255, 255, 0.85); /* Organization: Soft white for readability */
-      line-height: 1.8; /* Organization: Leading for scanning */
+    .service-card p {
+      color: rgba(255, 255, 255, 0.85); 
+      line-height: 1.8; /* Professional leading */
       font-size: 0.95rem;
-      max-width: 280px; /* Organization: Preventing long line lengths */
+      max-width: 280px; /* Crucial for keeping text organized and readable */
       margin: 0 auto;
       font-weight: 400;
       letter-spacing: 0.2px;
     }
 
-    .card:hover {
+    .service-card:hover {
       transform: translateY(-12px);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
       background-color: #0e274a;
     }
 
-    /* Hero Text Refinement */
+    /* Hero Refinement */
     .services-hero p {
         max-width: 600px;
         margin: 0 auto;
@@ -114,21 +120,21 @@
     </div>
   </header>
 
-  <section class="section">
+  <section class="section-services">
     <div class="container">
-      <div class="grid">
+      <div class="services-grid">
         
-        <div class="card">
+        <div class="service-card">
           <h3>Precision Excavation</h3>
           <p>High-precision site refining and tight-access digging. Specializing in surgical trenching for utilities, drainage lines, and small-scale property development.</p>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <h3>Grading & Leveling</h3>
           <p>Ensuring proper water drainage and a level surface for driveways, lawns, and yard improvements to protect your property's integrity.</p>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <h3>Land & Brush Clearing</h3>
           <p>Professional property line clearing and debris removal. Efficiently clearing brush and stumps to restore usability to overgrown land.</p>
         </div>
@@ -138,7 +144,7 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="container" style="text-align: center;">
       <div class="social-links">
         <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
       </div>
