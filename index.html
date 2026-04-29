@@ -9,6 +9,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* --- NEW HERO VIDEO BACKGROUND LOGIC --- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+
     /* --- ORIGINAL HERO TYPOGRAPHY (UNTOUCHED) --- */
     .hero h1 {
       font-size: clamp(2rem, 6vw, 4rem);
@@ -44,8 +68,10 @@
     }
 
     .hero .container {
-      background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%);
+      /* Added a slightly stronger gradient to ensure text pops over moving video */
+      background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 80%);
       padding: 40px 20px;
+      z-index: 1;
     }
 
     /* --- HERO STATS --- */
@@ -110,7 +136,7 @@
     .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; font-weight: 400; }
     .home-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); background-color: #0e274a; }
 
-    /* --- UPDATED: 2-COLUMN SERVICE AREAS --- */
+    /* --- 2-COLUMN SERVICE AREAS --- */
     .service-areas {
       padding: 100px 0;
       background: #f9f9f9;
@@ -139,9 +165,9 @@
 
     .county-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Locks in 2 columns */
+      grid-template-columns: repeat(2, 1fr); 
       gap: 15px;
-      max-width: 700px; /* Tighter container for the 4x2 look */
+      max-width: 700px; 
       margin: 0 auto;
     }
 
@@ -182,7 +208,6 @@
     .county-item:hover .county-name { color: #F2C200; }
     .county-item:hover .city-name { color: rgba(255,255,255,0.7); }
 
-    /* FOOTER FIXES */
     footer .social-links a, 
     footer .social-links a:visited, 
     footer .social-links a:active {
@@ -210,7 +235,7 @@
 
     @media (max-width: 480px) {
       .county-grid {
-        grid-template-columns: 1fr; /* Stacks to 1 column on small phones */
+        grid-template-columns: 1fr; 
       }
     }
   </style>
@@ -235,6 +260,10 @@
   </nav>
 
   <header class="hero">
+    <video autoplay muted loop playsinline poster="logo.PNG" id="hero-video">
+      <source src="videos/index-hero.mp4" type="video/mp4">
+    </video>
+
     <div class="container">
       <h1>
         <span class="hero-main-title">Expert Excavation</span>
