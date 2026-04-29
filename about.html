@@ -4,7 +4,147 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Phipps Excavating & Land Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- THE PREMIUM CANVAS --- */
+    body {
+      /* Subtle radial gradient prevents "boring" flat white */
+      background: radial-gradient(circle at top right, #ffffff, #f8f9fa 50%, #f2f2f2 100%);
+      color: #0B1F3B;
+      overflow-x: hidden;
+    }
+
+    .about-hero {
+      padding: 180px 0 100px;
+      position: relative;
+    }
+
+    /* Subtle geometric watermark for brand depth */
+    .about-hero::before {
+      content: 'PHIPPS';
+      position: absolute;
+      top: 120px;
+      left: -50px;
+      font-size: 15rem;
+      font-weight: 900;
+      color: rgba(11, 31, 59, 0.03);
+      z-index: -1;
+      letter-spacing: -10px;
+    }
+
+    .editorial-label {
+      font-weight: 900;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.75rem;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      line-height: 0.85;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -4px;
+      margin-bottom: 30px;
+    }
+
+    /* --- CONTENT STRUCTURE --- */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      padding: 100px 0;
+      align-items: start;
+    }
+
+    .main-text p {
+      font-size: 1.3rem;
+      line-height: 1.9;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    .main-text strong {
+      color: #0B1F3B;
+      font-weight: 800;
+    }
+
+    /* --- THE LEADERSHIP SUITE --- */
+    .leader-suite {
+      background: #0B1F3B;
+      color: white;
+      padding: 80px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 50px 100px rgba(11, 31, 59, 0.2);
+    }
+
+    /* Modern accent line */
+    .leader-suite::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 12px;
+      background: #F2C200;
+    }
+
+    .leader-header h3 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .leader-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .leader-list li {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .leader-list li:hover {
+      background: rgba(242, 194, 0, 0.1);
+      border-color: #F2C200;
+      transform: translateX(10px);
+    }
+
+    .leader-list li span {
+      color: #F2C200;
+      margin-right: 20px;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 992px) {
+      .content-grid { grid-template-columns: 1fr; gap: 60px; }
+      .leader-suite { padding: 40px; }
+      .about-hero::before { display: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -29,31 +169,47 @@
     </div>
   </nav>
 
-  <header class="hero small-hero">
+  <header class="about-hero">
     <div class="container">
-      <h1 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1px;">Built on Trust. Driven by Experience.</h1>
-      <p>A Legacy of Service in West Liberty, KY.</p>
+      <span class="editorial-label">The Digital Design Studio Approach</span>
+      <h1>Built on Trust.<br>Driven by<br>Experience.</h1>
+      <p style="font-size: 1.4rem; color: #666; max-width: 500px; font-weight: 500;">Establishing site foundations across Eastern Kentucky with twenty years of precision.</p>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container" style="max-width: 850px; text-align: left;">
-      <h2 style="margin-bottom: 25px; font-weight: 900; text-transform: uppercase;">Professionalism in Every Yard of Dirt</h2>
-      <p style="font-size: 1.25rem; margin-bottom: 20px; line-height: 1.8; color: #444;">At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, brush cutting, and complex drainage solutions. Based in West Liberty, we proudly serve Morgan County and the surrounding Eastern Kentucky region.</p>
-      
-      <p style="font-size: 1.25rem; margin-bottom: 20px; line-height: 1.8; color: #444;">What sets us apart is our relentless commitment to precision and detail. We understand that excavation is more than just moving dirt; it is about <strong>preparing a foundation for the future.</strong> Whether we are reclaiming overgrown acreage or repairing a critical driveway, our workmanship is defined by efficiency and reliability.</p>
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        
+        <div class="main-text">
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin-bottom: 30px; letter-spacing: -1px;">Precision in every<br>yard of dirt.</h2>
+          <p>At <strong>Phipps Excavating & Land Management</strong>, we bring over 20 years of hands-on expertise to every project. We specialize in high-quality excavator services, including land clearing, dirt work, and complex drainage solutions.</p>
+          <p>What sets us apart is our relentless commitment to precision. We understand that excavation is about <strong>preparing a foundation for the future.</strong></p>
+        </div>
 
-      <div style="background: #0B1F3B; color: white; padding: 50px; border-left: 10px solid #F2C200; margin-top: 50px; border-radius: 2px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-        <h3 style="text-transform: uppercase; color: #F2C200; margin-bottom: 15px; font-weight: 900; letter-spacing: 1px;">Leadership & Community</h3>
-        <p style="opacity: 0.9; margin-bottom: 20px;">Owner and operator <strong>Jamie Phipps</strong> brings the same dedication to his business that he provides to his public service roles:</p>
-        <ul style="list-style: none; padding: 0; margin-top: 20px; font-weight: 600; font-size: 1.1rem;">
-          <li style="margin-bottom: 15px; display: flex; align-items: center;"><span style="color: #F2C200; margin-right: 10px;">•</span> Chief, West Liberty Fire Department</li>
-          <li style="margin-bottom: 15px; display: flex; align-items: center;"><span style="color: #F2C200; margin-right: 10px;">•</span> Member, White Oak Volunteer Fire Department</li>
-          <li style="display: flex; align-items: center;"><span style="color: #F2C200; margin-right: 10px;">•</span> Member, Highlands Masonic Lodge</li>
-        </ul>
+        <div class="leader-suite">
+          <div class="leader-header">
+            <span class="editorial-label" style="color: #F2C200; margin-bottom: 10px;">Executive Leadership</span>
+            <h3>Jamie Phipps</h3>
+            <p style="opacity: 0.7; font-size: 1.1rem; line-height: 1.6;">Owner and operator bringing the same dedication to site management as he provides to his public service roles.</p>
+          </div>
+
+          <ul class="leader-list">
+            <li><span>•</span> Chief, West Liberty Fire Dept</li>
+            <li><span>•</span> Member, White Oak Vol. Fire Dept</li>
+            <li><span>•</span> Member, Highlands Masonic Lodge</li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <footer style="padding: 100px 0 40px; border-top: 1px solid #eee;">
+    <div class="container" style="text-align: center;">
+      <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 800; opacity: 0.3;">© 2026 Phipps Excavating & Land Management</p>
+    </div>
+  </footer>
 
   <a class="sticky-call" href="tel:6065480377">📞 Call Now</a>
 
