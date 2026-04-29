@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- NEW HERO VIDEO BACKGROUND LOGIC --- */
+    /* --- ENHANCED HERO VIDEO & CLARITY --- */
     .hero {
       position: relative;
       height: 100vh;
@@ -18,19 +18,32 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: #000; /* Fallback color */
+    }
+
+    /* Dark cinematic overlay to make yellow text pop */
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: 0;
     }
 
     #hero-video {
       position: absolute;
       top: 50%;
       left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       z-index: -1;
       transform: translate(-50%, -50%);
-      object-fit: cover;
+      object-fit: cover; 
+      /* Brightness 0.4 ensures the yellow text is the brightest thing on screen */
+      filter: brightness(0.4) contrast(1.1) saturate(0.8);
     }
 
     /* --- ORIGINAL HERO TYPOGRAPHY (UNTOUCHED) --- */
@@ -68,10 +81,11 @@
     }
 
     .hero .container {
-      /* Added a slightly stronger gradient to ensure text pops over moving video */
-      background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 80%);
+      position: relative;
       padding: 40px 20px;
-      z-index: 1;
+      z-index: 2; /* Sits above the vignette */
+      /* Adds a microscopic blur to the video behind the text area */
+      backdrop-filter: blur(1px); 
     }
 
     /* --- HERO STATS --- */
@@ -260,7 +274,7 @@
   </nav>
 
   <header class="hero">
-    <video autoplay muted loop playsinline poster="logo.PNG" id="hero-video">
+    <video autoplay muted loop playsinline id="hero-video">
       <source src="videos/index-hero.mp4" type="video/mp4">
     </video>
 
