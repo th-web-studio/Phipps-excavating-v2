@@ -77,13 +77,12 @@
     }
 
     .pulse-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-    .pulse-img.before { animation: pulse-fade 6s infinite ease-in-out; z-index: 2; }
+    
+    /* Animation removed from base class, added via JS on scroll */
+    .pulse-img.before { z-index: 2; opacity: 1; }
     .pulse-img.after { z-index: 1; }
 
-    /* DELAY THE SECOND TRANSFORMATION */
-    .pulse-wrapper:nth-child(2) .pulse-img.before {
-      animation-delay: 3s;
-    }
+    .animate-pulse { animation: pulse-fade 6s infinite ease-in-out; }
 
     @keyframes pulse-fade { 0%, 15% { opacity: 1; } 40%, 65% { opacity: 0; } 90%, 100% { opacity: 1; } }
 
@@ -260,6 +259,7 @@
   <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
+    // NAVBAR LOGIC
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
@@ -269,16 +269,34 @@
       });
     }
 
+    // STAGGERED PULSE LOGIC
+    const pulseWrappers = document.querySelectorAll('.pulse-wrapper');
+    const pulseObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          const img = entry.target.querySelector('.pulse-img.before');
+          // Stagger: delay start of second image by 1.5 seconds
+          setTimeout(() => {
+            img.classList.add('animate-pulse');
+          }, index * 1500); 
+          pulseObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    pulseWrappers.forEach(wrapper => pulseObserver.observe(wrapper));
+
+    // VIDEO LOGIC
     const video = document.getElementById('gallery-video');
     const replayOverlay = document.getElementById('replay-overlay');
     const replayTrigger = document.getElementById('replay-trigger');
-    const observer = new IntersectionObserver((entries) => {
+    const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) { video.play().catch(() => {}); } 
         else { video.pause(); }
       });
     }, { threshold: 0.5 });
-    observer.observe(video);
+    videoObserver.observe(video);
     video.onended = () => { replayOverlay.style.display = 'flex'; };
     replayTrigger.addEventListener('click', () => {
       replayOverlay.style.display = 'none';
@@ -286,6 +304,7 @@
       video.play();
     });
 
+    // LIGHTBOX LOGIC
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('main-lb-img');
     const lbControls = document.getElementById('lb-controls');
