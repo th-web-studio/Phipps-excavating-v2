@@ -9,16 +9,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- PAGE SPECIFIC OVERRIDES --- */
+    /* --- PREMIUM CONTACT HERO --- */
+    .contact-page-hero {
+      position: relative;
+      padding: 140px 0 100px; 
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
     .contact-page-hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
+      background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('aboutheaderimage.JPG');
       background-size: cover;
       background-position: center;
       z-index: -1;
       animation: slow-pan 30s infinite alternate ease-in-out;
+    }
+
+    .hero-subtitle {
+      display: inline-block;
+      font-weight: 900;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F2C200;
+      padding-bottom: 5px;
+    }
+
+    .contact-page-hero h1 {
+      font-size: clamp(2.8rem, 9vw, 4.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin: 0 auto 20px;
+      /* Depth Hack: Subtle yellow glow + deep shadow */
+      text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
+    }
+
+    .highlight {
+      color: #F2C200;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.5;
     }
 
     /* --- REGIONAL SECTION --- */
@@ -57,13 +103,14 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    /* FIXED: Prevent Facebook Button from turning into a yellow box when clicked */
+    /* FIXED: Prevent Facebook Button glitch on click */
     footer .social-links a, 
     footer .social-links a:visited, 
     footer .social-links a:active {
       color: #F2C200 !important;
       background: transparent !important;
       border: 2px solid #F2C200 !important;
+      text-decoration: none;
     }
     
     footer .social-links a:hover {
@@ -98,8 +145,8 @@
   <header class="small-hero contact-page-hero">
     <div class="container">
       <span class="hero-subtitle">Establish Your Foundation</span>
-      <h1>Contact Us</h1>
-      <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Residential Earthmoving & Site Solutions</p>
+      <h1>Get In <span class="highlight">Touch</span></h1>
+      <p class="hero-description">Built on <span class="highlight">Experience</span> <br> West Liberty, KY</p>
     </div>
   </header>
 
