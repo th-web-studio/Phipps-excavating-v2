@@ -110,7 +110,7 @@
     .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; font-weight: 400; }
     .home-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); background-color: #0e274a; }
 
-    /* --- UPDATED: 2-COLUMN SERVICE AREAS --- */
+    /* --- SERVICE AREAS --- */
     .service-areas {
       padding: 100px 0;
       background: #f9f9f9;
@@ -139,9 +139,9 @@
 
     .county-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Locks in 2 columns */
+      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
-      max-width: 700px; /* Tighter container for the 4x2 look */
+      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -210,7 +210,7 @@
 
     @media (max-width: 480px) {
       .county-grid {
-        grid-template-columns: 1fr; /* Stacks to 1 column on small phones */
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -332,6 +332,10 @@
         <div class="county-item">
           <span class="county-name">Floyd</span>
           <span class="city-name">Prestonsburg</span>
+        </div>
+        <div class="county-item">
+          <span class="county-name">Lawrence</span>
+          <span class="city-name">Louisa</span>
         </div>
       </div>
     </div>
