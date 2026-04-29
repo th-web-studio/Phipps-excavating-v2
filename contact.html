@@ -59,19 +59,43 @@
       max-width: 600px;
       margin: 0 auto;
       text-transform: uppercase;
-      letter-spacing: 5px; /* Premium Wide Spacing */
+      letter-spacing: 5px; 
       font-weight: 800;
       font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.95);
       line-height: 1;
     }
 
-    /* --- REGIONAL SECTION --- */
+    /* --- REGIONAL SECTION UPDATED FOR 9 COUNTIES --- */
     .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
     .flex-col-half { flex: 1; min-width: 320px; }
-    .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
-    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
+    
+    /* Grid set to exactly 2 columns */
+    .area-grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 12px; 
+    }
+
+    .area-card { 
+      background: #fff; 
+      padding: 15px; 
+      border: 1px solid #eee; 
+      text-align: center; 
+      transition: 0.3s;
+    }
+    
+    /* Centering Morgan County at the top of the 2 columns */
+    .featured-area {
+      grid-column: 1 / span 2;
+      justify-self: center;
+      width: 100%;
+      max-width: 250px; /* Limits width so it doesn't look stretched */
+      border-bottom: 3px solid #F2C200;
+      margin-bottom: 10px;
+    }
+
     .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
     .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
@@ -102,7 +126,6 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    /* FIXED: Prevent Facebook Button glitch on click */
     footer .social-links a, 
     footer .social-links a:visited, 
     footer .social-links a:active {
@@ -119,6 +142,7 @@
 
     @media (max-width: 768px) {
       .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+      .featured-area { max-width: 100%; }
     }
   </style>
 </head>
@@ -158,7 +182,8 @@
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
-            <div class="area-card"><strong>Morgan</strong><p>West Liberty</p></div>
+            <div class="area-card featured-area"><strong>Morgan</strong><p>West Liberty</p></div>
+            
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
             <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
@@ -166,6 +191,7 @@
             <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
             <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
             <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
+            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
           </div>
         </div>
       </div>
