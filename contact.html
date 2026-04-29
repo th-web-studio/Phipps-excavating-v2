@@ -8,13 +8,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* --- CORE RESET & LAYOUT --- */
+    /* --- CORE RESET --- */
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; padding: 0; overflow-x: hidden; background: #ffffff; color: #0B1F3B; line-height: 1.6; font-family: 'Inter', sans-serif; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
 
-    /* --- NAVIGATION --- */
-    .navbar { background: #0B1F3B; padding: 20px 0; position: relative; z-index: 1000; }
+    /* --- CONSISTENT NAVBAR --- */
+    .navbar { 
+      background: #0B1F3B; 
+      padding: 20px 0; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      border-bottom: 3px solid #F2C200;
+    }
     .nav-container { display: flex; justify-content: space-between; align-items: center; }
     .nav-brand { color: #fff; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px; }
     .nav-brand span { color: #F2C200; }
@@ -23,15 +30,17 @@
     .nav-links a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
     .nav-links a:hover { color: #F2C200; }
 
+    /* DESKTOP CALL BUTTON */
     .nav-call-btn {
       background: #F2C200;
       color: #0B1F3B !important;
-      padding: 10px 20px;
+      padding: 10px 22px;
       font-weight: 900;
       border-radius: 4px;
+      margin-left: 10px;
     }
 
-    /* --- MOBILE MENU --- */
+    /* MOBILE MENU & STICKY LOGIC */
     .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .bar { width: 25px; height: 3px; background: #fff; transition: 0.3s; }
 
@@ -45,75 +54,81 @@
         width: 100%;
         background: #0B1F3B;
         flex-direction: column;
-        padding: 30px 0;
+        padding: 40px 0;
         text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        gap: 25px;
       }
       .nav-links.active { display: flex; }
       
-      /* STICKY BOTTOM CALL BUTTON */
+      /* THE STICKY CALL BUTTON */
+      .nav-links li:last-child { width: 100%; } /* Container for the button */
+      
       .nav-call-btn {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        margin-left: 0;
+        margin: 0;
         border-radius: 0;
         padding: 22px;
-        text-align: center;
+        font-size: 1.1rem;
         z-index: 9999;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+        box-shadow: 0 -10px 25px rgba(0,0,0,0.3);
+        display: block;
       }
+      
+      .nav-brand { font-size: 0.9rem; }
     }
 
     /* --- HERO --- */
     .small-hero {
       background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
-      background-size: cover;
-      background-position: center;
-      padding: 100px 0 60px;
-      text-align: center;
-      color: #fff;
+      background-size: cover; background-position: center;
+      padding: 120px 0 80px; text-align: center; color: #fff;
     }
-    .small-hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; text-transform: uppercase; margin: 10px 0; }
+    .small-hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; text-transform: uppercase; margin: 10px 0; letter-spacing: -1px; }
 
     /* --- PILL TRUST BAR --- */
     .trust-bar { padding: 40px 0; background: #fff; }
     .trust-bar-container {
       display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-      background: #0B1F3B; padding: 15px 10px; border-radius: 100px;
+      background: #0B1F3B; padding: 18px 10px; border-radius: 100px;
       box-shadow: 0 15px 35px rgba(11, 31, 59, 0.15);
     }
-    .trust-item { display: flex; align-items: center; padding: 0 30px; border-right: 1px solid rgba(242, 194, 0, 0.3); }
+    .trust-item { display: flex; align-items: center; padding: 0 25px; border-right: 1px solid rgba(242, 194, 0, 0.4); }
     .trust-item:last-child { border-right: none; }
     .trust-text { color: #fff; font-weight: 800; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; }
     .trust-text span { color: #F2C200; margin-right: 4px; }
 
     @media (max-width: 768px) {
-      .trust-bar-container { border-radius: 15px; margin: 0 10px; padding: 10px; }
-      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; padding: 15px 0; }
+      .trust-bar-container { border-radius: 20px; margin: 0; padding: 10px; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; padding: 18px 0; }
+      .trust-item:last-child { border-bottom: none; }
     }
 
-    /* --- REGIONAL SECTION --- */
-    .regional-section { background: #fcfcfc; padding: 50px 0; border-bottom: 1px solid #eee; }
+    /* --- REGIONAL REACH --- */
+    .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
     .flex-col-half { flex: 1; min-width: 320px; }
-    .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
-    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
-    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; color: #0B1F3B; }
-    .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; margin-top: 2px; }
+    .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
+    .area-card { background: #fff; padding: 20px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+    .area-card:hover { border-color: #F2C200; transform: translateY(-5px); }
+    .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; color: #0B1F3B; font-weight: 900; }
+    .area-card p { color: #F2C200; font-size: 0.75rem; font-weight: 800; margin-top: 4px; text-transform: uppercase; }
 
-    /* --- FORM & CONTACT --- */
-    .contact-main { padding: 60px 0; }
-    .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
-    .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; font-weight: 900; }
-    .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; }
+    /* --- CONTACT FORM & INFO --- */
+    .contact-main { padding: 80px 0; }
+    .info-item { margin-bottom: 30px; border-left: 5px solid #F2C200; padding-left: 25px; }
+    .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 1px; }
+    .info-item p, .info-item a { font-size: 1.4rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 5px 0 0; }
     
-    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
-    .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 6px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; outline: none; }
-    .submit-btn { width: 100%; padding: 18px; background: #0B1F3B; color: #fff; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+    .form-container { background: #fff; padding: 45px; border-top: 12px solid #F2C200; box-shadow: 0 40px 80px rgba(11, 31, 59, 0.12); }
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; color: #0B1F3B; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 16px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: 0.3s; }
+    .form-group input:focus, .form-group textarea:focus { border-color: #F2C200; }
+    
+    .submit-btn { width: 100%; padding: 20px; background: #0B1F3B; color: #fff; border: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.4s; }
     .submit-btn:hover { background: #F2C200; color: #0B1F3B; }
   </style>
 </head>
@@ -138,9 +153,9 @@
 
   <header class="small-hero">
     <div class="container">
-      <span style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Establish Your Foundation</span>
+      <span style="font-weight: 900; color: #F2C200; letter-spacing: 4px; font-size: 0.85rem; text-transform: uppercase;">Establish Your Foundation</span>
       <h1>Contact Us</h1>
-      <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Residential Earthmoving & Site Solutions</p>
+      <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 600; font-size: 0.9rem;">Residential Earthmoving & Site Solutions</p>
     </div>
   </header>
 
@@ -159,8 +174,8 @@
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin: 0;">Regional Reach.</h2>
-          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Areas with professional site solutions.</p>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.5rem; margin: 0; letter-spacing: -1.5px;">Regional Reach.</h2>
+          <p style="margin-top: 20px; border-top: 3px solid #F2C200; padding-top: 20px; font-weight: 500;">Serving Morgan County and Surrounding Areas with professional site solutions.</p>
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
@@ -182,20 +197,20 @@
     <div class="container">
       <div class="flex-row" style="align-items: start;">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
-          <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
-          <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
-          <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.5rem; margin-bottom: 30px; letter-spacing: -1px;">Get In Touch<br>Locally.</h2>
+          <div class="info-item"><strong>Direct Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
+          <div class="info-item"><strong>Official Email</strong><p>jphipps275@hotmail.com</p></div>
+          <div class="info-item"><strong>Service Hub</strong><p>West Liberty, KY</p></div>
         </div>
         <div class="flex-col-half">
           <div class="form-container">
             <form action="#" method="POST">
-              <div class="form-group"><label>Name</label><input type="text" placeholder="First and Last Name" required></div>
+              <div class="form-group"><label>Full Name</label><input type="text" placeholder="First and Last Name" required></div>
               <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(000) 000-0000" maxlength="14" required></div>
               <div class="form-group"><label>Service Category</label>
-                <select required><option value="" disabled selected>Choose a service...</option>
+                <select required><option value="" disabled selected>Select a service...</option>
                   <option>Excavation</option><option>Land Clearing</option><option>Driveway Repair</option><option>Land Management</option><option>General Inquiry</option></select></div>
-              <div class="form-group"><label>Project Scope</label><textarea rows="4" placeholder="Describe your residential project..." required></textarea></div>
+              <div class="form-group"><label>Project Scope</label><textarea rows="4" placeholder="Briefly describe your project needs..." required></textarea></div>
               <button type="submit" class="submit-btn">Send Estimate Request</button>
             </form>
           </div>
@@ -205,7 +220,7 @@
   </section>
 
   <script>
-    /* PHONE MASK */
+    /* PHONE FORMATTING (000) 000-0000 */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -219,7 +234,7 @@
       });
     }
 
-    /* MOBILE MENU TOGGLE */
+    /* HAMBURGER TOGGLE */
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-list');
     menuToggle.addEventListener('click', () => {
