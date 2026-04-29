@@ -9,7 +9,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- CORE RESET & LAYOUT SECURITY --- */
+    /* --- NAV STYLING FOR CALL BUTTON --- */
+    .nav-call-btn {
+      background: #F2C200;
+      color: #0B1F3B !important;
+      padding: 10px 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-left: 15px;
+      transition: 0.3s;
+    }
+    
+    .nav-call-btn:hover {
+      background: #fff;
+    }
+
+    /* Mobile Menu Adjustments */
+    @media (max-width: 768px) {
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 0;
+      }
+      .nav-call-btn {
+        margin-left: 0;
+        width: 80%;
+        text-align: center;
+      }
+    }
+
+    /* --- CORE RESET & LAYOUT --- */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -115,10 +147,6 @@
       outline: none;
     }
 
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: #F2C200;
-    }
-
     .submit-btn {
       width: 100%;
       padding: 18px;
@@ -133,11 +161,6 @@
     }
 
     .submit-btn:hover { background: #F2C200; color: #0B1F3B; }
-
-    @media (max-width: 768px) {
-      .flex-col-half { flex: 0 0 100%; }
-      .form-container { padding: 30px 20px; }
-    }
   </style>
 </head>
 <body>
@@ -154,6 +177,7 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
+        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -192,7 +216,6 @@
   <section class="contact-main">
     <div class="container">
       <div class="flex-row" style="align-items: start;">
-        
         <div class="flex-col-half">
           <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
           <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
@@ -217,8 +240,9 @@
                   <option value="" disabled selected>Choose a service...</option>
                   <option value="Excavation">Excavation</option>
                   <option value="Land Clearing">Land Clearing</option>
-                  <option value="Driveway">Driveway Repair / Gravel</option>
-                  <option value="Other">General Inquiry</option>
+                  <option value="Driveway Repair">Driveway Repair</option>
+                  <option value="Land Management">Land Management</option>
+                  <option value="General Inquiry">General Inquiry / Other</option>
                 </select>
               </div>
               <div class="form-group">
@@ -229,13 +253,12 @@
             </form>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <script>
-    /* PHONE MASK: (000) 000-0000 */
+    /* PHONE MASK */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
