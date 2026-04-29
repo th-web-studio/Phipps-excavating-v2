@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- REPAIRED HERO LOGIC --- */
+    /* --- HERO & VIDEO ARCHITECTURE --- */
     .hero {
       position: relative;
       height: 100vh;
@@ -27,32 +27,42 @@
       left: 50%;
       width: 100%;
       height: 100%;
-      z-index: 1; /* Moved to positive to ensure it renders */
+      z-index: 1;
       transform: translate(-50%, -50%);
       object-fit: cover; 
-      filter: brightness(0.5) contrast(1.1);
+      /* Brightness 0.4 makes the yellow text high-contrast and sharp */
+      filter: brightness(0.4) contrast(1.1) saturate(0.9);
     }
 
-    /* Separate Overlay Div for maximum compatibility */
+    /* Cinematic Overlay for Text Readability */
     .video-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
-      z-index: 2; /* Sits on top of video, below text */
+      /* Radial gradient darkens edges to keep yellow text visible */
+      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: 2;
       pointer-events: none;
     }
 
-    /* --- ORIGINAL HERO TYPOGRAPHY (UNTOUCHED) --- */
+    /* --- HERO CONTENT & TYPOGRAPHY --- */
+    .hero .container {
+      position: relative;
+      padding: 40px 20px;
+      /* padding-top ensures the nav bar doesn't cut off "Expert Excavation" */
+      padding-top: 120px; 
+      z-index: 3;
+      text-align: center;
+    }
+
     .hero h1 {
       font-size: clamp(2rem, 6vw, 4rem);
       line-height: 1.1;
       text-transform: uppercase;
       color: #ffffff;
       margin-bottom: 5px; 
-      text-align: center;
       text-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 
@@ -79,11 +89,7 @@
       text-shadow: 0 5px 15px rgba(0,0,0,0.6);
     }
 
-    .hero .container {
-      position: relative;
-      padding: 40px 20px;
-      z-index: 3; /* Sits at the very top */
-    }
+    .hero-accent { color: #F2C200; font-weight: 700; }
 
     /* --- HERO STATS --- */
     .hero-stats {
@@ -93,16 +99,13 @@
       margin-top: 30px; 
       padding-top: 25px;
       border-top: 1px solid rgba(255, 255, 255, 0.15);
-      text-align: center;
     }
 
     .stat-item {
       display: flex;
       flex-direction: column;
-      justify-content: center; 
       align-items: center;     
       min-height: 60px;        
-      gap: 2px;
     }
 
     .stat-value {
@@ -110,7 +113,6 @@
       font-weight: 800;
       color: #F2C200;
       text-transform: uppercase;
-      margin: 0;
       line-height: 1.1;
     }
 
@@ -120,12 +122,8 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       color: rgba(255, 255, 255, 0.85);
-      margin: 0;
-      line-height: 1.2;
       max-width: 140px; 
     }
-
-    .hero-accent { color: #F2C200; font-weight: 700; }
 
     /* --- PROFESSIONAL SERVICES --- */
     #services { padding: 40px 0 80px 0; }
@@ -143,111 +141,38 @@
       text-decoration: none;
     }
     .home-card h3 { color: #F2C200; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
-    .home-card::after { content: ""; width: 30px; height: 2px; background: rgba(242, 194, 0, 0.4); margin-bottom: 20px; }
-    .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; font-weight: 400; }
+    .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; }
     .home-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); background-color: #0e274a; }
 
-    /* --- 2-COLUMN SERVICE AREAS --- */
+    /* --- SERVICE AREAS --- */
     .service-areas {
       padding: 100px 0;
       background: #f9f9f9;
       text-align: center;
       border-top: 1px solid #eee;
     }
-
-    .service-areas h2 {
-      font-size: 2.2rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      margin-bottom: 10px;
-      color: #0B1F3B;
-    }
-
-    .area-subtitle {
-      font-weight: 800;
-      color: #F2C200;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.8rem;
-      display: block;
-      margin-bottom: 50px;
-    }
-
-    .county-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 15px;
-      max-width: 700px; 
-      margin: 0 auto;
-    }
-
-    .county-item {
-      padding: 20px 15px;
-      background: #ffffff;
-      border-left: 4px solid #F2C200;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .county-name {
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      color: #0B1F3B;
-    }
-
-    .city-name {
-      font-weight: 600;
-      font-size: 0.75rem;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
-
-    .county-item:hover {
-      background: #0B1F3B;
-      transform: translateY(-5px);
-    }
-
+    .service-areas h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; color: #0B1F3B; }
+    .area-subtitle { font-weight: 800; color: #F2C200; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; display: block; margin-bottom: 50px; }
+    .county-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 700px; margin: 0 auto; }
+    .county-item { padding: 20px 15px; background: #ffffff; border-left: 4px solid #F2C200; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .county-name { font-weight: 900; text-transform: uppercase; font-size: 0.9rem; color: #0B1F3B; }
+    .city-name { font-weight: 600; font-size: 0.75rem; color: #666; text-transform: uppercase; margin-top: 4px; }
+    .county-item:hover { background: #0B1F3B; transform: translateY(-5px); }
     .county-item:hover .county-name { color: #F2C200; }
     .county-item:hover .city-name { color: rgba(255,255,255,0.7); }
 
-    footer .social-links a, 
-    footer .social-links a:visited, 
-    footer .social-links a:active {
-      color: #F2C200 !important;
-      background: transparent !important;
-      border: 2px solid #F2C200 !important;
-      text-decoration: none;
-    }
-    
-    footer .social-links a:hover {
-      background: #F2C200 !important;
-      color: #0B1F3B !important;
-    }
+    /* --- FOOTER & MISC --- */
+    footer { padding: 40px 0; background: #0B1F3B; color: #fff; text-align: center; }
+    footer .social-links a { color: #F2C200; border: 2px solid #F2C200; padding: 10px 20px; text-decoration: none; text-transform: uppercase; font-weight: 800; font-size: 0.8rem; }
+    footer .social-links a:hover { background: #F2C200; color: #0B1F3B; }
 
     /* --- MOBILE RESPONSIVENESS --- */
     @media (max-width: 768px) {
-      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-      .nav-cta-menu { 
-        background: #F2C200; color: #0B1F3B !important; padding: 12px; border-radius: 4px; 
-        font-weight: 900; width: 80%; margin: 0 auto; display: block; text-transform: uppercase; 
-        font-size: 0.8rem; text-decoration: none;
-      }
-      .hero-stats { grid-template-columns: 1fr 1fr; min-height: auto; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .nav-cta-menu { background: #F2C200; color: #0B1F3B !important; padding: 10px; font-weight: 900; }
     }
-
     @media (max-width: 480px) {
-      .county-grid {
-        grid-template-columns: 1fr; 
-      }
+      .county-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -341,40 +266,15 @@
     <div class="container">
       <h2>Regional Reach</h2>
       <span class="area-subtitle">Based in West Liberty | Serving Morgan and Surrounding Counties</span>
-      
       <div class="county-grid">
-        <div class="county-item">
-          <span class="county-name">Morgan</span>
-          <span class="city-name">West Liberty</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Rowan</span>
-          <span class="city-name">Morehead</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Elliott</span>
-          <span class="city-name">Sandy Hook</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Johnson</span>
-          <span class="city-name">Paintsville</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Magoffin</span>
-          <span class="city-name">Salyersville</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Wolfe</span>
-          <span class="city-name">Campton</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Menifee</span>
-          <span class="city-name">Frenchburg</span>
-        </div>
-        <div class="county-item">
-          <span class="county-name">Floyd</span>
-          <span class="city-name">Prestonsburg</span>
-        </div>
+        <div class="county-item"><span class="county-name">Morgan</span><br><span class="city-name">West Liberty</span></div>
+        <div class="county-item"><span class="county-name">Rowan</span><br><span class="city-name">Morehead</span></div>
+        <div class="county-item"><span class="county-name">Elliott</span><br><span class="city-name">Sandy Hook</span></div>
+        <div class="county-item"><span class="county-name">Johnson</span><br><span class="city-name">Paintsville</span></div>
+        <div class="county-item"><span class="county-name">Magoffin</span><br><span class="city-name">Salyersville</span></div>
+        <div class="county-item"><span class="county-name">Wolfe</span><br><span class="city-name">Campton</span></div>
+        <div class="county-item"><span class="county-name">Menifee</span><br><span class="city-name">Frenchburg</span></div>
+        <div class="county-item"><span class="county-name">Floyd</span><br><span class="city-name">Prestonsburg</span></div>
       </div>
     </div>
   </section>
@@ -382,7 +282,7 @@
   <footer>
     <div class="container">
       <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
+        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank">Find us on Facebook</a>
       </div>
       <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
