@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Phipps Excavating & Land Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- CORE RESET & LAYOUT --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: #ffffff;
+      color: #0B1F3B;
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* --- NAV CTA STYLE --- */
+    .nav-call-btn {
+      background: #F2C200;
+      color: #0B1F3B !important;
+      padding: 10px 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-left: 15px;
+      transition: 0.3s;
+    }
+    
+    .nav-call-btn:hover {
+      background: #fff;
+    }
+
+    /* --- GALLERY HERO --- */
+    .small-hero {
+      background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 60px !important;
+      text-align: center;
+      color: #fff;
+    }
+
+    .small-hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin: 10px 0;
+    }
+
+    /* --- GALLERY GRID --- */
+    .gallery-section {
+      padding: 60px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0B1F3B;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      opacity: 0.85;
+    }
+
+    /* Hover Overlay */
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(11, 31, 59, 0.95));
+      padding: 40px 20px 20px;
+      color: #fff;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-overlay h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #F2C200;
+      margin-bottom: 5px;
+      font-weight: 900;
+    }
+
+    .gallery-overlay p {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-call-btn {
+        margin-left: 0;
+        width: 80%;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+      <ul class="nav-links" id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html" style="color: #F2C200 !important;">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="small-hero">
+    <div class="container">
+      <span style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Portfolio of Excellence</span>
+      <h1>Our Work</h1>
+      <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Precision Earthmoving & Site Transformations</p>
+    </div>
+  </header>
+
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid">
+        
+        <div class="gallery-item">
+          <img src="https://placehold.co/800x500/0B1F3B/F2C200?text=Excavation+Project" alt="Coming Soon">
+          <div class="gallery-overlay">
+            <h3>Excavation</h3>
+            <p>Residential Foundation Prep</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://placehold.co/800x500/0B1F3B/F2C200?text=Land+Clearing" alt="Coming Soon">
+          <div class="gallery-overlay">
+            <h3>Land Clearing</h3>
+            <p>Site Reclamation & Brush Removal</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://placehold.co/800x500/0B1F3B/F2C200?text=Driveway+Repair" alt="Coming Soon">
+          <div class="gallery-overlay">
+            <h3>Driveway Repair</h3>
+            <p>Gravel Installation & Maintenance</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://placehold.co/800x500/0B1F3B/F2C200?text=Land+Management" alt="Coming Soon">
+          <div class="gallery-overlay">
+            <h3>Land Management</h3>
+            <p>Custom Drainage & Grading</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Phipps Excavating & Land Management</p>
+    </div>
+  </footer>
+
+  <script>
+    /* MOBILE MENU TOGGLE */
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
+
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
+
+    /* CLOSE MENU ON LINK CLICK */
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(link => {
+      link.addEventListener('click', () => {
+        if(menu) menu.classList.remove('is-active');
+        if(menuLinks) menuLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
