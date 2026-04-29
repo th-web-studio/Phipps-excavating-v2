@@ -8,12 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* --- CORE RESET & LAYOUT --- */
+    /* --- SYNCED WITH YOUR INDEX CSS --- */
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; padding: 0; overflow-x: hidden; background: #ffffff; color: #0B1F3B; line-height: 1.6; font-family: 'Inter', sans-serif; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
 
-    /* --- NAVIGATION (SYCHRONIZED WITH INDEX) --- */
     .navbar { 
       background: #0B1F3B; 
       padding: 20px 0; 
@@ -30,7 +29,7 @@
     .nav-links a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
     .nav-links a:hover { color: #F2C200; }
 
-    /* DESKTOP CALL BUTTON */
+    /* DESKTOP BUTTON */
     .nav-call-btn {
       background: #F2C200;
       color: #0B1F3B !important;
@@ -38,14 +37,17 @@
       font-weight: 900;
       border-radius: 4px;
       margin-left: 10px;
+      text-transform: uppercase;
     }
 
+    /* MOBILE TOGGLE (FROM YOUR INDEX) */
     .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .bar { width: 25px; height: 3px; background: #fff; transition: 0.3s; }
 
-    /* MOBILE STYLING */
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
+      
+      /* THE MENU DRAWER */
       .nav-links {
         display: none;
         position: absolute;
@@ -58,9 +60,12 @@
         text-align: center;
         gap: 25px;
       }
-      .nav-links.active { display: flex; }
       
-      /* THIS IS THE FIX: FORCED VISIBILITY AT BOTTOM */
+      /* ACTIVE STATE (LINKED TO JAVASCRIPT) */
+      .nav-links.active { display: flex; }
+
+      /* THE STICKY BUTTON FIX */
+      /* This breaks the Call Button out of the menu drawer so it stays visible */
       .nav-call-btn {
         position: fixed;
         bottom: 0;
@@ -71,30 +76,29 @@
         padding: 22px;
         font-size: 1.1rem;
         z-index: 9999;
+        display: block !important; /* Force it to stay visible even if menu is closed */
         text-align: center;
         box-shadow: 0 -10px 25px rgba(0,0,0,0.3);
       }
       
       .nav-brand { font-size: 0.85rem; }
-      body { padding-bottom: 80px; } /* Prevents button from covering footer content */
+      body { padding-bottom: 80px; }
     }
 
-    /* --- HERO --- */
+    /* --- CONTACT PAGE CONTENT --- */
     .small-hero {
       background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
       background-size: cover; background-position: center;
       padding: 100px 0 60px; text-align: center; color: #fff;
     }
-    .small-hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; text-transform: uppercase; margin: 10px 0; }
+    .small-hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; text-transform: uppercase; margin: 10px 0; }
 
-    /* --- REGIONAL GRID --- */
     .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
     .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
     .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
     .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* --- CONTACT FORM --- */
     .contact-main { padding: 60px 0; }
     .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
@@ -163,8 +167,9 @@
       <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: start;">
         <div style="flex: 1; min-width: 300px;">
           <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch.</h2>
-          <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
+          <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377" style="color: #0B1F3B; text-decoration: none;">(606) 548-0377</a></p></div>
           <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
+          <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
 
         <div style="flex: 1; min-width: 300px;">
@@ -172,10 +177,10 @@
             <form action="#" method="POST">
               <div class="form-group"><label>Name</label><input type="text" placeholder="First and Last Name" required></div>
               <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(000) 000-0000" maxlength="14" required></div>
-              <div class="form-group"><label>Service</label>
+              <div class="form-group"><label>Service Category</label>
                 <select required><option value="" disabled selected>Choose a service...</option>
-                  <option>Excavation</option><option>Land Clearing</option><option>Driveway Repair</option></select></div>
-              <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Describe your project..." required></textarea></div>
+                  <option>Excavation</option><option>Land Clearing</option><option>Driveway Repair</option><option>Land Management</option><option>General Inquiry</option></select></div>
+              <div class="form-group"><label>Project Scope</label><textarea rows="4" placeholder="Describe your project..." required></textarea></div>
               <button type="submit" class="submit-btn">Send Request</button>
             </form>
           </div>
@@ -185,7 +190,7 @@
   </section>
 
   <script>
-    /* PHONE MASK */
+    /* PHONE FORMATTING SYNCED WITH YOUR REQUESTS */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -199,12 +204,16 @@
       });
     }
 
-    /* MOBILE MENU TOGGLE */
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-list');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    /* THE EXACT JAVASCRIPT LOGIC FROM YOUR INDEX */
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
+
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
   </script>
 </body>
 </html>
