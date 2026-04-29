@@ -111,11 +111,25 @@
     .home-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 0.9rem; margin: 0 auto; max-width: 220px; font-weight: 400; }
     .home-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); background-color: #0e274a; }
 
+    /* FIXED: Prevent Facebook Button glitch on click */
+    footer .social-links a, 
+    footer .social-links a:visited, 
+    footer .social-links a:active {
+      color: #F2C200 !important;
+      background: transparent !important;
+      border: 2px solid #F2C200 !important;
+      text-decoration: none;
+    }
+    
+    footer .social-links a:hover {
+      background: #F2C200 !important;
+      color: #0B1F3B !important;
+    }
+
     /* --- MOBILE NAV SYNC --- */
     @media (max-width: 768px) {
       .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
       
-      /* EXACT MATCH TO CONTACT/GALLERY BUTTON STYLE */
       .nav-cta-menu { 
         background: #F2C200; 
         color: #0B1F3B !important; 
@@ -216,7 +230,10 @@
 
   <footer>
     <div class="container">
-      <p style="font-weight: 700; color: #0B1F3B;">© 2026 Phipps Excavating & Land Management</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
+      </div>
+      <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
