@@ -22,7 +22,8 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('aboutheaderimage.JPG');
+      /* UPDATED IMAGE PATH */
+      background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('images/contact-hero.jpeg');
       background-size: cover;
       background-position: center;
       z-index: -1;
@@ -41,23 +42,21 @@
       padding-bottom: 5px;
     }
 
-    /* TIGHTENED H1 */
     .contact-page-hero h1 {
       font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -4px; /* Pulls letters tighter */
-      line-height: 0.85;    /* Pulls lines tighter */
+      letter-spacing: -4px; /* Tighter letters */
+      line-height: 0.85;    /* Tighter vertical spacing */
       margin: 0 auto 20px;
-      max-width: 900px;     /* Keeps text from spreading too thin */
+      max-width: 900px;
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
     .highlight { color: #F2C200; }
 
-    /* TIGHTENED DESCRIPTION */
     .hero-description {
-      max-width: 500px;
+      max-width: 500px; /* Tighter container */
       margin: 0 auto;
       text-transform: uppercase;
       letter-spacing: 3px; 
@@ -131,27 +130,12 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    footer .social-links a, 
-    footer .social-links a:visited, 
-    footer .social-links a:active {
-      color: #F2C200 !important;
-      background: transparent !important;
-      border: 2px solid #F2C200 !important;
-      text-decoration: none;
-    }
-    
-    footer .social-links a:hover {
-      background: #F2C200 !important;
-      color: #0B1F3B !important;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-    }
+    footer .social-links a { color: #F2C200 !important; border: 2px solid #F2C200 !important; text-decoration: none; padding: 10px 20px; }
+    footer .social-links a:hover { background: #F2C200 !important; color: #0B1F3B !important; }
 
     @media (max-width: 480px) {
       .inner-card { max-width: 100%; }
-      .contact-page-hero h1 { letter-spacing: -2px; } /* Slightly looser for small screens */
+      .contact-page-hero h1 { letter-spacing: -2px; }
     }
   </style>
 </head>
@@ -182,113 +166,5 @@
     </div>
   </header>
 
-  <section class="regional-section">
-    <div class="container">
-      <div class="flex-row">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional Reach.</h2>
-          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
-        </div>
-        <div class="flex-col-half">
-          <div class="area-grid">
-            <div class="featured-area">
-              <div class="inner-card">
-                <strong>Morgan</strong>
-                <p>West Liberty</p>
-              </div>
-            </div>
-            
-            <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
-            <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
-            <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
-            <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
-            <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
-            <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
-            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
-            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-main">
-    <div class="container">
-      <div class="flex-row" style="align-items: start;">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
-          <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
-          <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
-          <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
-        </div>
-
-        <div class="flex-col-half">
-          <div class="form-container">
-            <form action="#" method="POST">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" placeholder="First and Last Name" required>
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
-              </div>
-              <div class="form-group">
-                <label>Service Category</label>
-                <select name="service" required>
-                  <option value="" disabled selected>Choose a service...</option>
-                  <option value="Excavation">Excavation</option>
-                  <option value="Land Clearing">Land Clearing</option>
-                  <option value="Driveway Repair">Driveway Repair</option>
-                  <option value="Land Management">Land Management</option>
-                  <option value="General Inquiry">General Inquiry / Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Project Scope</label>
-                <textarea name="message" rows="4" placeholder="Describe your residential project..." required></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Send Estimate Request</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
-      </div>
-      <p>© 2026 Phipps Excavating & Land Management</p>
-    </div>
-  </footer>
-
-  <a href="tel:6065480377" class="sticky-call">Call Now</a>
-
-  <script>
-    const phoneInput = document.getElementById('phone');
-    if(phoneInput) {
-      phoneInput.addEventListener('input', (e) => {
-        let input = e.target.value.replace(/\D/g, ''); 
-        if (input.length > 0) {
-          if (input.length <= 3) input = `(${input}`;
-          else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
-          else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
-        }
-        e.target.value = input;
-      });
-    }
-
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    if(menu) {
-      menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-      });
-    }
-  </script>
-</body>
+  </body>
 </html>
