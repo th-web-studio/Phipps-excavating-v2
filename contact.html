@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* --- CORE RESET --- */
+    /* --- CORE RESET & LAYOUT --- */
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; padding: 0; overflow-x: hidden; background: #ffffff; color: #0B1F3B; line-height: 1.6; font-family: 'Inter', sans-serif; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
 
-    /* --- CONSISTENT NAVBAR --- */
+    /* --- NAVIGATION (SYCHRONIZED WITH INDEX) --- */
     .navbar { 
       background: #0B1F3B; 
       padding: 20px 0; 
@@ -40,13 +40,10 @@
       margin-left: 10px;
     }
 
-    /* MOBILE MENU LOGIC */
     .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .bar { width: 25px; height: 3px; background: #fff; transition: 0.3s; }
 
-    /* PERMANENT STICKY CALL BUTTON (MOBILE ONLY) */
-    .sticky-mobile-call { display: none; }
-
+    /* MOBILE STYLING */
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
       .nav-links {
@@ -63,34 +60,23 @@
       }
       .nav-links.active { display: flex; }
       
-      /* Hide the desktop call button in the hidden menu */
-      .nav-links .nav-call-btn { display: none; }
-
-      /* SHOW STICKY CALL BUTTON AT BOTTOM PERMANENTLY */
-      .sticky-mobile-call {
-        display: block;
+      /* THIS IS THE FIX: FORCED VISIBILITY AT BOTTOM */
+      .nav-call-btn {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        z-index: 9999;
-        background: #F2C200;
-        text-align: center;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
-      }
-      .sticky-mobile-call a {
-        display: block;
-        padding: 20px;
-        color: #0B1F3B;
-        text-decoration: none;
-        font-weight: 900;
-        text-transform: uppercase;
+        margin: 0;
+        border-radius: 0;
+        padding: 22px;
         font-size: 1.1rem;
-        letter-spacing: 2px;
+        z-index: 9999;
+        text-align: center;
+        box-shadow: 0 -10px 25px rgba(0,0,0,0.3);
       }
       
-      .nav-brand { font-size: 0.9rem; }
-      body { padding-bottom: 80px; } /* Space for the fixed button */
+      .nav-brand { font-size: 0.85rem; }
+      body { padding-bottom: 80px; } /* Prevents button from covering footer content */
     }
 
     /* --- HERO --- */
@@ -101,27 +87,8 @@
     }
     .small-hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; text-transform: uppercase; margin: 10px 0; }
 
-    /* --- PILL TRUST BAR --- */
-    .trust-bar { padding: 40px 0; background: #fff; }
-    .trust-bar-container {
-      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-      background: #0B1F3B; padding: 15px 10px; border-radius: 100px;
-      box-shadow: 0 15px 35px rgba(11, 31, 59, 0.15);
-    }
-    .trust-item { display: flex; align-items: center; padding: 0 30px; border-right: 1px solid rgba(242, 194, 0, 0.3); }
-    .trust-item:last-child { border-right: none; }
-    .trust-text { color: #fff; font-weight: 800; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; }
-    .trust-text span { color: #F2C200; margin-right: 4px; }
-
-    @media (max-width: 768px) {
-      .trust-bar-container { border-radius: 15px; margin: 0 10px; padding: 10px; }
-      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; padding: 15px 0; }
-    }
-
-    /* --- REGIONAL REACH --- */
-    .regional-section { background: #fcfcfc; padding: 50px 0; border-bottom: 1px solid #eee; }
-    .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-    .flex-col-half { flex: 1; min-width: 320px; }
+    /* --- REGIONAL GRID --- */
+    .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
     .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
     .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
     .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
@@ -160,10 +127,6 @@
     </div>
   </nav>
 
-  <div class="sticky-mobile-call">
-    <a href="tel:6065480377">Call Now</a>
-  </div>
-
   <header class="small-hero">
     <div class="container">
       <span style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Establish Your Foundation</span>
@@ -172,25 +135,14 @@
     </div>
   </header>
 
-  <section class="trust-bar">
-    <div class="container">
-      <div class="trust-bar-container">
-        <div class="trust-item"><span class="trust-text"><span>Fully</span> Licensed & Insured</span></div>
-        <div class="trust-item"><span class="trust-text"><span>Locally</span> Owned & Operated</span></div>
-        <div class="trust-item"><span class="trust-text"><span>Free</span> Project Estimates</span></div>
-        <div class="trust-item"><span class="trust-text"><span>Guaranteed</span> 24-Hour Response</span></div>
-      </div>
-    </div>
-  </section>
-
   <section class="regional-section">
     <div class="container">
-      <div class="flex-row">
-        <div class="flex-col-half">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+        <div style="flex: 1; min-width: 300px;">
           <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional Reach.</h2>
-          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Areas with professional site solutions.</p>
+          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Areas.</p>
         </div>
-        <div class="flex-col-half">
+        <div style="flex: 1.5; min-width: 320px;">
           <div class="area-grid">
             <div class="area-card"><strong>Morgan</strong><p>West Liberty</p></div>
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
@@ -208,21 +160,21 @@
 
   <section class="contact-main">
     <div class="container">
-      <div class="flex-row" style="align-items: start;">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: start;">
+        <div style="flex: 1; min-width: 300px;">
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch.</h2>
           <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
           <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
-          <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
-        <div class="flex-col-half">
+
+        <div style="flex: 1; min-width: 300px;">
           <div class="form-container">
             <form action="#" method="POST">
               <div class="form-group"><label>Name</label><input type="text" placeholder="First and Last Name" required></div>
               <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(000) 000-0000" maxlength="14" required></div>
               <div class="form-group"><label>Service</label>
                 <select required><option value="" disabled selected>Choose a service...</option>
-                  <option>Excavation</option><option>Land Clearing</option><option>Driveway Repair</option><option>Land Management</option><option>Other</option></select></div>
+                  <option>Excavation</option><option>Land Clearing</option><option>Driveway Repair</option></select></div>
               <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Describe your project..." required></textarea></div>
               <button type="submit" class="submit-btn">Send Request</button>
             </form>
@@ -233,7 +185,7 @@
   </section>
 
   <script>
-    /* PHONE FORMATTING */
+    /* PHONE MASK */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
