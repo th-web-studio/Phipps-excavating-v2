@@ -9,165 +9,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- NAV STYLING FOR CALL BUTTON (DESKTOP) --- */
-    .nav-call-btn {
-      background: #F2C200;
-      color: #0B1F3B !important;
-      padding: 10px 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-      border-radius: 4px;
-      margin-left: 15px;
-      transition: 0.3s;
-    }
-    
-    .nav-call-btn:hover {
-      background: #fff;
-    }
-
-    /* Mobile Menu Adjustments */
-    @media (max-width: 768px) {
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 40px 0;
-      }
-
-      /* This allows the button to show up inside the hamburger menu list */
-      .nav-call-btn {
-        margin-left: 0;
-        width: 80%;
-        text-align: center;
-        display: block; /* Ensure it stays visible in the menu */
-        margin-top: 10px;
-      }
-    }
-
-    /* --- CORE RESET & LAYOUT --- */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background: #ffffff;
-      color: #0B1F3B;
-      line-height: 1.6;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 30px;
-    }
-
-    /* --- HERO --- */
-    .small-hero {
-      background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
+    /* --- PAGE SPECIFIC OVERRIDES --- */
+    /* This ensures the hero image pan animation works specifically for this page */
+    .contact-page-hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('aboutheaderimage.JPG');
       background-size: cover;
       background-position: center;
-      padding: 100px 0 60px !important;
-      text-align: center;
-      color: #fff;
-    }
-
-    .small-hero h1 {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-      margin: 10px 0;
+      z-index: -1;
+      animation: slow-pan 30s infinite alternate ease-in-out;
     }
 
     /* --- REGIONAL SECTION --- */
-    .regional-section {
-      background: #fcfcfc;
-      padding: 50px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .flex-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .flex-col-half {
-      flex: 1;
-      min-width: 320px;
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-    }
-
-    .area-card {
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #eee;
-      text-align: center;
-    }
-
+    .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
+    .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+    .flex-col-half { flex: 1; min-width: 320px; }
+    .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
     .area-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
     .area-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     /* --- CONTACT MAIN --- */
-    .contact-main { padding: 60px 0 120px; }
-
-    .info-item {
-      margin-bottom: 25px;
-      border-left: 4px solid #F2C200;
-      padding-left: 20px;
-    }
-
+    .contact-main { padding: 80px 0 120px; }
+    .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
     /* --- FORM STYLING --- */
-    .form-container {
-      background: #fff;
-      padding: 40px;
-      border-top: 10px solid #F2C200;
-      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1);
-    }
-
+    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 15px;
-      border: 2px solid #f2f2f2;
-      background: #fafafa;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      outline: none;
-    }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; }
 
-    .submit-btn {
-      width: 100%;
-      padding: 18px;
-      background: #0B1F3B;
-      color: #fff;
-      border: none;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: 0.3s;
+    @media (max-width: 768px) {
+      .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+      /* Style the Call Now inside the menu to look like a button */
+      .nav-cta-menu { background: #F2C200; color: #0B1F3B !important; padding: 12px; border-radius: 4px; font-weight: 900; width: 80%; margin: 0 auto; display: block; }
     }
-
-    .submit-btn:hover { background: #F2C200; color: #0B1F3B; }
   </style>
 </head>
-<body>
+<body class="contact-page">
 
   <nav class="navbar">
     <div class="container nav-container">
@@ -181,14 +64,14 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
-        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
+        <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="small-hero">
+  <header class="small-hero contact-page-hero">
     <div class="container">
-      <span style="font-weight: 900; color: #F2C200; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Establish Your Foundation</span>
+      <span class="hero-subtitle">Establish Your Foundation</span>
       <h1>Contact Us</h1>
       <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Residential Earthmoving & Site Solutions</p>
     </div>
