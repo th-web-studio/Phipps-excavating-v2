@@ -1,147 +1,266 @@
-<style>
-  /* --- 1. HAMBURGER & NAV FIX --- */
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Keeps nav on top of everything */
-    background: #0B1F3B;
-    padding: 15px 0;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phipps Excavating & Land Management | West Liberty, KY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- GLOBAL FIXES & NAV --- */
+    body { padding-top: 70px; } /* Prevents hero from hiding under fixed nav */
 
-  .menu-toggle {
-    display: none; /* Hidden on desktop */
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 1001;
-  }
-
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #F2C200;
-    margin: 4px 0;
-    transition: 0.4s;
-  }
-
-  /* --- 2. STICKY CALL BUTTON FIX --- */
-  .sticky-call {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #F2C200;
-    color: #0B1F3B;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 9999; /* Highest priority visibility */
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-transform: uppercase;
-  }
-
-  /* --- 3. FOOTER / FACEBOOK FIX --- */
-  footer {
-    background: #0B1F3B;
-    padding: 40px 0;
-    color: white;
-    text-align: center;
-  }
-
-  .social-links {
-    margin-bottom: 20px;
-  }
-
-  .facebook-link {
-    color: #F2C200;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(242, 194, 0, 0.3);
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: 0.3s;
-  }
-
-  .facebook-link:hover {
-    background: #F2C200;
-    color: #0B1F3B;
-  }
-
-  /* Mobile Adjustments */
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: flex; /* Show hamburger on mobile */
-    }
-    
-    .nav-links {
-      display: none; /* Hide links by default on mobile */
-      position: absolute;
-      top: 100%;
-      left: 0;
+    .navbar {
+      position: fixed;
+      top: 0;
       width: 100%;
+      z-index: 9999;
       background: #0B1F3B;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .nav-brand span { color: #F2C200; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: #F2C200; }
+
+    .nav-call-btn {
+      background: #F2C200;
+      color: #0B1F3B !important;
+      padding: 10px 20px;
+      font-weight: 900;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    /* --- HAMBURGER --- */
+    .menu-toggle {
+      display: none;
       flex-direction: column;
-      padding: 20px 0;
+      cursor: pointer;
     }
 
-    .nav-links.active {
-      display: flex; /* Show when hamburger clicked */
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #F2C200;
+      margin: 4px 0;
+      transition: 0.4s;
     }
 
+    /* --- HERO --- */
+    .hero {
+      background: linear-gradient(rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.8)), url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+    .logo { max-width: 280px; margin: 20px 0; }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-item { text-align: center; }
+    .stat-value { display: block; font-size: 1.4rem; font-weight: 800; color: #F2C200; }
+    .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* --- SERVICE AREAS (8 COUNTIES) --- */
+    .section-area { padding: 80px 0; background: #fff; text-align: center; }
+    .home-section-title { color: #0B1F3B; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; margin-bottom: 40px; }
+    
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .area-card {
+      padding: 25px 15px;
+      border: 1px solid rgba(11, 31, 59, 0.1); 
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .area-card h4 { color: #0B1F3B; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px; }
+    .area-card p { font-size: 0.85rem; color: #666; }
+
+    .area-card:hover {
+      border-color: #F2C200; 
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(11, 31, 59, 0.05);
+    }
+
+    /* --- STICKY CALL BUTTON --- */
     .sticky-call {
-      width: calc(100% - 40px); /* Full width on mobile for easier tapping */
-      justify-content: center;
-      bottom: 10px;
-      left: 20px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #F2C200;
+      color: #0B1F3B;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      z-index: 10000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-  }
-</style>
 
-<nav class="navbar">
-  <div class="container nav-container">
-    <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating</a>
-    <div class="menu-toggle" id="mobile-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    /* --- FOOTER & FACEBOOK --- */
+    footer { background: #0B1F3B; padding: 60px 0 30px; color: white; text-align: center; }
+    .facebook-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #F2C200;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(242, 194, 0, 0.3);
+      padding: 12px 24px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    .facebook-link:hover { background: #F2C200; color: #0B1F3B; }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0B1F3B;
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+      }
+      .nav-links.active { display: flex; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .sticky-call { width: calc(100% - 40px); left: 20px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links" id="nav-list">
+        <li><a href="index.html" style="color: #F2C200;">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:6065480377" class="nav-call-btn">Call Now</a></li>
+      </ul>
     </div>
-    <ul class="nav-links" id="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>
 
-<a href="tel:6065480377" class="sticky-call">
-  <span>📞</span> CALL FOR ESTIMATE
-</a>
+  <header class="hero">
+    <div class="container">
+      <h1>Expert Excavation & Land Management</h1>
+      <img class="logo" src="logo.PNG" alt="Phipps Excavating Logo">
+      <p>Over <span style="color: #F2C200; font-weight:700;">20 Years</span> of Quality Groundwork in KY.</p>
+      <div class="hero-btns" style="margin-top: 30px;">
+        <a class="btn primary" href="tel:6065480377" style="background:#F2C200; color:#0B1F3B; padding:15px 30px; text-decoration:none; font-weight:800; border-radius:4px; margin: 10px; display:inline-block;">Request Estimate</a>
+      </div>
 
-<footer>
-  <div class="container">
-    <div class="social-links">
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-value">20+ Years</span><span class="stat-label">Experience</span></div>
+        <div class="stat-item"><span class="stat-value">Fully Insured</span><span class="stat-label">Licensed</span></div>
+        <div class="stat-item"><span class="stat-value">Quality</span><span class="stat-label">Guaranteed</span></div>
+        <div class="stat-item"><span class="stat-value">Local</span><span class="stat-label">Owned & Operated</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-area">
+    <div class="container">
+      <h2 class="home-section-title">Service Areas</h2>
+      <div class="area-grid">
+        <div class="area-card"><h4>Morgan County</h4><p>West Liberty & Surrounding</p></div>
+        <div class="area-card"><h4>Rowan County</h4><p>Morehead & Surrounding</p></div>
+        <div class="area-card"><h4>Elliott County</h4><p>Sandy Hook & Surrounding</p></div>
+        <div class="area-card"><h4>Johnson County</h4><p>Paintsville & Surrounding</p></div>
+        <div class="area-card"><h4>Magoffin County</h4><p>Salyersville & Surrounding</p></div>
+        <div class="area-card"><h4>Wolfe County</h4><p>Campton & Surrounding</p></div>
+        <div class="area-card"><h4>Menifee County</h4><p>Frenchburg & Surrounding</p></div>
+        <div class="area-card"><h4>Floyd County</h4><p>Prestonsburg & Surrounding</p></div>
+      </div>
+    </div>
+  </section>
+
+  <a href="tel:6065480377" class="sticky-call">
+    <span>📞</span> CALL FOR ESTIMATE
+  </a>
+
+  <footer>
+    <div class="container">
       <a href="https://www.facebook.com/share/1DdmKdBbGn/" class="facebook-link" target="_blank">
-        Find us on Facebook
+        FIND US ON FACEBOOK
       </a>
+      <p style="opacity: 0.7;">© 2026 Phipps Excavating & Land Management</p>
     </div>
-    <p>© 2026 Phipps Excavating & Land Management</p>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  // Script to toggle the Hamburger
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navList = document.getElementById('nav-list');
+  <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
 
-  mobileMenu.addEventListener('click', () => {
-    navList.classList.toggle('active');
-  });
-</script>
+    mobileMenu.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
