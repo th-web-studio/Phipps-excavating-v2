@@ -3,29 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Phipps Excavating & Land Management</title>
+  <title>Gallery | Phipps Excavating & Land Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- PREMIUM CONTACT HERO --- */
-    .contact-page-hero {
+    /* --- HERO --- */
+    .gallery-page-hero {
       position: relative;
-      padding: 150px 0 110px; 
+      padding: 100px 0 80px; /* Increased padding for better vertical balance */
       text-align: center;
       color: #fff;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
     }
 
-    .contact-page-hero::before {
+    .gallery-page-hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('images/contact-hero.jpeg');
+      background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('contactheaderimage.JPG');
       background-size: cover;
       background-position: center;
       z-index: -1;
+      animation: slow-pan 30s infinite alternate ease-in-out;
     }
 
     .hero-subtitle {
@@ -34,103 +40,131 @@
       color: #F2C200;
       text-transform: uppercase;
       letter-spacing: 5px;
-      font-size: 0.85rem;
-      margin-bottom: 20px;
+      font-size: 0.8rem;
+      margin: 0 auto 15px;
       border-bottom: 2px solid #F2C200;
       padding-bottom: 5px;
+      width: fit-content;
     }
 
-    .contact-page-hero h1 {
-      font-size: clamp(2.8rem, 9vw, 4.8rem);
+    /* Tightened Gallery Hero Text */
+    .gallery-page-hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.2rem);
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -4px; 
-      line-height: 0.85;    
-      margin: 0 auto 20px;
+      letter-spacing: -4px; /* Tighter letters */
+      line-height: 0.85;    /* Tighter vertical spacing */
+      margin: 0 auto 15px;
       max-width: 900px;
       text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
 
     .highlight { color: #F2C200; }
 
-    .hero-description {
-      max-width: 500px;
-      margin: 0 auto;
-      text-transform: uppercase;
-      letter-spacing: 3px; 
-      font-weight: 800;
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.95);
-      line-height: 1.1;
-    }
+    /* --- TRANSFORMATIONS --- */
+    .pulse-section { padding: 40px 0; background: #fcfcfc; }
+    .pulse-wrapper { margin-bottom: 60px; }
+    .section-title { text-align: center; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
 
-    /* --- CONTACT MAIN (TIGHTENED TOP PADDING) --- */
-    .contact-main { padding: 30px 0 80px; }
-    .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
-    .flex-col-half { flex: 1; min-width: 320px; }
-
-    .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
-    .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
-    .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
-
-    /* --- NAVY CIRCLE ACTION ICONS (YELLOW ICONS) --- */
-    .contact-line { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-    .action-icons { display: flex; gap: 10px; align-items: center; }
-    .icon-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      background-color: #0B1F3B;
-      border-radius: 50%;
-      transition: all 0.25s ease;
-    }
-    .icon-link svg { width: 18px; height: 18px; fill: #F2C200; }
-    .icon-link:hover {
-      background-color: #F2C200;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(242, 194, 0, 0.3);
-    }
-    .icon-link:hover svg { fill: #0B1F3B; }
-
-    /* --- FORM STYLING --- */
-    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
-    .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; }
-    .submit-btn {
+    .pulse-container {
+      position: relative;
       width: 100%;
-      background: #F2C200;
-      color: #0B1F3B;
-      padding: 18px;
-      border: none;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      margin: 0 auto;
+      overflow: hidden;
       border-radius: 4px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: 0.3s;
+      box-shadow: 0 25px 50px rgba(11, 31, 59, 0.12);
+      cursor: zoom-in;
     }
-    .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    /* --- REGIONAL SECTION (BOTTOM) --- */
-    .regional-section { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; }
-    .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
-    .featured-area { grid-column: 1 / span 2; display: flex; justify-content: center; }
-    .inner-card { width: 100%; max-width: calc(50% - 6px); background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
-    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .pulse-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    .pulse-img.before { z-index: 2; opacity: 1; }
+    .pulse-img.after { z-index: 1; }
 
-    @media (max-width: 480px) {
-      .contact-page-hero h1 { letter-spacing: -2px; }
-      .contact-line { gap: 12px; }
-      .inner-card { max-width: 100%; }
+    .animate-pulse { animation: pulse-fade 6s infinite ease-in-out; }
+
+    @keyframes pulse-fade { 0%, 15% { opacity: 1; } 40%, 65% { opacity: 0; } 90%, 100% { opacity: 1; } }
+
+    .pulse-badge {
+      position: absolute;
+      bottom: 25px; right: 25px;
+      z-index: 10;
+      background: rgba(11, 31, 59, 0.95);
+      padding: 8px 18px;
+      border-left: 4px solid #F2C200;
+      display: flex;
+      align-items: center; gap: 10px;
+    }
+
+    .status-text { color: #fff; font-size: 0.65rem; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+    .dot { width: 6px; height: 6px; background: #F2C200; border-radius: 50%; animation: blink 1.2s infinite; }
+
+    /* --- VIDEO SECTION --- */
+    .video-section { padding: 30px 0; background: #0B1F3B; text-align: center; }
+    .video-container {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(242, 194, 0, 0.15);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .video-container video { width: 100%; display: block; filter: brightness(0.95); }
+    #replay-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(11, 31, 59, 0.85); display: none;
+      flex-direction: column; justify-content: center; align-items: center; z-index: 5;
+    }
+    .replay-btn {
+      background: #F2C200; color: #0B1F3B; border: none; padding: 14px 32px;
+      font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; cursor: pointer;
+    }
+
+    /* --- MASONRY GRID --- */
+    .masonry-section { padding: 60px 0; background: #fff; }
+    .masonry-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); 
+      grid-auto-rows: 140px; gap: 15px; max-width: 1100px; margin: 0 auto;
+    }
+    .grid-item { position: relative; overflow: hidden; border-radius: 4px; cursor: zoom-in; }
+    .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+    .grid-item:hover img { transform: scale(1.08); }
+    .item-1 { grid-column: span 3; grid-row: span 3; } 
+    .item-2 { grid-column: span 3; grid-row: span 2; }
+    .item-3 { grid-column: span 2; grid-row: span 2; } 
+    .item-4 { grid-column: span 1; grid-row: span 2; } 
+    .item-5 { grid-column: span 3; grid-row: span 2; margin-top: -40px; } 
+    .item-6 { grid-column: span 3; grid-row: span 3; }
+
+    /* --- LIGHTBOX --- */
+    .lightbox {
+      display: none; position: fixed; z-index: 10001; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(11, 31, 59, 0.98);
+      flex-direction: column; justify-content: center; align-items: center;
+    }
+    .lightbox.active { display: flex; }
+    .close-lightbox {
+      position: absolute; top: 30px; right: 30px; width: 45px; height: 45px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; color: #F2C200; cursor: pointer; z-index: 10005;
+      background: rgba(255,255,255,0.05); border-radius: 50%;
+    }
+    .lightbox-img { max-width: 90%; max-height: 80%; border-radius: 4px; border: 2px solid #F2C200; }
+    .lightbox-controls { margin-top: 25px; display: none; gap: 15px; }
+    .toggle-btn { background: transparent; border: 1px solid #F2C200; color: #F2C200; padding: 10px 25px; text-transform: uppercase; font-weight: 900; font-size: 0.7rem; cursor: pointer; }
+    .toggle-btn.active { background: #F2C200; color: #0B1F3B; }
+
+    @media (max-width: 768px) {
+      .masonry-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+      .grid-item { grid-column: span 1 !important; grid-row: span 1 !important; margin-top: 0 !important; }
+      .close-lightbox { top: 15px; right: 15px; }
+      .gallery-page-hero h1 { letter-spacing: -2px; }
     }
   </style>
 </head>
-<body class="contact-page">
+<body class="gallery-page">
 
   <nav class="navbar">
     <div class="container nav-container">
@@ -141,157 +175,167 @@
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html" style="color: #F2C200 !important;">Gallery</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="contact-page-hero">
+  <header class="gallery-page-hero">
     <div class="container">
-      <span class="hero-subtitle">Establish Your Foundation</span>
-      <h1>Get In <span class="highlight">Touch</span></h1>
-      <p class="hero-description">Built on <span class="highlight">Experience</span></p>
+      <span class="hero-subtitle">Visual Portfolio</span>
+      <h1>Precision in Every <span class="highlight">Project</span></h1>
     </div>
   </header>
 
-  <section class="contact-main">
+  <section class="pulse-section">
     <div class="container">
-      <div class="flex-row">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">
-            Request A<br><span class="highlight">Free Estimate.</span>
-          </h2>
-          
-          <div class="info-item">
-            <strong>Phone & Text</strong>
-            <div class="contact-line">
-              <p><a href="tel:6065480377">(606) 548-0377</a></p>
-              <div class="action-icons">
-                <a href="tel:6065480377" class="icon-link" title="Call Now">
-                  <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
-                </a>
-                <a href="sms:+16065480377" class="icon-link" title="Text Us">
-                  <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M20,16H5.17L4,17.17V4H20V16Z"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <strong>Email</strong>
-            <div class="contact-line">
-              <p><a href="mailto:jphipps275@hotmail.com">jphipps275@hotmail.com</a></p>
-              <div class="action-icons">
-                <a href="mailto:jphipps275@hotmail.com" class="icon-link" title="Email Us">
-                  <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
+      <div class="pulse-wrapper">
+        <h2 class="section-title">Land <span class="highlight">Clearing</span></h2>
+        <div class="pulse-container lightbox-trigger" data-type="transform" data-before="land-clear-before.JPG" data-after="land-clear-after.jpeg">
+          <img src="land-clear-after.jpeg" class="pulse-img after" alt="After">
+          <img src="land-clear-before.JPG" class="pulse-img before" alt="Before">
+          <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
         </div>
-
-        <div class="flex-col-half">
-          <div class="form-container">
-            <form action="#" method="POST">
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" placeholder="First and Last Name" required>
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
-              </div>
-              <div class="form-group">
-                <label>Service Category</label>
-                <select name="service" required>
-                  <option value="" disabled selected>Choose a service...</option>
-                  <option value="Excavation">Excavation</option>
-                  <option value="Land Clearing">Land Clearing</option>
-                  <option value="Driveway Repair">Driveway Repair</option>
-                  <option value="Land Management">Land Management</option>
-                  <option value="General Inquiry">General Inquiry / Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Project Scope</label>
-                <textarea name="message" rows="4" placeholder="Describe your residential project..." required></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Send Estimate Request</button>
-            </form>
-          </div>
+      </div>
+      <div class="pulse-wrapper">
+        <h2 class="section-title">Driveway <span class="highlight">Repair</span></h2>
+        <div class="pulse-container lightbox-trigger" data-type="transform" data-before="drive-before .JPG" data-after="drive-after.JPG">
+          <img src="drive-after.JPG" class="pulse-img after" alt="After">
+          <img src="drive-before .JPG" class="pulse-img before" alt="Before">
+          <div class="pulse-badge"><span class="status-text">Transformation Live</span><div class="dot"></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="regional-section">
+  <section class="video-section">
     <div class="container">
-      <div class="flex-row">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional <span class="highlight">Reach.</span></h2>
-          <div style="margin-top: 20px; border-top: 2px solid #F2C200; padding-top: 20px;">
-            <p style="margin: 0; font-size: 1.1rem; color: #0B1F3B; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">
-              Proudly serving 
-              <span style="display: block; font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-top: 5px;">MORGAN</span>
-              <span style="display: block; font-size: 0.85rem; font-weight: 800; color: #F2C200; margin-top: 5px; letter-spacing: 2px;">& SURROUNDING AREAS</span>
-            </p>
-          </div>
-        </div>
-        <div class="flex-col-half">
-          <div class="area-grid">
-            <div class="featured-area">
-              <div class="inner-card">
-                <strong>Morgan</strong>
-                <p>West Liberty</p>
-              </div>
-            </div>
-            <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
-            <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
-            <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
-            <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
-            <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
-            <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
-            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
-            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
-          </div>
+      <h2 class="section-title" style="color: #fff; margin-bottom: 20px;">Work in <span class="highlight">Progress</span></h2>
+      <div class="video-container">
+        <video id="gallery-video" muted playsinline preload="auto">
+          <source src="gal-vid1.mp4" type="video/mp4">
+        </video>
+        <div id="replay-overlay">
+          <button class="replay-btn" id="replay-trigger">Replay Video</button>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="masonry-section">
+    <div class="container">
+      <h2 class="section-title">Recent <span class="highlight">Projects</span></h2>
+      <div class="masonry-grid">
+        <div class="grid-item item-1 lightbox-trigger"><img src="images/gal-1.JPG" alt="1"></div>
+        <div class="grid-item item-2 lightbox-trigger"><img src="images/gal-2.JPG" alt="2"></div>
+        <div class="grid-item item-3 lightbox-trigger"><img src="images/gal-3.JPG" alt="3"></div>
+        <div class="grid-item item-4 lightbox-trigger"><img src="images/gal-4.JPG" alt="4"></div>
+        <div class="grid-item item-5 lightbox-trigger"><img src="images/gal-5.JPG" alt="5"></div>
+        <div class="grid-item item-6 lightbox-trigger"><img src="images/gal-6.JPG" alt="6"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <div class="close-lightbox" id="close-x">&times;</div>
+    <img src="" alt="View" class="lightbox-img" id="main-lb-img">
+    <div class="lightbox-controls" id="lb-controls">
+      <button class="toggle-btn" id="show-before">Before</button>
+      <button class="toggle-btn active" id="show-after">After</button>
+    </div>
+  </div>
 
   <footer>
     <div class="container">
-      <p>© 2026 Phipps Excavating & Land Management</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank">Find us on Facebook</a>
+      </div>
+      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
 
   <script>
-    // PHONE FORMATTING
-    const phoneInput = document.getElementById('phone');
-    if(phoneInput) {
-      phoneInput.addEventListener('input', (e) => {
-        let input = e.target.value.replace(/\D/g, ''); 
-        if (input.length > 0) {
-          if (input.length <= 3) input = `(${input}`;
-          else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
-          else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
-        }
-        e.target.value = input;
-      });
-    }
-
-    // MOBILE MENU SCRIPT
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
-      menu.addEventListener('click', function() {
+      menu.addEventListener('click', () => {
         menu.classList.toggle('is-active');
         menuLinks.classList.toggle('active');
       });
     }
+
+    const pulseWrappers = document.querySelectorAll('.pulse-wrapper');
+    const pulseObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          const img = entry.target.querySelector('.pulse-img.before');
+          setTimeout(() => {
+            img.classList.add('animate-pulse');
+          }, index * 1500); 
+          pulseObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    pulseWrappers.forEach(wrapper => pulseObserver.observe(wrapper));
+
+    const video = document.getElementById('gallery-video');
+    const replayOverlay = document.getElementById('replay-overlay');
+    const replayTrigger = document.getElementById('replay-trigger');
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { video.play().catch(() => {}); } 
+        else { video.pause(); }
+      });
+    }, { threshold: 0.5 });
+    videoObserver.observe(video);
+    video.onended = () => { replayOverlay.style.display = 'flex'; };
+    replayTrigger.addEventListener('click', () => {
+      replayOverlay.style.display = 'none';
+      video.currentTime = 0;
+      video.play();
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('main-lb-img');
+    const lbControls = document.getElementById('lb-controls');
+    const btnBefore = document.getElementById('show-before');
+    const btnAfter = document.getElementById('show-after');
+    const closeX = document.getElementById('close-x');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    let currentBefore = "";
+    let currentAfter = "";
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const type = trigger.getAttribute('data-type');
+        if (type === 'transform') {
+          currentBefore = trigger.getAttribute('data-before');
+          currentAfter = trigger.getAttribute('data-after');
+          lbImg.src = currentAfter;
+          lbControls.style.display = 'flex';
+          btnAfter.classList.add('active');
+          btnBefore.classList.remove('active');
+        } else {
+          lbImg.src = trigger.querySelector('img').src;
+          lbControls.style.display = 'none';
+        }
+        lightbox.classList.add('active');
+      });
+    });
+
+    btnBefore.addEventListener('click', (e) => { e.stopPropagation(); lbImg.src = currentBefore; btnBefore.classList.add('active'); btnAfter.classList.remove('active'); });
+    btnAfter.addEventListener('click', (e) => { e.stopPropagation(); lbImg.src = currentAfter; btnAfter.classList.add('active'); btnBefore.classList.remove('active'); });
+    
+    lightbox.addEventListener('click', (e) => { 
+      if (e.target === lightbox || e.target === closeX) {
+        lightbox.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
