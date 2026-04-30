@@ -9,6 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* --- RESTORED STICKY CALL BUTTON --- */
+    .sticky-call {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #F2C200;
+      color: #0B1F3B;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      z-index: 9999;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: none; /* Shown on Mobile via Media Query */
+    }
+
     /* --- PREMIUM CONTACT HERO --- */
     .contact-page-hero {
       position: relative;
@@ -64,7 +81,7 @@
       line-height: 1.1;
     }
 
-    /* --- CONTACT MAIN (NOW AT TOP) --- */
+    /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
     .flex-col-half { flex: 1; min-width: 320px; }
@@ -73,7 +90,7 @@
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    /* --- ACTION ICONS --- */
+    /* --- NAVY CIRCLE ACTION ICONS (YELLOW ICONS) --- */
     .contact-line { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
     .action-icons { display: flex; gap: 10px; align-items: center; }
     .icon-link {
@@ -114,7 +131,7 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    /* --- REGIONAL SECTION (NOW AT BOTTOM) --- */
+    /* --- REGIONAL SECTION (BOTTOM) --- */
     .regional-section { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; }
     .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
@@ -127,6 +144,7 @@
       .contact-page-hero h1 { letter-spacing: -2px; }
       .contact-line { gap: 12px; }
       .inner-card { max-width: 100%; }
+      .sticky-call { display: block; } /* Restore sticky button for mobile */
     }
   </style>
 </head>
@@ -135,6 +153,9 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -158,10 +179,12 @@
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Direct<br>Communication.</h2>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">
+            Request A<br><span class="highlight">Free Estimate.</span>
+          </h2>
           
           <div class="info-item">
-            <strong>Phone</strong>
+            <strong>Phone & Text</strong>
             <div class="contact-line">
               <p><a href="tel:6065480377">(606) 548-0377</a></p>
               <div class="action-icons">
@@ -265,7 +288,10 @@
     </div>
   </footer>
 
+  <a href="tel:6065480377" class="sticky-call">Call Now</a>
+
   <script>
+    // PHONE FORMATTING
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -276,6 +302,16 @@
           else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
         }
         e.target.value = input;
+      });
+    }
+
+    // RESTORED MOBILE MENU SCRIPT
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
       });
     }
   </script>
