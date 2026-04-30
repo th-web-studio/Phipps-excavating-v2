@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- PREMIUM CONTACT HERO --- */
+    /* --- HERO SECTION --- */
     .contact-page-hero {
       position: relative;
       padding: 150px 0 110px; 
@@ -28,6 +28,18 @@
       z-index: -1;
     }
 
+    .hero-subtitle {
+      display: inline-block;
+      font-weight: 900;
+      color: #F2C200;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #F2C200;
+      padding-bottom: 5px;
+    }
+
     .contact-page-hero h1 {
       font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
@@ -41,7 +53,7 @@
 
     .highlight { color: #F2C200; }
 
-    /* --- CONTACT MAIN (PULLED CLOSER TO HERO) --- */
+    /* --- CONTACT MAIN (TIGHTENED GAP) --- */
     .contact-main { padding: 30px 0 80px; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
     .flex-col-half { flex: 1; min-width: 320px; }
@@ -50,60 +62,29 @@
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    /* --- ACTION ICONS --- */
-    .contact-line { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-    .action-icons { display: flex; gap: 10px; align-items: center; }
-    .icon-link {
-      display: flex;
+    /* --- FOOTER & FACEBOOK BUTTON --- */
+    .footer { background: #0B1F3B; padding: 40px 0; color: #fff; }
+    .footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    
+    /* This styling ensures your Facebook button looks the way you had it */
+    .fb-button {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      background-color: #0B1F3B;
-      border-radius: 50%;
-      transition: all 0.25s ease;
-    }
-    .icon-link svg { width: 18px; height: 18px; fill: #F2C200; }
-    .icon-link:hover {
-      background-color: #F2C200;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(242, 194, 0, 0.3);
-    }
-    .icon-link:hover svg { fill: #0B1F3B; }
-
-    /* --- FORM STYLING --- */
-    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
-    .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; }
-    .submit-btn {
-      width: 100%;
       background: #F2C200;
       color: #0B1F3B;
-      padding: 18px;
-      border: none;
-      border-radius: 4px;
+      padding: 10px 20px;
+      text-decoration: none;
       font-weight: 900;
       text-transform: uppercase;
+      font-size: 0.8rem;
       letter-spacing: 1px;
-      cursor: pointer;
+      border-radius: 4px;
       transition: 0.3s;
     }
-    .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
-
-    /* --- REGIONAL SECTION --- */
-    .regional-section { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; }
-    .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
-    .featured-area { grid-column: 1 / span 2; display: flex; justify-content: center; }
-    .inner-card { width: 100%; max-width: calc(50% - 6px); background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
-    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+    .fb-button:hover { background: #fff; transform: translateY(-2px); }
 
     @media (max-width: 480px) {
-      .contact-page-hero h1 { letter-spacing: -2px; }
-      .contact-line { gap: 12px; }
-      .inner-card { max-width: 100%; }
+      .footer-container { justify-content: center; text-align: center; }
     }
   </style>
 </head>
@@ -128,7 +109,8 @@
 
   <header class="contact-page-hero">
     <div class="container">
-      <h1>Get In <span class="highlight">Touch</span></h1>
+      <span class="hero-subtitle">Establish Your Foundation</span>
+      <h1>Get In <span class="highlight">Touch.</span></h1>
     </div>
   </header>
 
@@ -142,29 +124,12 @@
           
           <div class="info-item">
             <strong>Phone & Text</strong>
-            <div class="contact-line">
-              <p><a href="tel:6065480377">(606) 548-0377</a></p>
-              <div class="action-icons">
-                <a href="tel:6065480377" class="icon-link" title="Call Now">
-                  <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
-                </a>
-                <a href="sms:+16065480377" class="icon-link" title="Text Us">
-                  <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M20,16H5.17L4,17.17V4H20V16Z"/></svg>
-                </a>
-              </div>
-            </div>
+            <p><a href="tel:6065480377">(606) 548-0377</a></p>
           </div>
 
           <div class="info-item">
             <strong>Email</strong>
-            <div class="contact-line">
-              <p><a href="mailto:jphipps275@hotmail.com">jphipps275@hotmail.com</a></p>
-              <div class="action-icons">
-                <a href="mailto:jphipps275@hotmail.com" class="icon-link" title="Email Us">
-                  <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"/></svg>
-                </a>
-              </div>
-            </div>
+            <p><a href="mailto:jphipps275@hotmail.com">jphipps275@hotmail.com</a></p>
           </div>
           <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
@@ -203,52 +168,17 @@
     </div>
   </section>
 
-  <section class="regional-section">
-    <div class="container">
-      <div class="flex-row">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional <span class="highlight">Reach.</span></h2>
-          <div style="margin-top: 20px; border-top: 2px solid #F2C200; padding-top: 20px;">
-            <p style="margin: 0; font-size: 1.1rem; color: #0B1F3B; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">
-              Proudly serving 
-              <span style="display: block; font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-top: 5px;">MORGAN</span>
-              <span style="display: block; font-size: 0.85rem; font-weight: 800; color: #F2C200; margin-top: 5px; letter-spacing: 2px;">& SURROUNDING AREAS</span>
-            </p>
-          </div>
-        </div>
-        <div class="flex-col-half">
-          <div class="area-grid">
-            <div class="featured-area">
-              <div class="inner-card">
-                <strong>Morgan</strong><p>West Liberty</p>
-              </div>
-            </div>
-            <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
-            <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
-            <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
-            <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
-            <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
-            <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
-            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
-            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="container footer-container">
-      <div class="footer-bottom">
-        <p>© 2026 Phipps Excavating & Land Management</p>
-        <div class="footer-fb-container">
-          <a href="https://www.facebook.com/your-page-url" target="_blank" class="fb-button">Find us on Facebook</a>
-        </div>
+      <p>© 2026 Phipps Excavating & Land Management</p>
+      <div class="footer-fb-container">
+        <a href="https://www.facebook.com/PhippsExcavating" target="_blank" class="fb-button">Find us on Facebook</a>
       </div>
     </div>
   </footer>
 
   <script>
+    /* Phone formatting script */
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -262,6 +192,7 @@
       });
     }
 
+    /* Mobile menu script */
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
