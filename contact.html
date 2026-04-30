@@ -64,96 +64,41 @@
       line-height: 1.1;
     }
 
-    /* --- REGIONAL SECTION --- */
-    .regional-section { background: #fcfcfc; padding: 60px 0; border-bottom: 1px solid #eee; }
-    .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+    /* --- CONTACT MAIN (NOW AT TOP) --- */
+    .contact-main { padding: 80px 0; }
+    .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
     .flex-col-half { flex: 1; min-width: 320px; }
-    
-    .area-grid { 
-      display: grid; 
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 12px; 
-    }
 
-    .area-card { 
-      background: #fff; 
-      padding: 15px; 
-      border: 1px solid #eee; 
-      text-align: center; 
-      transition: 0.3s;
-    }
-    
-    .featured-area {
-      grid-column: 1 / span 2;
-      display: flex;
-      justify-content: center; 
-    }
-
-    .inner-card {
-      width: 100%;
-      max-width: calc(50% - 6px); 
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #eee;
-      text-align: center;
-    }
-
-    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
-    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
-
-    /* --- CONTACT MAIN --- */
-    .contact-main { padding: 80px 0 120px; }
     .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    /* --- NAVY CIRCLE ACTION ICONS (YELLOW ICONS) --- */
-    .contact-line {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .action-icons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
+    /* --- ACTION ICONS --- */
+    .contact-line { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .action-icons { display: flex; gap: 10px; align-items: center; }
     .icon-link {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 38px;
       height: 38px;
-      background-color: #0B1F3B; /* Brand Navy */
+      background-color: #0B1F3B;
       border-radius: 50%;
       transition: all 0.25s ease;
     }
-
-    .icon-link svg {
-      width: 18px;
-      height: 18px;
-      fill: #F2C200; /* Brand Gold */
-    }
-
+    .icon-link svg { width: 18px; height: 18px; fill: #F2C200; }
     .icon-link:hover {
       background-color: #F2C200;
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(242, 194, 0, 0.3);
     }
-
-    .icon-link:hover svg {
-      fill: #0B1F3B;
-    }
+    .icon-link:hover svg { fill: #0B1F3B; }
 
     /* --- FORM STYLING --- */
     .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
     .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; }
-
     .submit-btn {
       width: 100%;
       background: #F2C200;
@@ -169,13 +114,19 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    footer .social-links a { color: #F2C200 !important; border: 2px solid #F2C200 !important; padding: 10px 20px; text-decoration: none; display: inline-block; }
-    footer .social-links a:hover { background: #F2C200 !important; color: #0B1F3B !important; }
+    /* --- REGIONAL SECTION (NOW AT BOTTOM) --- */
+    .regional-section { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; }
+    .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
+    .featured-area { grid-column: 1 / span 2; display: flex; justify-content: center; }
+    .inner-card { width: 100%; max-width: calc(50% - 6px); background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
+    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
     @media (max-width: 480px) {
-      .inner-card { max-width: 100%; }
       .contact-page-hero h1 { letter-spacing: -2px; }
       .contact-line { gap: 12px; }
+      .inner-card { max-width: 100%; }
     }
   </style>
 </head>
@@ -184,9 +135,6 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-brand"><span>Phipps</span> Excavating & Land Management</a>
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </div>
       <ul class="nav-links" id="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
@@ -206,47 +154,11 @@
     </div>
   </header>
 
-  <section class="regional-section">
+  <section class="contact-main">
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;"> Regional Reach.</h2>
-          
-          <div style="margin-top: 20px; border-top: 2px solid #F2C200; padding-top: 20px;">
-            <p style="margin: 0; font-size: 1.1rem; color: #0B1F3B; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">
-              Proudly serving 
-              <span style="display: block; font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-top: 5px;">MORGAN</span>
-              <span style="display: block; font-size: 0.85rem; font-weight: 800; color: #F2C200; margin-top: 5px; letter-spacing: 2px;">& SURROUNDING AREAS</span>
-            </p>
-          </div>
-        </div>
-        <div class="flex-col-half">
-          <div class="area-grid">
-            <div class="featured-area">
-              <div class="inner-card">
-                <strong>Morgan</strong>
-                <p>West Liberty</p>
-              </div>
-            </div>
-            <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
-            <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
-            <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
-            <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
-            <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
-            <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
-            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
-            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-main">
-    <div class="container">
-      <div class="flex-row" style="align-items: start;">
-        <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Direct<br>Communication.</h2>
           
           <div class="info-item">
             <strong>Phone</strong>
@@ -312,16 +224,46 @@
     </div>
   </section>
 
+  <section class="regional-section">
+    <div class="container">
+      <div class="flex-row">
+        <div class="flex-col-half">
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional <span class="highlight">Reach.</span></h2>
+          <div style="margin-top: 20px; border-top: 2px solid #F2C200; padding-top: 20px;">
+            <p style="margin: 0; font-size: 1.1rem; color: #0B1F3B; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">
+              Proudly serving 
+              <span style="display: block; font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-top: 5px;">MORGAN</span>
+              <span style="display: block; font-size: 0.85rem; font-weight: 800; color: #F2C200; margin-top: 5px; letter-spacing: 2px;">& SURROUNDING AREAS</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex-col-half">
+          <div class="area-grid">
+            <div class="featured-area">
+              <div class="inner-card">
+                <strong>Morgan</strong>
+                <p>West Liberty</p>
+              </div>
+            </div>
+            <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
+            <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
+            <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
+            <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
+            <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
+            <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
+            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
+            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1DdmKdBbGn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Find us on Facebook</a>
-      </div>
-      <p style="margin-top: 20px;">© 2026 Phipps Excavating & Land Management</p>
+      <p>© 2026 Phipps Excavating & Land Management</p>
     </div>
   </footer>
-
-  <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
   <script>
     const phoneInput = document.getElementById('phone');
@@ -334,15 +276,6 @@
           else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
         }
         e.target.value = input;
-      });
-    }
-
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    if(menu) {
-      menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
       });
     }
   </script>
