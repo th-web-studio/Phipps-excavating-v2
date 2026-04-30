@@ -9,7 +9,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- HERO --- */
+    /* --- RESTORED STICKY CALL BUTTON --- */
+    .sticky-call {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #F2C200;
+      color: #0B1F3B;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      z-index: 9999;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: none; /* Shown on Mobile via Media Query */
+    }
+
+    /* --- PREMIUM CONTACT HERO --- */
     .contact-page-hero {
       position: relative;
       padding: 150px 0 110px; 
@@ -17,6 +34,7 @@
       color: #fff;
       overflow: hidden;
     }
+
     .contact-page-hero::before {
       content: "";
       position: absolute;
@@ -26,6 +44,7 @@
       background-position: center;
       z-index: -1;
     }
+
     .hero-subtitle {
       display: inline-block;
       font-weight: 900;
@@ -37,6 +56,7 @@
       border-bottom: 2px solid #F2C200;
       padding-bottom: 5px;
     }
+
     .contact-page-hero h1 {
       font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
@@ -44,56 +64,91 @@
       letter-spacing: -4px; 
       line-height: 0.85;    
       margin: 0 auto 20px;
-      text-shadow: 0 12px 35px rgba(0,0,0,0.6);
+      max-width: 900px;
+      text-shadow: 0 0 20px rgba(242, 194, 0, 0.25), 0 12px 35px rgba(0,0,0,0.6);
     }
+
     .highlight { color: #F2C200; }
 
-    /* --- CONTACT INFO & ACTION ICONS --- */
-    .contact-main { padding: 30px 0 80px; }
+    .hero-description {
+      max-width: 500px;
+      margin: 0 auto;
+      text-transform: uppercase;
+      letter-spacing: 3px; 
+      font-weight: 800;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.1;
+    }
+
+    /* --- CONTACT MAIN --- */
+    .contact-main { padding: 80px 0; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
     .flex-col-half { flex: 1; min-width: 320px; }
 
     .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
-    .contact-line { display: flex; align-items: center; gap: 15px; margin-top: 5px; }
-    .contact-line a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; }
+    .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    .action-icons { display: flex; gap: 8px; }
+    /* --- NAVY CIRCLE ACTION ICONS (YELLOW ICONS) --- */
+    .contact-line { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .action-icons { display: flex; gap: 10px; align-items: center; }
     .icon-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       background-color: #0B1F3B;
       border-radius: 50%;
-      transition: 0.2s;
+      transition: all 0.25s ease;
     }
     .icon-link svg { width: 18px; height: 18px; fill: #F2C200; }
-    .icon-link:hover { background-color: #F2C200; transform: translateY(-2px); }
+    .icon-link:hover {
+      background-color: #F2C200;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(242, 194, 0, 0.3);
+    }
     .icon-link:hover svg { fill: #0B1F3B; }
 
-    /* --- FORM --- */
-    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; font-family: inherit; }
-    .submit-btn { width: 100%; background: #F2C200; color: #0B1F3B; padding: 15px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; }
+    /* --- FORM STYLING --- */
+    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; }
+    .submit-btn {
+      width: 100%;
+      background: #F2C200;
+      color: #0B1F3B;
+      padding: 18px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    /* --- REGIONAL REACH --- */
-    .regional-section { background: #f9f9f9; padding: 60px 0; border-top: 1px solid #eee; }
-    .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px; }
+    /* --- REGIONAL SECTION (BOTTOM) --- */
+    .regional-section { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; }
+    .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
-    .area-card strong { display: block; font-size: 0.9rem; text-transform: uppercase; color: #0B1F3B; }
-    .area-card p { font-size: 0.7rem; color: #F2C200; margin: 0; font-weight: 700; }
+    .featured-area { grid-column: 1 / span 2; display: flex; justify-content: center; }
+    .inner-card { width: 100%; max-width: calc(50% - 6px); background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
+    .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
+    .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* --- FOOTER --- */
-    .footer { background: #0B1F3B; padding: 30px 0; color: #fff; }
-    .footer-container { display: flex; justify-content: space-between; align-items: center; }
-    .fb-button { background: #F2C200; color: #0B1F3B; padding: 10px 20px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; }
+    @media (max-width: 480px) {
+      .contact-page-hero h1 { letter-spacing: -2px; }
+      .contact-line { gap: 12px; }
+      .inner-card { max-width: 100%; }
+      .sticky-call { display: block; } /* Restore sticky button for mobile */
+    }
   </style>
 </head>
-<body>
+<body class="contact-page">
 
   <nav class="navbar">
     <div class="container nav-container">
@@ -106,7 +161,7 @@
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
         <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
@@ -116,6 +171,7 @@
     <div class="container">
       <span class="hero-subtitle">Establish Your Foundation</span>
       <h1>Get In <span class="highlight">Touch</span></h1>
+      <p class="hero-description">Built on <span class="highlight">Experience</span></p>
     </div>
   </header>
 
@@ -123,15 +179,21 @@
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; margin-bottom: 25px;">Request A<br><span class="highlight">Free Estimate.</span></h2>
+          <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">
+            Request A<br><span class="highlight">Free Estimate.</span>
+          </h2>
           
           <div class="info-item">
             <strong>Phone & Text</strong>
             <div class="contact-line">
-              <a href="tel:6065480377">(606) 548-0377</a>
+              <p><a href="tel:6065480377">(606) 548-0377</a></p>
               <div class="action-icons">
-                <a href="tel:6065480377" class="icon-link"><svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg></a>
-                <a href="sms:+16065480377" class="icon-link"><svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M20,16H5.17L4,17.17V4H20V16Z"/></svg></a>
+                <a href="tel:6065480377" class="icon-link" title="Call Now">
+                  <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+                </a>
+                <a href="sms:+16065480377" class="icon-link" title="Text Us">
+                  <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M20,16H5.17L4,17.17V4H20V16Z"/></svg>
+                </a>
               </div>
             </div>
           </div>
@@ -139,30 +201,44 @@
           <div class="info-item">
             <strong>Email</strong>
             <div class="contact-line">
-              <a href="mailto:jphipps275@hotmail.com">jphipps275@hotmail.com</a>
+              <p><a href="mailto:jphipps275@hotmail.com">jphipps275@hotmail.com</a></p>
               <div class="action-icons">
-                <a href="mailto:jphipps275@hotmail.com" class="icon-link"><svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"/></svg></a>
+                <a href="mailto:jphipps275@hotmail.com" class="icon-link" title="Email Us">
+                  <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"/></svg>
+                </a>
               </div>
             </div>
           </div>
-          <div class="info-item"><strong>Location</strong><p style="font-size: 1.25rem; font-weight: 800; color: #0B1F3B; margin: 0;">West Liberty, KY</p></div>
+
+          <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
 
         <div class="flex-col-half">
           <div class="form-container">
-            <form>
-              <div class="form-group"><label>Name</label><input type="text" placeholder="First and Last Name"></div>
-              <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(000) 000-0000" maxlength="14"></div>
+            <form action="#" method="POST">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="First and Last Name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" maxlength="14" required>
+              </div>
               <div class="form-group">
                 <label>Service Category</label>
-                <select>
-                  <option>Excavation</option>
-                  <option>Land Clearing</option>
+                <select name="service" required>
+                  <option value="" disabled selected>Choose a service...</option>
+                  <option value="Excavation">Excavation</option>
+                  <option value="Land Clearing">Land Clearing</option>
                   <option value="Driveway Repair">Driveway Repair</option>
-                  <option>Land Management</option>
+                  <option value="Land Management">Land Management</option>
+                  <option value="General Inquiry">General Inquiry / Other</option>
                 </select>
               </div>
-              <div class="form-group"><label>Project Scope</label><textarea rows="4"></textarea></div>
+              <div class="form-group">
+                <label>Project Scope</label>
+                <textarea name="message" rows="4" placeholder="Describe your residential project..." required></textarea>
+              </div>
               <button type="submit" class="submit-btn">Send Estimate Request</button>
             </form>
           </div>
@@ -173,43 +249,71 @@
 
   <section class="regional-section">
     <div class="container">
-      <h2 style="font-weight: 900; text-transform: uppercase;">Regional <span class="highlight">Reach.</span></h2>
-      <p style="text-transform: uppercase; font-weight: 800; margin-bottom: 0;">Proudly Serving <span style="font-size: 2rem; display: block; line-height: 1;">MORGAN</span> & Surrounding Areas</p>
-      <div class="area-grid">
-        <div class="area-card"><strong>Morgan</strong><p>West Liberty</p></div>
-        <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
-        <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
-        <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
-        <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
+      <div class="flex-row">
+        <div class="flex-col-half">
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional <span class="highlight">Reach.</span></h2>
+          <div style="margin-top: 20px; border-top: 2px solid #F2C200; padding-top: 20px;">
+            <p style="margin: 0; font-size: 1.1rem; color: #0B1F3B; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">
+              Proudly serving 
+              <span style="display: block; font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-top: 5px;">MORGAN</span>
+              <span style="display: block; font-size: 0.85rem; font-weight: 800; color: #F2C200; margin-top: 5px; letter-spacing: 2px;">& SURROUNDING AREAS</span>
+            </p>
+          </div>
+        </div>
+        <div class="flex-col-half">
+          <div class="area-grid">
+            <div class="featured-area">
+              <div class="inner-card">
+                <strong>Morgan</strong>
+                <p>West Liberty</p>
+              </div>
+            </div>
+            <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
+            <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
+            <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
+            <div class="area-card"><strong>Magoffin</strong><p>Salyersville</p></div>
+            <div class="area-card"><strong>Wolfe</strong><p>Campton</p></div>
+            <div class="area-card"><strong>Menifee</strong><p>Frenchburg</p></div>
+            <div class="area-card"><strong>Floyd</strong><p>Prestonsburg</p></div>
+            <div class="area-card"><strong>Lawrence</strong><p>Louisa</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container footer-container">
+  <footer>
+    <div class="container">
       <p>© 2026 Phipps Excavating & Land Management</p>
-      <a href="https://facebook.com" class="fb-button">Find us on Facebook</a>
     </div>
   </footer>
 
-  <script>
-    const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', (e) => {
-      let input = e.target.value.replace(/\D/g, ''); 
-      if (input.length > 0) {
-        if (input.length <= 3) input = `(${input}`;
-        else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
-        else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
-      }
-      e.target.value = input;
-    });
+  <a href="tel:6065480377" class="sticky-call">Call Now</a>
 
+  <script>
+    // PHONE FORMATTING
+    const phoneInput = document.getElementById('phone');
+    if(phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        let input = e.target.value.replace(/\D/g, ''); 
+        if (input.length > 0) {
+          if (input.length <= 3) input = `(${input}`;
+          else if (input.length <= 6) input = `(${input.slice(0, 3)}) ${input.slice(3)}`;
+          else input = `(${input.slice(0, 3)}) ${input.slice(3, 6)}-${input.slice(6, 10)}`;
+        }
+        e.target.value = input;
+      });
+    }
+
+    // RESTORED MOBILE MENU SCRIPT
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
-    menu.addEventListener('click', () => {
-      menu.classList.toggle('is-active');
-      menuLinks.classList.toggle('active');
-    });
+    if(menu) {
+      menu.addEventListener('click', function() {
+        menu.classList.toggle('is-active');
+        menuLinks.classList.toggle('active');
+      });
+    }
   </script>
 </body>
 </html>
