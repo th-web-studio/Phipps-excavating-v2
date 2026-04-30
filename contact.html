@@ -9,23 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- RESTORED STICKY CALL BUTTON --- */
-    .sticky-call {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #F2C200;
-      color: #0B1F3B;
-      padding: 15px 25px;
-      border-radius: 50px;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-decoration: none;
-      z-index: 9999;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: none; /* Shown on Mobile via Media Query */
-    }
-
     /* --- PREMIUM CONTACT HERO --- */
     .contact-page-hero {
       position: relative;
@@ -144,7 +127,6 @@
       .contact-page-hero h1 { letter-spacing: -2px; }
       .contact-line { gap: 12px; }
       .inner-card { max-width: 100%; }
-      .sticky-call { display: block; } /* Restore sticky button for mobile */
     }
   </style>
 </head>
@@ -288,8 +270,6 @@
     </div>
   </footer>
 
-  <a href="tel:6065480377" class="sticky-call">Call Now</a>
-
   <script>
     // PHONE FORMATTING
     const phoneInput = document.getElementById('phone');
@@ -305,7 +285,7 @@
       });
     }
 
-    // RESTORED MOBILE MENU SCRIPT
+    // MOBILE MENU SCRIPT
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
