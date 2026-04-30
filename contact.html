@@ -41,7 +41,7 @@
 
     .highlight { color: #F2C200; }
 
-    /* --- CONTACT MAIN (TIGHTENED GAP) --- */
+    /* --- CONTACT MAIN (PULLED CLOSER TO HERO) --- */
     .contact-main { padding: 30px 0 80px; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
     .flex-col-half { flex: 1; min-width: 320px; }
@@ -100,17 +100,10 @@
     .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
     .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* --- FOOTER SOCIALS --- */
-    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .footer-social { display: flex; align-items: center; gap: 10px; }
-    .footer-social span { font-weight: 800; text-transform: uppercase; font-size: 0.75rem; color: rgba(255,255,255,0.6); }
-    .footer-fb { background-color: #F2C200 !important; width: 32px !important; height: 32px !important; }
-    .footer-fb svg { fill: #0B1F3B !important; width: 16px !important; height: 16px !important; }
-    .footer-fb:hover { background-color: #fff !important; transform: scale(1.1); }
-
     @media (max-width: 480px) {
       .contact-page-hero h1 { letter-spacing: -2px; }
-      .footer-content { justify-content: center; text-align: center; }
+      .contact-line { gap: 12px; }
+      .inner-card { max-width: 100%; }
     }
   </style>
 </head>
@@ -244,14 +237,13 @@
     </div>
   </section>
 
-  <footer>
-    <div class="container footer-content">
-      <p>© 2026 Phipps Excavating & Land Management</p>
-      <div class="footer-social">
-        <span>Find us on:</span>
-        <a href="https://www.facebook.com/yourpage" target="_blank" class="icon-link footer-fb" title="Follow us on Facebook">
-          <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
-        </a>
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-bottom">
+        <p>© 2026 Phipps Excavating & Land Management</p>
+        <div class="footer-fb-container">
+          <a href="https://www.facebook.com/your-page-url" target="_blank" class="fb-button">Find us on Facebook</a>
+        </div>
       </div>
     </div>
   </footer>
