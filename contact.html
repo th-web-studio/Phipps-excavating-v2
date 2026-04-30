@@ -101,13 +101,13 @@
     .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
     .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* --- CONTACT MAIN & NEW PHONE ICONS --- */
+    /* --- CONTACT MAIN --- */
     .contact-main { padding: 80px 0 120px; }
     .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    /* Icons beside number layout */
+    /* --- BLUE CIRCLE PHONE ICONS --- */
     .phone-line {
       display: flex;
       align-items: center;
@@ -117,25 +117,34 @@
 
     .phone-icons {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
     }
 
     .icon-link {
       display: flex;
       align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: #0B1F3B; /* Brand Navy */
+      border-radius: 50%;
       transition: all 0.2s ease;
     }
 
     .icon-link svg {
-      width: 24px;
-      height: 24px;
-      fill: #F2C200;
+      width: 18px;
+      height: 18px;
+      fill: #F2C200; /* Brand Gold */
     }
 
     .icon-link:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 8px rgba(242, 194, 0, 0.4));
+      background-color: #F2C200;
+      transform: translateY(-2px);
+    }
+
+    .icon-link:hover svg {
+      fill: #0B1F3B;
     }
 
     /* --- FORM STYLING --- */
