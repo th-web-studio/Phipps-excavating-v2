@@ -22,12 +22,10 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      /* Correct path for contact page */
       background-image: linear-gradient(rgba(11, 31, 59, 0.88), rgba(11, 31, 59, 0.78)), url('images/contact-hero.jpeg');
       background-size: cover;
       background-position: center;
       z-index: -1;
-      animation: slow-pan 30s infinite alternate ease-in-out;
     }
 
     .hero-subtitle {
@@ -42,7 +40,6 @@
       padding-bottom: 5px;
     }
 
-    /* Tightened Hero Text */
     .contact-page-hero h1 {
       font-size: clamp(2.8rem, 9vw, 4.8rem);
       font-weight: 900;
@@ -104,11 +101,42 @@
     .area-card strong, .inner-card strong { display: block; font-size: 0.95rem; text-transform: uppercase; font-weight: 900; color: #0B1F3B; }
     .area-card p, .inner-card p { color: #F2C200; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
 
-    /* --- CONTACT MAIN --- */
+    /* --- CONTACT MAIN & NEW PHONE ICONS --- */
     .contact-main { padding: 80px 0 120px; }
     .info-item { margin-bottom: 25px; border-left: 4px solid #F2C200; padding-left: 20px; }
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
+
+    /* Icons beside number layout */
+    .phone-line {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .phone-icons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .icon-link {
+      display: flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .icon-link svg {
+      width: 24px;
+      height: 24px;
+      fill: #F2C200;
+    }
+
+    .icon-link:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 8px rgba(242, 194, 0, 0.4));
+    }
 
     /* --- FORM STYLING --- */
     .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
@@ -137,6 +165,7 @@
     @media (max-width: 480px) {
       .inner-card { max-width: 100%; }
       .contact-page-hero h1 { letter-spacing: -2px; }
+      .phone-line { gap: 10px; }
     }
   </style>
 </head>
@@ -182,7 +211,6 @@
                 <p>West Liberty</p>
               </div>
             </div>
-            
             <div class="area-card"><strong>Rowan</strong><p>Morehead</p></div>
             <div class="area-card"><strong>Elliott</strong><p>Sandy Hook</p></div>
             <div class="area-card"><strong>Johnson</strong><p>Paintsville</p></div>
@@ -202,7 +230,22 @@
       <div class="flex-row" style="align-items: start;">
         <div class="flex-col-half">
           <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: 1; margin-bottom: 25px;">Get In Touch<br>Locally.</h2>
-          <div class="info-item"><strong>Phone</strong><p><a href="tel:6065480377">(606) 548-0377</a></p></div>
+          
+          <div class="info-item">
+            <strong>Phone</strong>
+            <div class="phone-line">
+              <p><a href="tel:6065480377">(606) 548-0377</a></p>
+              <div class="phone-icons">
+                <a href="tel:6065480377" class="icon-link" title="Call Now">
+                  <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+                </a>
+                <a href="sms:+16065480377" class="icon-link" title="Text Us">
+                  <svg viewBox="0 0 24 24"><path d="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M20,16H5.17L4,17.17V4H20V16Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
           <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
