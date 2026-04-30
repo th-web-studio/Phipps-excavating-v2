@@ -107,15 +107,15 @@
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    /* --- BLUE CIRCLE PHONE ICONS --- */
-    .phone-line {
+    /* --- UNIFIED ACTION ICONS (NAVY CIRCLES) --- */
+    .contact-line {
       display: flex;
       align-items: center;
       gap: 15px;
       flex-wrap: wrap;
     }
 
-    .phone-icons {
+    .action-icons {
       display: flex;
       gap: 10px;
       align-items: center;
@@ -141,6 +141,7 @@
     .icon-link:hover {
       background-color: #F2C200;
       transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(242, 194, 0, 0.3);
     }
 
     .icon-link:hover svg {
@@ -174,7 +175,7 @@
     @media (max-width: 480px) {
       .inner-card { max-width: 100%; }
       .contact-page-hero h1 { letter-spacing: -2px; }
-      .phone-line { gap: 10px; }
+      .contact-line { gap: 10px; }
     }
   </style>
 </head>
@@ -242,9 +243,9 @@
           
           <div class="info-item">
             <strong>Phone</strong>
-            <div class="phone-line">
+            <div class="contact-line">
               <p><a href="tel:6065480377">(606) 548-0377</a></p>
-              <div class="phone-icons">
+              <div class="action-icons">
                 <a href="tel:6065480377" class="icon-link" title="Call Now">
                   <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
                 </a>
@@ -255,7 +256,18 @@
             </div>
           </div>
 
-          <div class="info-item"><strong>Email</strong><p>jphipps275@hotmail.com</p></div>
+          <div class="info-item">
+            <strong>Email</strong>
+            <div class="contact-line">
+              <p><a href="mailto:jphipps275@hotmail.com">jphipps275@hotmail.com</a></p>
+              <div class="action-icons">
+                <a href="mailto:jphipps275@hotmail.com" class="icon-link" title="Email Us">
+                  <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div class="info-item"><strong>Location</strong><p>West Liberty, KY</p></div>
         </div>
 
