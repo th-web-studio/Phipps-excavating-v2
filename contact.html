@@ -127,7 +127,7 @@
       justify-content: center;
       width: 38px;
       height: 38px;
-      background-color: #0B1F3B; /* Brand Navy Background */
+      background-color: #0B1F3B; /* Brand Navy */
       border-radius: 50%;
       transition: all 0.25s ease;
     }
@@ -135,17 +135,17 @@
     .icon-link svg {
       width: 18px;
       height: 18px;
-      fill: #F2C200; /* Brand Yellow/Gold Icon */
+      fill: #F2C200; /* Brand Gold */
     }
 
     .icon-link:hover {
-      background-color: #F2C200; /* Flips to Yellow on Hover */
+      background-color: #F2C200;
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(242, 194, 0, 0.3);
     }
 
     .icon-link:hover svg {
-      fill: #0B1F3B; /* Icon turns Navy on Hover */
+      fill: #0B1F3B;
     }
 
     /* --- FORM STYLING --- */
@@ -210,8 +210,15 @@
     <div class="container">
       <div class="flex-row">
         <div class="flex-col-half">
-          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;">Regional Reach.</h2>
-          <p style="margin-top: 15px; border-top: 2px solid #F2C200; padding-top: 15px;">Serving Morgan County and Surrounding Counties with professional site solutions.</p>
+          <h2 style="font-weight: 900; text-transform: uppercase; letter-spacing: -1.5px; font-size: 2.2rem; margin: 0; line-height: 1;"> Regional Reach.</h2>
+          
+          <div style="margin-top: 20px; border-top: 2px solid #F2C200; padding-top: 20px;">
+            <p style="margin: 0; font-size: 1.1rem; color: #0B1F3B; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;">
+              Proudly serving 
+              <span style="display: block; font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-top: 5px;">MORGAN</span>
+              <span style="display: block; font-size: 0.85rem; font-weight: 800; color: #F2C200; margin-top: 5px; letter-spacing: 2px;">& SURROUNDING AREAS</span>
+            </p>
+          </div>
         </div>
         <div class="flex-col-half">
           <div class="area-grid">
