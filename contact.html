@@ -9,23 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- RESTORED STICKY CALL BUTTON --- */
-    .sticky-call {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #F2C200;
-      color: #0B1F3B;
-      padding: 15px 25px;
-      border-radius: 50px;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-decoration: none;
-      z-index: 9999;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: none; /* Shown on Mobile via Media Query */
-    }
-
     /* --- PREMIUM CONTACT HERO --- */
     .contact-page-hero {
       position: relative;
@@ -81,8 +64,8 @@
       line-height: 1.1;
     }
 
-    /* --- CONTACT MAIN --- */
-    .contact-main { padding: 80px 0; }
+    /* --- CONTACT MAIN (TIGHTENED GAP) --- */
+    .contact-main { padding: 30px 0 80px; }
     .flex-row { display: flex; flex-wrap: wrap; gap: 40px; align-items: start; }
     .flex-col-half { flex: 1; min-width: 320px; }
 
@@ -90,7 +73,7 @@
     .info-item strong { display: block; color: #F2C200; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
     .info-item p, .info-item a { font-size: 1.25rem; font-weight: 800; color: #0B1F3B; text-decoration: none; margin: 0; }
 
-    /* --- NAVY CIRCLE ACTION ICONS (YELLOW ICONS) --- */
+    /* --- NAVY CIRCLE ACTION ICONS --- */
     .contact-line { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
     .action-icons { display: flex; gap: 10px; align-items: center; }
     .icon-link {
@@ -131,7 +114,7 @@
     }
     .submit-btn:hover { background: #0B1F3B; color: #fff; transform: translateY(-2px); }
 
-    /* --- REGIONAL SECTION (BOTTOM) --- */
+    /* --- REGIONAL SECTION --- */
     .regional-section { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; }
     .area-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .area-card { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; }
@@ -144,7 +127,6 @@
       .contact-page-hero h1 { letter-spacing: -2px; }
       .contact-line { gap: 12px; }
       .inner-card { max-width: 100%; }
-      .sticky-call { display: block; } /* Restore sticky button for mobile */
     }
   </style>
 </head>
@@ -162,7 +144,6 @@
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" style="color: #F2C200 !important;">Contact</a></li>
-        <li><a href="tel:6065480377" class="nav-cta-menu">Call Now</a></li>
       </ul>
     </div>
   </nav>
@@ -288,10 +269,7 @@
     </div>
   </footer>
 
-  <a href="tel:6065480377" class="sticky-call">Call Now</a>
-
   <script>
-    // PHONE FORMATTING
     const phoneInput = document.getElementById('phone');
     if(phoneInput) {
       phoneInput.addEventListener('input', (e) => {
@@ -305,7 +283,6 @@
       });
     }
 
-    // RESTORED MOBILE MENU SCRIPT
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('#nav-list');
     if(menu) {
