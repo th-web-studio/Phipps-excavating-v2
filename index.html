@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- ORIGINAL HERO TYPOGRAPHY (UNTOUCHED) --- */
+    /* --- ORIGINAL HERO TYPOGRAPHY --- */
     .hero h1 {
       font-size: clamp(2rem, 6vw, 4rem);
       line-height: 1.1;
@@ -46,6 +46,24 @@
     .hero .container {
       background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%);
       padding: 40px 20px;
+    }
+
+    /* --- PREMIUM TEXT US BUTTON (SOLID WHITE) --- */
+    .hero-btns .btn.secondary {
+      background-color: #ffffff !important;
+      color: #0B1F3B !important; /* Brand Navy */
+      border: 2px solid #ffffff !important;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btns .btn.secondary:hover {
+      background-color: #F2C200 !important;
+      border-color: #F2C200 !important;
+      color: #0B1F3B !important;
+      transform: translateY(-2px);
     }
 
     /* --- HERO STATS --- */
