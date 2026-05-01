@@ -9,11 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ADDED FOR SMOOTH SCROLLING */
-    html {
-      scroll-behavior: smooth;
-    }
-
     /* --- PREMIUM CONTACT HERO --- */
     .contact-page-hero {
       position: relative;
@@ -100,7 +95,14 @@
     .icon-link:hover svg { fill: #0B1F3B; }
 
     /* --- FORM STYLING --- */
-    .form-container { background: #fff; padding: 40px; border-top: 10px solid #F2C200; box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); }
+    .form-container { 
+      background: #fff; 
+      padding: 40px; 
+      border-top: 10px solid #F2C200; 
+      box-shadow: 0 30px 60px rgba(11, 31, 59, 0.1); 
+      /* FIX: Prevents top border from being cut off by the navbar */
+      scroll-margin-top: 120px; 
+    }
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
     .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #f2f2f2; background: #fafafa; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; }
@@ -213,7 +215,6 @@
         </div>
 
         <div class="flex-col-half">
-          <!-- FIXED: Added ID to target the scroll from home page -->
           <div class="form-container" id="estimate-form">
             <form action="#" method="POST">
               <div class="form-group">
