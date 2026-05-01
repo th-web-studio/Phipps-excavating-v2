@@ -9,6 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* ADDED FOR SMOOTH REDIRECT SCROLLING */
+    html {
+      scroll-behavior: smooth;
+    }
+
     /* --- ORIGINAL HERO TYPOGRAPHY (UNTOUCHED) --- */
     .hero h1 {
       font-size: clamp(2rem, 6vw, 4rem);
@@ -264,7 +269,8 @@
       <p>Building Kentucky on <span class="hero-accent">20+ years of experience</span> and local trust.</p>
       
       <div class="hero-btns">
-        <a class="btn primary" href="tel:6065480377">Request Estimate</a>
+        <!-- FIXED: Redirects to contact page form -->
+        <a class="btn primary" href="contact.html#estimate-form">Request Estimate</a>
         <a class="btn secondary" href="sms:+16065480377">Text Us</a>
       </div>
 
