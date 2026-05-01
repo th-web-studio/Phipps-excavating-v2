@@ -9,6 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* ADDED FOR SMOOTH SCROLLING */
+    html {
+      scroll-behavior: smooth;
+    }
+
     /* --- PREMIUM CONTACT HERO --- */
     .contact-page-hero {
       position: relative;
@@ -208,7 +213,8 @@
         </div>
 
         <div class="flex-col-half">
-          <div class="form-container">
+          <!-- FIXED: Added ID to target the scroll from home page -->
+          <div class="form-container" id="estimate-form">
             <form action="#" method="POST">
               <div class="form-group">
                 <label>Name</label>
